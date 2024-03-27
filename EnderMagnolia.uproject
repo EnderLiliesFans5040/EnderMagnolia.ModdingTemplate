@@ -130,7 +130,6 @@
 		}
 	],
 	"TargetPlatforms": [
-		"Linux",
 		"Mac",
 		"Windows",
 		"WindowsNoEditor",
@@ -140,6 +139,7 @@
 		"PS5",
 		"XSX",
 		"WinGDK",
-		"XB1"
+		"XB1",
+		"Linux"
 	]
 }
