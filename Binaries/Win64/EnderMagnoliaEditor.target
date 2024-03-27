@@ -2510,14 +2510,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Experimental/ChaosEditor/Binaries/Win64/UnrealEditor-FractureEditor.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/ChaosEditor/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Experimental/ChaosNiagara/Binaries/Win64/UnrealEditor-ChaosNiagara.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -2566,14 +2558,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Experimental/Fracture/Binaries/Win64/UnrealEditor-FractureEngine.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/Fracture/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Experimental/FullBodyIK/Binaries/Win64/UnrealEditor-FullBodyIK.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -2583,26 +2567,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Experimental/FullBodyIK/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/GeometryCollectionPlugin/Binaries/Win64/UnrealEditor-GeometryCollectionEditor.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/GeometryCollectionPlugin/Binaries/Win64/UnrealEditor-GeometryCollectionNodes.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/GeometryCollectionPlugin/Binaries/Win64/UnrealEditor-GeometryCollectionSequencer.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/GeometryCollectionPlugin/Binaries/Win64/UnrealEditor-GeometryCollectionTracks.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/GeometryCollectionPlugin/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -2647,14 +2611,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Experimental/OpenImageDenoise/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/PlanarCutPlugin/Binaries/Win64/UnrealEditor-PlanarCut.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/PlanarCutPlugin/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -2798,42 +2754,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-GLTFCore.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeCommonParser.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeDispatcher.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeFactoryNodes.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeImport.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeMessages.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeNodes.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangePipelines.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Media/BinkMedia/Binaries/Win64/UnrealEditor-BinkMediaPlayer.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -2903,18 +2823,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Media/MediaPlayerEditor/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/MeshPainting/Binaries/Win64/UnrealEditor-MeshPaintEditorMode.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/MeshPainting/Binaries/Win64/UnrealEditor-MeshPaintingToolset.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/MeshPainting/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -3418,18 +3326,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/Binaries/Win64/UnrealEditor-InterchangeTestEditor.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/Binaries/Win64/UnrealEditor-InterchangeTests.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/TraceUtilities/Binaries/Win64/UnrealEditor-EditorTraceUtilities.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -3501,10 +3397,6 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/EditorTools/EditorTools.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/EnginePlugins/Experimental/PlanarCutPlugin/PlanarCut.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24492,10 +24384,6 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Experimental/ChaosEditor/ChaosEditor.uplugin",
-			"Type": "UFS"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Experimental/ChaosNiagara/ChaosNiagara.uplugin",
 			"Type": "UFS"
 		},
@@ -24516,15 +24404,7 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Experimental/Fracture/Fracture.uplugin",
-			"Type": "UFS"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Experimental/FullBodyIK/FullBodyIK.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Experimental/GeometryCollectionPlugin/GeometryCollectionPlugin.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24597,10 +24477,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Media/MediaPlayerEditor/MediaPlayerEditor.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/MeshPainting/MeshPainting.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24781,10 +24657,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/WindowsDeviceProfileSelector/WindowsDeviceProfileSelector.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/InterchangeTests.uplugin",
 			"Type": "UFS"
 		},
 		{

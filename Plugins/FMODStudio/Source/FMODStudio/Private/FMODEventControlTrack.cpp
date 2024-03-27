@@ -45,8 +45,9 @@ FMovieSceneEvalTemplatePtr UFMODEventControlTrack::CreateTemplateForSection(cons
     return FMovieSceneEvalTemplatePtr();
 }
 
+#if WITH_EDITORONLY_DATA
 FText UFMODEventControlTrack::GetDefaultDisplayName() const
 {
     return FText();
 }
-
+#endif

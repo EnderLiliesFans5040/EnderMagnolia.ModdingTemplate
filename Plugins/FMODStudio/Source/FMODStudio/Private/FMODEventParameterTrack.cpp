@@ -1,10 +1,12 @@
 #include "FMODEventParameterTrack.h"
 #include "FMODEventControlSectionTemplate.h"
 
+#if WITH_EDITORONLY_DATA
 FText UFMODEventParameterTrack::GetDefaultDisplayName() const
 {
     return FText();
 }
+#endif
 
 UFMODEventParameterTrack::UFMODEventParameterTrack() {
 }

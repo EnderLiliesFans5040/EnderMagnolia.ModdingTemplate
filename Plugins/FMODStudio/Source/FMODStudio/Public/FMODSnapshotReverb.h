@@ -13,7 +13,9 @@ public:
     
     UFMODSnapshotReverb();
 
-    void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+#if WITH_EDITORONLY_DATA
+    virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+#endif
 
 };
 
