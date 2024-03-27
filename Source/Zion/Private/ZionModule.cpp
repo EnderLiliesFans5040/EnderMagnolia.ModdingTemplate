@@ -1,3 +1,3 @@
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_MODULE(FDefaultGameModuleImpl, Zion);
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, Zion, "EnderMagnolia");

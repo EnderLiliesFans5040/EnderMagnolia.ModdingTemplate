@@ -1,3 +1,3 @@
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_MODULE(FDefaultGameModuleImpl, EventSystem);
+IMPLEMENT_GAME_MODULE(FDefaultGameModuleImpl, EventSystem);

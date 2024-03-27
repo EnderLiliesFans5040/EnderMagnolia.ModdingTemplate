@@ -1,3 +1,3 @@
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_MODULE(FDefaultGameModuleImpl, FMODStudio);
+IMPLEMENT_GAME_MODULE(FDefaultGameModuleImpl, FMODStudio);

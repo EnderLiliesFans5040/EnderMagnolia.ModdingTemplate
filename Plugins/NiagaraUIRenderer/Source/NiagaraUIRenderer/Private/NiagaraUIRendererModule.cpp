@@ -1,3 +1,3 @@
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_MODULE(FDefaultGameModuleImpl, NiagaraUIRenderer);
+IMPLEMENT_GAME_MODULE(FDefaultGameModuleImpl, NiagaraUIRenderer);
