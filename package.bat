@@ -1,6 +1,6 @@
 set UE5PATH=D:\prog\Epic Games\UE5\UE_5.3
 set MODNAME=DebugMenu
-set GAMEPATH=D:\EnderMagnoliaMod\ENDER MAGNOLIA\EnderMagnolia
+set GAMEPATH=D:\EnderMagnoliaMod\Games\DebugMenu\ENDER MAGNOLIA\EnderMagnolia
 set PROJPATH=%~dp0
 set PROJPATH=%PROJPATH:~0,-1%
 for %%I in (.) do set PROJNAME=%%~nxI
