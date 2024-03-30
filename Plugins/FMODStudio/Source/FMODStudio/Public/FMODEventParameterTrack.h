@@ -7,10 +7,8 @@
 class UMovieSceneSection;
 
 UCLASS(Blueprintable, MinimalAPI)
-class UFMODEventParameterTrack : public UMovieSceneNameableTrack, public IMovieSceneTrackTemplateProducer
-{
+class UFMODEventParameterTrack : public UMovieSceneNameableTrack, public IMovieSceneTrackTemplateProducer {
     GENERATED_BODY()
-
 public:
     // UMovieSceneTrack interface
     virtual UMovieSceneSection* CreateNewSection() override;
@@ -37,4 +35,7 @@ private:
     /** The sections owned by this track. */
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta = (AllowPrivateAccess = true))
     TArray<UMovieSceneSection*> Sections;
+
+    // Fix for true pure virtual functions not being implemented
 };
+

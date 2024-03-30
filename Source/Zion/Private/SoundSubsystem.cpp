@@ -24,6 +24,9 @@ void USoundSubsystem::SetVolume(ESoundFamily SoundFamily, float NewVolume) {
 void USoundSubsystem::SetVoiceLanguage(const FString& Locale) {
 }
 
+void USoundSubsystem::SetPauseGameFamilies(bool bPause) {
+}
+
 void USoundSubsystem::SetParameter(FName Parameter, float Value) {
 }
 

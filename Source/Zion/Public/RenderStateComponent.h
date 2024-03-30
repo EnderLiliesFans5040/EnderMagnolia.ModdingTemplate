@@ -4,9 +4,10 @@
 #include "RenderStateComponent.generated.h"
 
 class AActor;
+class UWorld;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class URenderStateComponent : public UActorComponent {
+class ZION_API URenderStateComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 private:
@@ -15,6 +16,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bVisible;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAutoMarkAsSeenOnZoneComplete;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UWorld> ZoneLevel;
     
 public:
     URenderStateComponent(const FObjectInitializer& ObjectInitializer);

@@ -3412,10 +3412,6 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(ProjectDir)/Plugins/EnginePlugins/Runtime/PropertyAccess/PropertyAccessEditor.uplugin",
-			"Type": "UFS"
-		},
-		{
 			"Path": "$(ProjectDir)/Plugins/EventSystem/EventSystem.uplugin",
 			"Type": "UFS"
 		},
@@ -24629,6 +24625,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/ProceduralMeshComponent/ProceduralMeshComponent.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/PropertyAccess/PropertyAccessEditor.uplugin",
 			"Type": "UFS"
 		},
 		{

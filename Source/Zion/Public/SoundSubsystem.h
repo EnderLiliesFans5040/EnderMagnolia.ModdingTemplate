@@ -59,6 +59,9 @@ public:
     void SetVoiceLanguage(const FString& Locale);
     
     UFUNCTION(BlueprintCallable)
+    void SetPauseGameFamilies(bool bPause);
+    
+    UFUNCTION(BlueprintCallable)
     void SetParameter(FName Parameter, float Value);
     
     UFUNCTION(BlueprintCallable)

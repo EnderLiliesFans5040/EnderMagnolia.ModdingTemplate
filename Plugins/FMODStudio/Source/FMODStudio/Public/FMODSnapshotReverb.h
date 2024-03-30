@@ -16,6 +16,5 @@ public:
 #if WITH_EDITORONLY_DATA
     virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 #endif
-
 };
 

@@ -7,10 +7,8 @@
 class UMovieSceneSection;
 
 UCLASS(Blueprintable, MinimalAPI)
-class UFMODEventControlTrack : public UMovieSceneNameableTrack, public IMovieSceneTrackTemplateProducer
-{
+class UFMODEventControlTrack : public UMovieSceneNameableTrack, public IMovieSceneTrackTemplateProducer {
     GENERATED_BODY()
-
 public:
     UFMODEventControlTrack();
 
@@ -36,5 +34,6 @@ private:
     /** List of all event control sections. */
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta = (AllowPrivateAccess = true))
     TArray<UMovieSceneSection*> ControlSections;
+    // Fix for true pure virtual functions not being implemented
 };
 
