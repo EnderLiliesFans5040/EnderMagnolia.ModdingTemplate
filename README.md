@@ -1,9 +1,13 @@
 # EnderMagnolia.ModdingTemplate & DebugMenuInvoker
+
+## Description
 Modding template for EnderMagnolia, just delete the content folder if you don't want debug menu
 
 To invoke debug menu, download release and extract EnderMagnolia to the game folder(same name, you will see EnderMagnolia.exe), F2 to invoke debug menu, you can change keybind in lua script
 
-Features:
+To use time control or fly mode, you need to press F2/F4/F7 first
+
+## Features:
 
 RegisterKeyBind(Key.F2, ToggleDebugMenu)
 
@@ -22,6 +26,11 @@ RegisterKeyBind(Key.F8, FullyRestore)
 RegisterKeyBind(Key.F9, SetCustomGameSpeed)
 
 RegisterKeyBind(Key.F10, ToggleGravity)
+
+## Credits
+UE4SS community, EnderLilies/EnderMagnolia community and testers
+
+## Build and Lua Script
 
 Alternatively, you can build this project, after package mod, you need to install ue4ss, make a lua script and enable it:
 
@@ -151,15 +160,8 @@ function FullyRestore()
 	--SP nil here
 end
 
-local bFly = false
 function ToggleFlyMode()
-	bFly = not bFly
-	if bFly then
-		--ZionCharacterMovementComponent won't work
-		GetLilac().CharacterMovement.MovementMode = 5
-	else 
-		GetLilac().CharacterMovement.MovementMode = 1
-	end
+	TryInvokeDebug()
 end
 
 function ToggleSwimMode()
@@ -208,7 +210,7 @@ end
 
 RegisterKeyBind(Key.F2, ToggleDebugMenu)
 RegisterKeyBind(Key.F3, ToggleInvincible)
-RegisterKeyBind(Key.F4, ToggleFlyMode)
+--RegisterKeyBind(Key.F4, ToggleFlyMode)
 RegisterKeyBind(Key.F5, ToggleCustomSpeed)
 RegisterKeyBind(Key.F6, ToggleCustomGravity)
 RegisterKeyBind(Key.F7, TogglePhysicsInfo)
