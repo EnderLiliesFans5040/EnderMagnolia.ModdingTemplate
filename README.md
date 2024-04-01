@@ -3,6 +3,8 @@
 ## Description
 Modding template for EnderMagnolia, just delete the content folder if you don't want debug menu
 
+## Note that the debug menu contains spoilers, so do not use it unless you are testing game mechanics. Also, do not include unpublished content on social platforms such as videos, till the early access end.
+
 To invoke debug menu, download release and extract EnderMagnolia to the game folder(same name, you will see EnderMagnolia.exe), F2 to invoke debug menu, you can change keybind in lua script
 
 To use time control or fly mode, you need to press F2/F4/F7 first
