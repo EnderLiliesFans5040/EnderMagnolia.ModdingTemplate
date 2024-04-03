@@ -9,19 +9,25 @@ Modding template for EnderMagnolia, just delete the content folder if you don't 
 
 you don't need ue4ss now
 
-RegisterKeyBind(Key.F2, ToggleDebugMenu)
+F2, ToggleDebugMenu
 
-RegisterKeyBind(Key.F3, ToggleInvincible)
+F3, ToggleInvincible
 
-RegisterKeyBind(Key.F4, ToggleFlyMode)
+F4, ToggleFlyMode
 
-RegisterKeyBind(Key.F7, TogglePhysicsInfo)
+F5, Hide
 
-RegisterKeyBind(Key.F8, FullyRestore)
+F6, Hitbox
 
-RegisterKeyBind(Key.F10, ToggleGravity)
+F7, TogglePhysicsInfo
+
+F8, HPRestore
+
+F9, Hurtbox,Trigger
+
+F10, ToggleGravity
 
 time control and camera control available
 
-## Credits
+## Acknowledgments
 UE4SS community, EnderLilies/EnderMagnolia community and testers
