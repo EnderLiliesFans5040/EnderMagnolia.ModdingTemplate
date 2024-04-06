@@ -29,7 +29,7 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineAfterUpdateWorldTransformDelegate AfterUpdateWorldTransform;
     
-    USpineSkeletonComponent(const FObjectInitializer& ObjectInitializer);
+    USpineSkeletonComponent(/*const FObjectInitializer& ObjectInitializer*/);
 
     UFUNCTION(BlueprintCallable)
     void UpdateWorldTransform();

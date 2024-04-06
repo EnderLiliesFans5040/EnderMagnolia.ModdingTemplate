@@ -1,6 +1,6 @@
 #include "SpineSkeletonAnimationComponent.h"
 
-USpineSkeletonAnimationComponent::USpineSkeletonAnimationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+USpineSkeletonAnimationComponent::USpineSkeletonAnimationComponent(/*const FObjectInitializer& ObjectInitializer*/) : Super(/*ObjectInitializer*/) {
     this->bAutoPlaying = true;
 }
 

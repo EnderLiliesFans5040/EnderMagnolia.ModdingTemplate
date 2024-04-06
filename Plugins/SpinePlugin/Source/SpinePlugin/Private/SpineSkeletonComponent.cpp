@@ -1,6 +1,6 @@
 #include "SpineSkeletonComponent.h"
 
-USpineSkeletonComponent::USpineSkeletonComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+USpineSkeletonComponent::USpineSkeletonComponent(/*const FObjectInitializer& ObjectInitializer*/) : Super(/*ObjectInitializer*/) {
     this->bAutoActivate = true;
     this->Atlas = NULL;
     this->SkeletonData = NULL;

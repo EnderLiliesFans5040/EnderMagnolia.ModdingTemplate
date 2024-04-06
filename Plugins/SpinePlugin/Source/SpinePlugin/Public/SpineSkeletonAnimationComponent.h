@@ -48,7 +48,7 @@ private:
     bool bAutoPlaying;
     
 public:
-    USpineSkeletonAnimationComponent(const FObjectInitializer& ObjectInitializer);
+    USpineSkeletonAnimationComponent(/*const FObjectInitializer& ObjectInitializer*/);
 
     UFUNCTION(BlueprintCallable)
     void SetTimeScale(float TimeScale);
