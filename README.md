@@ -29,7 +29,7 @@ F10: No Gravity
 
 F12: Detail info
 
-# With Left Shift:
+### With Left Shift:
 
 F1: Hitbox
 
@@ -37,7 +37,7 @@ F2: Trigger,Hurtbox
 
 F3/4/5/6: Guard states
 
-# time control and camera control available:
+### time control and camera control available:
 
 PageUp/PageDown: speed up/down(finer control with Left Shift)
 
