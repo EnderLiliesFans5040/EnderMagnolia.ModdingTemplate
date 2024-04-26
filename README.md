@@ -7,8 +7,6 @@ Modding template for EnderMagnolia, just delete the content folder if you don't 
 
 ## Features:
 
-you don't need ue4ss now
-
 F2: DebugMenu left by dev
 
 F3: Invincible
