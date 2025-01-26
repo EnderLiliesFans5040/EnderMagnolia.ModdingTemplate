@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.4",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Zion",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
+	"Plugins": [
+		
+	],
+	"TargetPlatforms": [
+		"Linux",
+		"Mac",
+		"Windows",
+		"WindowsNoEditor",
+		"LinuxNoEditor",
+		"PS4",
+		"Switch",
+		"PS5",
+		"XSX",
+		"WinGDK",
+		"XB1",
+		"GDK"
+	]
+}
