@@ -3,7 +3,9 @@
 ## Description
 Modding template for EnderMagnolia, just delete the content folder if you don't want debug menu
 
-## Note that the debug menu contains spoilers, so do not use it unless you are testing game mechanics. Also, do not include unpublished content on social platforms such as videos, till the early access end.
+## Branch Links
+
+- [Newaccess Branch](https://github.com/EnderLiliesFans5040/EnderMagnolia.ModdingTemplate/tree/newaccess): for stable release versions of the game
 
 ## Features:
 
