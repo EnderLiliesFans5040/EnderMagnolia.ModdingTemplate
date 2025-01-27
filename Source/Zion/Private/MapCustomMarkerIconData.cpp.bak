@@ -1,0 +1,6 @@
+#include "MapCustomMarkerIconData.h"
+
+FMapCustomMarkerIconData::FMapCustomMarkerIconData() {
+    this->MarkerID = 0;
+}
+
