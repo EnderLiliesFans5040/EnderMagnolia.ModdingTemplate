@@ -6,6 +6,7 @@
 #include "EUMGLayer.h"
 #include "ExtendedStatsData.h"
 #include "GameplayConditionChecker.h"
+#include "ItemConditionData.h"
 #include "Templates/SubclassOf.h"
 #include "GameLogicBPFLibrary.generated.h"
 
@@ -33,6 +34,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void LaunchForceFeedback(APlayerController* PlayerController, UForceFeedbackEffect* ForceFeedbackEffect, FName Tag, bool bLooping, bool bIgnoreTimeDilation, bool bPlayWhilePaused);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetSPGaugeValue();
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetSkillLevelFromID(const UObject* WorldContextObject, const FName& SkillID);
@@ -63,6 +67,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetNextLevelForSkill(const UInventoryComponent* InventoryComponent, const FDataTableRowHandle& SkillHandle);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool CheckItemConditions(APlayerControllerZion* PlayerControllerZion, const FItemConditionData& ItemConditionData);
     
     UFUNCTION(BlueprintCallable)
     static bool CheckGameplayConditions(APlayerController* PlayerController, const FGameplayConditionChecker& GameplayConditions);

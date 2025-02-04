@@ -1,13 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "GameFramework/Character.h"
 #include "EventActorInterface.h"
 #include "EventActorTalkInterface.h"
+#include "ESpineBone.h"
 #include "CharacterAbilityDelegateDelegate.h"
 #include "CharacterAbilityFullDelegateDelegate.h"
 #include "CharacterDynamicDelegateDelegate.h"
 #include "CharacterNotifyInterface.h"
+#include "TalkLocationData.h"
 #include "TargetPivotProviderInterface.h"
 #include "Templates/SubclassOf.h"
 #include "VisualPivotProviderInterface.h"
@@ -21,6 +22,7 @@ class UCommandComponent;
 class UDeathComponent;
 class UDebugDisplayComponent;
 class UFXComponent;
+class UFactionComponent;
 class UHitStopComponent;
 class UInputBufferComponent;
 class UKnockbackComponent;
@@ -82,6 +84,12 @@ private:
     bool bInstantKillOnSwim;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bInstantKillOnGround;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESpineBone TargetPivotBone;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<UState>> PostParriedStates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -94,7 +102,7 @@ private:
     float PostEventStatesDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector TalkLocationOffset;
+    FTalkLocationData TalkLocationData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UZionInputComponent* ZionInputComponent;
@@ -116,6 +124,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCollisionComponent* CollisionComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UFactionComponent* FactionComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UStatHPComponent* StatHPComponent;
@@ -192,6 +203,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UDebugDisplayComponent* DebugDisplayComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USceneComponent* TargetPivotComponent;
+    
 public:
     ACharacterZion(const FObjectInitializer& ObjectInitializer);
 
@@ -231,9 +245,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UCollisionComponent* GetCollisionComponent() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    USceneComponent* GetCameraTarget() const;
     
 
     // Fix for true pure virtual functions not being implemented

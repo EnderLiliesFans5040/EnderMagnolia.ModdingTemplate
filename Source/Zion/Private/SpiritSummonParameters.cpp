@@ -7,6 +7,8 @@ FSpiritSummonParameters::FSpiritSummonParameters() {
     this->SummonRotationType = ESpiritSummonRotationType::Keep;
     this->AbsoluteFacing = EFacingType::None;
     this->bCheckLocationValidityWithLinecast = false;
+    this->LocationValidityOrigin = ESpiritLocationValidityOriginMode::GroundedSpiritOrigin;
+    this->bUseTargetHeight = false;
     this->bSnapToGround = false;
     this->AttachType = ESpiritAttachType::None;
     this->AttachmentRule = EAttachmentRule::KeepRelative;

@@ -35,16 +35,22 @@ public:
     UUserWidgetMapZone();
 
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void VisitZone();
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void ShowZone();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnVisitZone();
+    void RevealZone();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsCleared() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void HideZone();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void ClearZone();
+    void CompleteZone();
     
 };
 

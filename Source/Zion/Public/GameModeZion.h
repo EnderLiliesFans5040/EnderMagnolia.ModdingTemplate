@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "EGameEndingType.h"
+#include "EGameModeType.h"
 #include "ERespawnReason.h"
 #include "FadeDescriptionData.h"
 #include "GameModeZionBase.h"
@@ -8,6 +10,7 @@
 #include "GameModeZion.generated.h"
 
 class AGameModeZion;
+class UBreakPartStateManagerComponent;
 class UClearManagerComponent;
 class UDataTable;
 class UDifficultySystemComponent;
@@ -19,10 +22,12 @@ class UMaterialFXMatrixData;
 class UMaterialSEMatrixData;
 class UObject;
 class UPoolSystemComponent;
+class URecollectionBossComponent;
 class URecollectionBossRushComponent;
 class URenderStateManagerComponent;
 class UStepMatrixData;
 class UTimeManagerComponent;
+class UWorld;
 class UZoneSystemComponent;
 
 UCLASS(Blueprintable, NonTransient)
@@ -47,6 +52,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* DataTableRestPointEvents;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* DataTableEnemies;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* DataTableItemCurrencies;
@@ -85,6 +93,9 @@ private:
     UDataTable* DataTableItemKeys;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* DataTableItemQuests;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* DataTableItemCostumes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -94,7 +105,13 @@ private:
     UDataTable* DataTableItemNPCInfos;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* DataTableItemGallery;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* DataTableRecollectionBosses;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UDataTable* DataTableAchievements;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UStepMatrixData* StepMatrixData;
@@ -107,6 +124,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFadeDescriptionData DefaultFadeDescription;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UWorld> TitleMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UGameStatsComponent* GameStatsComponent;
@@ -139,6 +159,12 @@ private:
     UElevatorStateManagerComponent* ElevatorStateManagerComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UBreakPartStateManagerComponent* BreakPartStateManagerComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    URecollectionBossComponent* RecollectionBossComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     URecollectionBossRushComponent* BossRushComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -148,7 +174,13 @@ private:
     TMap<FName, int32> EnvironmentLevelForGameMaps;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 StoryLevel;
+    TMap<EGameEndingType, int32> ReachedGameEndings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EGameEndingType, int32> PreviousCumulatedReachedGameEndings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 NewGamePlusGeneration;
     
 public:
     AGameModeZion(const FObjectInitializer& ObjectInitializer);
@@ -164,20 +196,29 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void RegisterRecollectionBossComponent(URecollectionBossComponent* NewRecollectionBossComponent);
+    
+    UFUNCTION(BlueprintCallable)
     void RegisterBossRushComponent(URecollectionBossRushComponent* NewBossRushComponent);
     
 public:
     UFUNCTION(BlueprintCallable)
-    void NotifyRecollectionBossDead();
+    void NotifyGameEndingReached(EGameEndingType GameEndingType);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsRecollectionBossDead() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInNewGamePlus() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameReady() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsDeathProcessingAllowed() const;
+    bool IsGameCleared() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetStoryLevel() const;
+    bool IsDeathProcessingAllowed() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UStepMatrixData* GetStepMatrixData() const;
@@ -189,7 +230,19 @@ public:
     FString GetPlayTimeAsString() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetPlayTime() const;
+    int32 GetNewGamePlusGeneration() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FDataTableRowHandle GetLastBossRecollectionHandle() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EGameModeType GetGameModeType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetGameEndingCountReached() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetGameClearCount() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetEnvironmentLevel() const;
@@ -222,6 +275,9 @@ public:
     UDataTable* GetDataTableItemSkills() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    UDataTable* GetDataTableItemQuests() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataTable* GetDataTableItemPassives() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -232,6 +288,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataTable* GetDataTableItemKeys() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UDataTable* GetDataTableItemGallery() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UDataTable* GetDataTableItemEquipments() const;
@@ -258,6 +317,12 @@ public:
     UDataTable* GetDataTableGameMaps() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    UDataTable* GetDataTableEnemies() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UDataTable* GetDataTableAchievements() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ERespawnReason GetCurrentRespawnReason() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -271,6 +336,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void FastTravel(const FName& RestPointID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool DidReachGameEnding(EGameEndingType GameEndingType, bool bCheckPreviousGameGeneration) const;
     
 };
 

@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "AptitudeArray.h"
-#include "ESkillSlot.h"
 #include "SummonRestPointSpiritComponent.generated.h"
 
 class ACharacterZionSpirit;
+class AController;
+class APawn;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class ZION_API USummonRestPointSpiritComponent : public UActorComponent {
@@ -38,10 +39,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnUnEquipSkill(ESkillSlot SkillSlot);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnEquipSkill(ESkillSlot SkillSlot);
+    void OnControllerChanged(APawn* Pawn, AController* OldController, AController* NewController);
     
 public:
     UFUNCTION(BlueprintCallable)

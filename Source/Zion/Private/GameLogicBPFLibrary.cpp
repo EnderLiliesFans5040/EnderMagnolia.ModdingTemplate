@@ -18,6 +18,10 @@ void UGameLogicBPFLibrary::StopForceFeedbackByTag(APlayerController* PlayerContr
 void UGameLogicBPFLibrary::LaunchForceFeedback(APlayerController* PlayerController, UForceFeedbackEffect* ForceFeedbackEffect, FName Tag, bool bLooping, bool bIgnoreTimeDilation, bool bPlayWhilePaused) {
 }
 
+int32 UGameLogicBPFLibrary::GetSPGaugeValue() {
+    return 0;
+}
+
 int32 UGameLogicBPFLibrary::GetSkillLevelFromID(const UObject* WorldContextObject, const FName& SkillID) {
     return 0;
 }
@@ -56,6 +60,10 @@ int32 UGameLogicBPFLibrary::GetPlayerMaxAttackLimit(const APlayerControllerZion*
 
 int32 UGameLogicBPFLibrary::GetNextLevelForSkill(const UInventoryComponent* InventoryComponent, const FDataTableRowHandle& SkillHandle) {
     return 0;
+}
+
+bool UGameLogicBPFLibrary::CheckItemConditions(APlayerControllerZion* PlayerControllerZion, const FItemConditionData& ItemConditionData) {
+    return false;
 }
 
 bool UGameLogicBPFLibrary::CheckGameplayConditions(APlayerController* PlayerController, const FGameplayConditionChecker& GameplayConditions) {

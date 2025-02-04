@@ -4,7 +4,7 @@
 #include "Engine/EngineTypes.h"
 #include "GameFramework/MovementComponent.h"
 #include "Curves/CurveFloat.h"
-#include "LegacyCameraShake.h"
+#include "Shakes/LegacyCameraShake.h"
 #include "EFollowTargetBlendSpeedMode.h"
 #include "FollowTargetComponent.generated.h"
 
@@ -70,7 +70,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FVector GetTargetLocation() const;
+    FVector GetTargetLocation(const USceneComponent* PinnedTarget) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetFollowTargetLocation() const;

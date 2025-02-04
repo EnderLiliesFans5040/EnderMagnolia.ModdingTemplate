@@ -10,6 +10,14 @@ UUserWidgetMapTransition::UUserWidgetMapTransition() {
 void UUserWidgetMapTransition::ShowMapTransition_Implementation() {
 }
 
+void UUserWidgetMapTransition::SetScale(float NewScale) {
+}
+
+void UUserWidgetMapTransition::SetIconsVisibility(bool bVisible) {
+}
+
+
+
 void UUserWidgetMapTransition::HideMapTransition_Implementation() {
 }
 

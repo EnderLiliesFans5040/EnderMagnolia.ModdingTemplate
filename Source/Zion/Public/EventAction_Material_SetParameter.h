@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Engine/EngineTypes.h"
 #include "Curves/CurveFloat.h"
 #include "EventAction_SubjectBinding.h"
 #include "EMaterialParameterMode.h"
@@ -10,6 +11,9 @@ class UEventAction_Material_SetParameter : public UEventAction_SubjectBinding {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FComponentReference> RenderComponentRefs;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName ParameterName;
     

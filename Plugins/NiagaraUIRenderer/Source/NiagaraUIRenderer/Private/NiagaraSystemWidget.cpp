@@ -8,6 +8,7 @@ UNiagaraSystemWidget::UNiagaraSystemWidget() {
     this->FakeDepthScale = false;
     this->FakeDepthScaleDistance = 1000.00f;
     this->ShowDebugSystemInWorld = false;
+    this->PassDynamicParametersFromRibbon = false;
     this->DisableWarnings = false;
     this->NiagaraActor = NULL;
     this->NiagaraComponent = NULL;

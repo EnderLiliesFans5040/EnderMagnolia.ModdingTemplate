@@ -7,11 +7,13 @@
 #include "MapIconProviderInterface.h"
 #include "HookPoint.generated.h"
 
+class UNiagaraComponent;
+class UNiagaraSystem;
 class USceneComponent;
 class USphereComponent;
 
 UCLASS(Blueprintable)
-class AHookPoint : public AActor, public IMapIconProviderInterface {
+class ZION_API AHookPoint : public AActor, public IMapIconProviderInterface {
     GENERATED_BODY()
 public:
 protected:
@@ -24,6 +26,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USphereComponent* SphereComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UNiagaraSystem* AvailableFXSystem;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UNiagaraComponent* FXInstance;
     
 public:
     AHookPoint(const FObjectInitializer& ObjectInitializer);

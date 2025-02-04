@@ -7,7 +7,7 @@ class UBillboardComponent;
 class USceneComponent;
 
 UCLASS(Abstract, Blueprintable)
-class AStaticVolume : public AActor {
+class ZION_API AStaticVolume : public AActor {
     GENERATED_BODY()
 public:
 private:

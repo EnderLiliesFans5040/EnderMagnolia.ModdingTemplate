@@ -38,6 +38,9 @@ public:
     bool ShowDebugSystemInWorld;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool PassDynamicParametersFromRibbon;
+    
+    UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool DisableWarnings;
     
 private:

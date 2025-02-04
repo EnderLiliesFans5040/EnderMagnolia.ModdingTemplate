@@ -1,13 +1,20 @@
 #include "UserWidgetRestPointList.h"
 
 UUserWidgetRestPointList::UUserWidgetRestPointList() {
+    this->RestPointListHolder = NULL;
 }
 
 int32 UUserWidgetRestPointList::SetCurrentMapAreaIndex(int32 NewMapAreaIndex) {
     return 0;
 }
 
-void UUserWidgetRestPointList::Open(const FVector2D& CurrentMapPosition) {
+void UUserWidgetRestPointList::RestPointEntryPressed(FMapRestPointData RestPointData) {
+}
+
+void UUserWidgetRestPointList::RestPointEntryFocused(int32 MapAreaIndex, UUserWidgetMapIcon_RestPoint* RestPointIcon) {
+}
+
+void UUserWidgetRestPointList::Open(const FVector2D& CurrentMapPosition, bool bInstant) {
 }
 
 
@@ -36,7 +43,7 @@ UUserWidgetMapIcon_RestPoint* UUserWidgetRestPointList::FindNearestRestPointIcon
     return NULL;
 }
 
-void UUserWidgetRestPointList::Close() {
+void UUserWidgetRestPointList::Close(bool bInstant) {
 }
 
 UUserWidgetMapIcon_RestPoint* UUserWidgetRestPointList::ChangeMapArea(int32 IndexOffset) {

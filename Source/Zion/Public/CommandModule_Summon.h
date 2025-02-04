@@ -10,7 +10,7 @@ class ACharacterZionSpirit;
 class UCommand;
 
 UCLASS(Blueprintable, EditInlineNew)
-class UCommandModule_Summon : public UCommandModule {
+class ZION_API UCommandModule_Summon : public UCommandModule {
     GENERATED_BODY()
 public:
 private:

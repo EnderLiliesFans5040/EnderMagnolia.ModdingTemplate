@@ -70,6 +70,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasCommand() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCooldownRatioForCommandSet(const UCommandSet* CommandSet) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

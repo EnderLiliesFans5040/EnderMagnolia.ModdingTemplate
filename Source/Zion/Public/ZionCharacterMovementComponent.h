@@ -29,6 +29,12 @@ private:
     bool bDisableUpdateBasedMovementWhenAttached;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCheckForCollidersWhenNotMoving;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnsureCapsuleFullyGrounded;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SpeedFactor_Slow;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -50,10 +56,25 @@ private:
     bool bUpdatePhysicsWhenInactive;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseMaxFallVelocity;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MaxFallVelocity;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bReleaseWallOnLateralInput;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bReleaseWallOnDownInput;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bReleaseWallOnAnyDownwardInput;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<TSubclassOf<UState>> WallGrabPostCollisionStates;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float WallGrabPostCollisionStatesDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float BrakingDecelerationWallScaling;
@@ -101,6 +122,9 @@ public:
     void SetMovementModeCustom(EMovementModeCustom NewMovementModeCustom);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsWallScaling() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsWallGrabbing() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -108,6 +132,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHookAttached() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsAirborne() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTimeSinceLastWallGrab() const;

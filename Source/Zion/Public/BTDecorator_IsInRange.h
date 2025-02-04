@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
-#include "BTDecoratorZion.h"
+#include "BTDecoratorZionCondition.h"
 #include "EDistanceComparisonType.h"
 #include "BTDecorator_IsInRange.generated.h"
 
 UCLASS(Blueprintable)
-class UBTDecorator_IsInRange : public UBTDecoratorZion {
+class UBTDecorator_IsInRange : public UBTDecoratorZionCondition {
     GENERATED_BODY()
 public:
 private:

@@ -53,6 +53,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UBoxComponent* SurfaceCollisionComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<AActor*, int32> InContactActors;
+    
 public:
     AFluidBody(const FObjectInitializer& ObjectInitializer);
 

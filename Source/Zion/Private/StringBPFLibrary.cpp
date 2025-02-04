@@ -14,4 +14,8 @@ TArray<FString> UStringBPFLibrary::Sort(TArray<FString>& Array) {
 void UStringBPFLibrary::ProcessSubtitle(const FText& Text, FText& Name, FText& Message) {
 }
 
+FString UStringBPFLibrary::BossRushRecordTimeSecondsToString(float TimeInSeconds) {
+    return TEXT("");
+}
+
 

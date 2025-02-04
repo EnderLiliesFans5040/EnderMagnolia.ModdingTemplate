@@ -56,10 +56,10 @@ private:
     void OnCommandFinished(const UCommand* Command, ECommandFinishType FinishType);
     
     UFUNCTION(BlueprintCallable)
-    void OnAnimationStart(UTrackEntry* entry);
+    void OnAnimationStart(UTrackEntry* Entry);
     
     UFUNCTION(BlueprintCallable)
-    void OnAnimationEnd(UTrackEntry* entry);
+    void OnAnimationEnd(UTrackEntry* Entry);
     
 };
 

@@ -7,5 +7,7 @@ enum class ELaunchGameIntent : uint8 {
     Unknown,
     NewGame,
     Continue,
+    NewGamePlus,
+    Demo,
 };
 

@@ -4,17 +4,18 @@ UDashChargeComponent::UDashChargeComponent(const FObjectInitializer& ObjectIniti
     this->DashTimeForCharge = 1.00f;
     this->DashTimeForChargeShort = 1.00f;
     this->ChargeDashSpeedFactorToAdd = 0.00f;
+    this->DashChargeStates.AddDefaulted(1);
     this->DefaultSpiritClass = NULL;
     this->SwimmingSpiritClass = NULL;
+    this->ChargingFX = NULL;
+    this->ChargingAudio = NULL;
     this->AuraFX = NULL;
     this->Ability = NULL;
     this->Spirit = NULL;
+    this->LoopAudioComponent = NULL;
 }
 
 void UDashChargeComponent::OnStartAnimation(UTrackEntry* TrackEntry) {
-}
-
-void UDashChargeComponent::OnGameMapChanged() {
 }
 
 bool UDashChargeComponent::IsDashCharged() const {

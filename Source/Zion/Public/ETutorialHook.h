@@ -6,5 +6,7 @@ UENUM(BlueprintType)
 enum class ETutorialHook : uint8 {
     None,
     RestPoint,
+    Difficulty,
+    Extra,
 };
 

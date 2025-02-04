@@ -16,10 +16,10 @@ private:
     int32 FlatAmountToRestore;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 DamagePercentageToRestore;
+    float DamagePercentageToRestore;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 StatPercentageToRestore;
+    float StatPercentageToRestore;
     
 public:
     UPassive_OnAttack_Restore();

@@ -18,6 +18,7 @@ USpineAnimatorComponent::USpineAnimatorComponent(const FObjectInitializer& Objec
     this->DamageAdditiveType = EDamageAdditiveType::Never;
     this->DamageAdditiveAnimation = TEXT("damage_add");
     this->DamageAdditiveForbiddenStates.AddDefaulted(1);
+    this->bFlushOnStagger = false;
 }
 
 void USpineAnimatorComponent::StopAnimationAtLayer(ESpineAnimatorLayer Layer) {
@@ -27,6 +28,9 @@ void USpineAnimatorComponent::StopActionAnimations() {
 }
 
 void USpineAnimatorComponent::ResetLocomotionCycle() {
+}
+
+void USpineAnimatorComponent::ResetAnimations() {
 }
 
 void USpineAnimatorComponent::PlayTurnAnimations(const TArray<FSpineAnimationDefinition>& AnimationDefinitions) {

@@ -16,16 +16,19 @@ public:
     float EnemyActionFrequency;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 MaxPlayerLevel;
+    float EnemyStaminaFactor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bDeathPenalty;
+    float EnemyStaminaRecoverySpeedFactor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bPlayerOneShotKill;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bEnemyRegenHP;
+    bool bPlayerNoHeal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnemyNoLeadFX;
     
     ZION_API FDifficultySettings();
 };

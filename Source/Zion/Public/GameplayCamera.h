@@ -4,7 +4,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Camera/CameraActor.h"
-#include "LegacyCameraShake.h"
+#include "Shakes/LegacyCameraShake.h"
 #include "GameplayCameraSettings.h"
 #include "GameplayCamera.generated.h"
 

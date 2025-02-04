@@ -1,14 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "ECommandModuleResult.h"
 #include "CommandModule.generated.h"
 
 class ACharacter;
 class UCommand;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew, Within=Command)
-class UCommandModule : public UObject {
+class ZION_API UCommandModule : public UObject {
     GENERATED_BODY()
 public:
 protected:
@@ -22,9 +21,6 @@ public:
     UCommandModule();
 
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    ECommandModuleResult OnUpdate(float DeltaTime);
-    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnStart();
     

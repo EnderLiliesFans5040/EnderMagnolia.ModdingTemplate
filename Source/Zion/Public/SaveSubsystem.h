@@ -5,12 +5,10 @@
 #include "ESaveExistsType.h"
 #include "LoadGameResultDelegate.h"
 #include "SaveGameResultDelegate.h"
-#include "Templates/SubclassOf.h"
 #include "SaveSubsystem.generated.h"
 
 class USaveGameZion;
 class USaveSettings;
-class UUserWidgetZionShowHide;
 
 UCLASS(Blueprintable)
 class USaveSubsystem : public UGameInstanceSubsystem {
@@ -33,7 +31,7 @@ public:
     bool SaveSettings();
     
     UFUNCTION(BlueprintCallable)
-    void SaveGameInCurrentSlotAsync(TSubclassOf<UUserWidgetZionShowHide> SaveWidgetClass, FSaveGameResult OnSaveFinished);
+    void SaveGameInCurrentSlotAsync(FSaveGameResult OnSaveFinished);
     
     UFUNCTION(BlueprintCallable)
     bool SaveGameInCurrentSlot();
@@ -54,6 +52,9 @@ public:
     ESaveExistsType LoadGameFromCurrentSlot(USaveGameZion*& out_GameData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLoadingGameData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTimeSinceLastGameSave() const;
     
     UFUNCTION(BlueprintCallable)
@@ -64,6 +65,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     ESaveCopyResult CopyGameDataToEmptySlot(int32 SlotToCopy, int32& out_TargetSlot);
+    
+    UFUNCTION(BlueprintCallable)
+    ESaveExistsType CheckSlotExistence(int32 SlotIndex);
     
     UFUNCTION(BlueprintCallable)
     ESaveExistsType CheckCurrentSlotExistence();

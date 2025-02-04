@@ -4,6 +4,7 @@
 #include "Components/WidgetComponent.h"
 
 AInteractable::AInteractable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bGenerateOverlapEventsDuringLevelStreaming = true;
     this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
     this->OnSuccessCommand = NULL;
     this->OnFailureCommand = NULL;
@@ -27,6 +28,7 @@ void AInteractable::OnInteract_ConditionCheckFailed_Implementation(APlayerContro
 
 void AInteractable::OnInteract_Implementation(APlayerController* Controller) {
 }
+
 
 
 

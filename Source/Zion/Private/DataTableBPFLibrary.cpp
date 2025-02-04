@@ -11,7 +11,27 @@ bool UDataTableBPFLibrary::IsRecollectionItemVisible(APlayerControllerZion* Play
     return false;
 }
 
+bool UDataTableBPFLibrary::IsItemNPCInfoVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle) {
+    return false;
+}
+
+bool UDataTableBPFLibrary::IsItemGenericAnimationVisible(APlayerControllerZion* PlayerControllerZion, const FItemGenericAnimationConditionData& AnimationConditions) {
+    return false;
+}
+
+bool UDataTableBPFLibrary::IsItemGalleryVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle) {
+    return false;
+}
+
+bool UDataTableBPFLibrary::IsItemEnemyInfoVisible(const APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle) {
+    return false;
+}
+
 bool UDataTableBPFLibrary::IsEqual(const FDataTableRowHandle& A, const FDataTableRowHandle& B) {
+    return false;
+}
+
+bool UDataTableBPFLibrary::IsAnyRecollectionItemVisible(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType) {
     return false;
 }
 
@@ -32,6 +52,10 @@ bool UDataTableBPFLibrary::GetRestPointData(const FDataTableRowHandle& Handle, F
 }
 
 bool UDataTableBPFLibrary::GetRecollectionItemData(const FDataTableRowHandle& Handle, ERecollectionItemType RecollectionItemType, FRecollectionItemData& out_RecollectionItemData) {
+    return false;
+}
+
+bool UDataTableBPFLibrary::GetMapTransitionRowHandleFromTransitionSpawnPointData(const UDataTable* MapTransitionDataTable, const FMapTransitionSpawnPointData& MapTransitionSpawnPointData, FDataTableRowHandle& out_MapTransitionRowHandle) {
     return false;
 }
 
@@ -63,6 +87,10 @@ bool UDataTableBPFLibrary::GetItemGenericInfoData(const FDataTableRowHandle& Han
     return false;
 }
 
+bool UDataTableBPFLibrary::GetItemGalleryData(const FDataTableRowHandle& Handle, FInventoryItemGalleryData& out_ItemData) {
+    return false;
+}
+
 bool UDataTableBPFLibrary::GetItemEquipmentData(const FDataTableRowHandle& Handle, FInventoryItemEquipmentData& out_ItemData) {
     return false;
 }
@@ -72,6 +100,10 @@ bool UDataTableBPFLibrary::GetItemEnemyInfoData(const FDataTableRowHandle& Handl
 }
 
 bool UDataTableBPFLibrary::GetItemCostumeData(const FDataTableRowHandle& Handle, FInventoryItemCostumeData& out_ItemData) {
+    return false;
+}
+
+bool UDataTableBPFLibrary::GetItemBaseEquipmentData(const FDataTableRowHandle& Handle, FInventoryItemBaseEquipmentData& out_ItemData) {
     return false;
 }
 

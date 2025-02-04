@@ -1,11 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SpineAnimationCompleteDelegateDelegate.h"
-#include "SpineAnimationDisposeDelegateDelegate.h"
-#include "SpineAnimationEndDelegateDelegate.h"
-#include "SpineAnimationEventDelegateDelegate.h"
-#include "SpineAnimationInterruptDelegateDelegate.h"
-#include "SpineAnimationStartDelegateDelegate.h"
 #include "SpineSkeletonComponent.h"
 #include "SpineSkeletonAnimationComponent.generated.h"
 
@@ -15,24 +9,6 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEPLUGIN_API USpineSkeletonAnimationComponent : public USpineSkeletonComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationStartDelegate animationStart;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationInterruptDelegate AnimationInterrupt;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationEventDelegate AnimationEvent;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationCompleteDelegate AnimationComplete;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationEndDelegate animationEnd;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationDisposeDelegate AnimationDispose;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString PreviewAnimation;
     

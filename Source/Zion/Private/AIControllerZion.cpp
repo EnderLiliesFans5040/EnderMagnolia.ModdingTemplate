@@ -2,6 +2,7 @@
 #include "ZionPathFollowingComponent.h"
 
 AAIControllerZion::AAIControllerZion(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UZionPathFollowingComponent>(TEXT("PathFollowingComponent"))) {
+    this->Faction = EFaction::Enemy;
     this->CollisionProfile = ECollisionProfile::Enemy;
     this->BlackboardData = NULL;
     this->BehaviorTree_Main = NULL;

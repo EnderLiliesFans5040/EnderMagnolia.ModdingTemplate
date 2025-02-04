@@ -7,11 +7,21 @@ UPlayerCostumeComponent::UPlayerCostumeComponent(const FObjectInitializer& Objec
     this->SpineNotifyAsset = NULL;
 }
 
+void UPlayerCostumeComponent::SetPendingCostumeID(const FName& InCostumeID) {
+}
+
+FName UPlayerCostumeComponent::GetPendingOrEquippedCostumeID() const {
+    return NAME_None;
+}
+
 FName UPlayerCostumeComponent::GetEquippedCostumeID() const {
     return NAME_None;
 }
 
 void UPlayerCostumeComponent::EquipCostume(const FName& InCostumeID) {
+}
+
+void UPlayerCostumeComponent::ApplyPendingCostume() {
 }
 
 

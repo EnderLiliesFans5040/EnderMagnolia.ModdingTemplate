@@ -7,7 +7,7 @@
 class UCommandSettingsData;
 
 UCLASS(Blueprintable)
-class UCommandSet : public UDataAsset {
+class ZION_API UCommandSet : public UDataAsset {
     GENERATED_BODY()
 public:
 private:

@@ -3,9 +3,7 @@
 #include "UObject/Interface.h"
 #include "TargetPivotProviderInterface.generated.h"
 
-class USceneComponent;
-
-UINTERFACE(Blueprintable)
+UINTERFACE()
 class UTargetPivotProviderInterface : public UInterface {
     GENERATED_BODY()
 };
@@ -13,8 +11,5 @@ class UTargetPivotProviderInterface : public UInterface {
 class ITargetPivotProviderInterface : public IInterface {
     GENERATED_BODY()
 public:
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    USceneComponent* GetTargetPivot() const;
-    
 };
 

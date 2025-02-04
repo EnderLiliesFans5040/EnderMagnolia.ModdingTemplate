@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "LegacyCameraShake.h"
+#include "Shakes/LegacyCameraShake.h"
 #include "ShakeData.generated.h"
 
 USTRUCT(BlueprintType)

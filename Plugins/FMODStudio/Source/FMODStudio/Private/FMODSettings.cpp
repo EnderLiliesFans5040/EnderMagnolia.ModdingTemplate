@@ -8,7 +8,6 @@ UFMODSettings::UFMODSettings() {
     this->OutputFormat = EFMODSpeakerMode::Stereo;
     this->OutputType = EFMODOutput::TYPE_AUTODETECT;
     this->Locales.AddDefaulted(2);
-    this->bVol0Virtual = true;
     this->Vol0VirtualLevel = 0.00f;
     this->SampleRate = 0;
     this->bMatchHardwareSampleRate = true;
@@ -27,6 +26,9 @@ UFMODSettings::UFMODSettings() {
     this->ContentBrowserPrefix = TEXT("/Game/FMOD/");
     this->MasterBankName = TEXT("Master");
     this->LoggingLevel = LEVEL_NONE;
+    this->AmbientVolumeParameter = TEXT("AmbientVolume");
+    this->AmbientLPFParameter = TEXT("AmbientLPF");
+    this->bFMODAudioLinkEnabled = false;
 }
 
 

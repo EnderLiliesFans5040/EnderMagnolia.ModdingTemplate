@@ -4,7 +4,10 @@
 #include "Engine/DataTable.h"
 #include "ESpineBone.h"
 #include "ESpineBoneRotationMode.h"
+#include "Templates/SubclassOf.h"
 #include "SpawnData.generated.h"
+
+class UCommand;
 
 USTRUCT(BlueprintType)
 struct FSpawnData {
@@ -12,6 +15,9 @@ struct FSpawnData {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle EntityRowHandle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<TSubclassOf<UCommand>> CommandClasses;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESpineBone SpawnBone;

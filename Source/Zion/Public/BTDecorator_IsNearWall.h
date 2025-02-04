@@ -1,15 +1,19 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "BTDecoratorZion.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
+#include "BTDecoratorZionCondition.h"
 #include "EConditionOperator.h"
 #include "EDecoratorNearWallDirection.h"
 #include "BTDecorator_IsNearWall.generated.h"
 
 UCLASS(Blueprintable)
-class UBTDecorator_IsNearWall : public UBTDecoratorZion {
+class UBTDecorator_IsNearWall : public UBTDecoratorZionCondition {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FBlackboardKeySelector Target;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EConditionOperator CheckOperator;
     

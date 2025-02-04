@@ -48,6 +48,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector BoxMaxWorldSpaceTargetOffset;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bProjectLocationToGround;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GroundHeightOffset;
+    
 public:
     UBTTask_FlyTo();
 

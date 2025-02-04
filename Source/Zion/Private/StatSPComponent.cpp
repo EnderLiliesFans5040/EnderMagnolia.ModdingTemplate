@@ -10,6 +10,10 @@ int32 UStatSPComponent::SubSPRegenPercentageBonus(int32 SPRegenPercentBonusToSub
     return 0;
 }
 
+int32 UStatSPComponent::GetFilledGaugeCount() const {
+    return 0;
+}
+
 int32 UStatSPComponent::AddSPRegenPercentageBonus(int32 SPRegenPercentBonusToAdd) {
     return 0;
 }

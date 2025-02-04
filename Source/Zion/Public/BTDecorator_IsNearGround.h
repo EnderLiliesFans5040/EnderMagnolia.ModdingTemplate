@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "BTDecoratorZion.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
+#include "BTDecoratorZionCondition.h"
 #include "DecoratorNearGroundDirectionData.h"
 #include "EConditionOperator.h"
 #include "EDecoratorNearGroundDirection.h"
@@ -8,10 +9,13 @@
 #include "BTDecorator_IsNearGround.generated.h"
 
 UCLASS(Blueprintable)
-class UBTDecorator_IsNearGround : public UBTDecoratorZion {
+class UBTDecorator_IsNearGround : public UBTDecoratorZionCondition {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FBlackboardKeySelector Target;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EConditionOperator CheckOperator;
     

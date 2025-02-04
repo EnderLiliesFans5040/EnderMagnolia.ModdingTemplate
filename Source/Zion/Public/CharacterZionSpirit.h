@@ -4,9 +4,7 @@
 #include "GameFramework/Character.h"
 #include "Curves/CurveFloat.h"
 #include "SpineFXData.h"
-#include "AIData.h"
 #include "CharacterNotifyInterface.h"
-#include "SpiritSummonParameters.h"
 #include "Templates/SubclassOf.h"
 #include "VisualPivotProviderInterface.h"
 #include "CharacterZionSpirit.generated.h"
@@ -19,6 +17,8 @@ class UCollisionComponent;
 class UCommandComponent;
 class UCommandSet;
 class UDebugDisplayComponent;
+class UFactionComponent;
+class UFallThroughComponent;
 class UHitStopComponent;
 class UInputAction;
 class UInputBufferComponent;
@@ -61,9 +61,6 @@ private:
     FSpineFXData FadeOutFXData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FAIData AIData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInjectSummonerMovementMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -92,6 +89,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCollisionComponent* CollisionComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UFactionComponent* FactionComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UHitStopComponent* HitStopComponent;
@@ -136,6 +136,9 @@ private:
     UZionCharacterMovementComponent* ZionCharacterMovement;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UFallThroughComponent* FallThroughComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UDebugDisplayComponent* DebugDisplayComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -150,12 +153,13 @@ private:
 public:
     ACharacterZionSpirit(const FObjectInitializer& ObjectInitializer);
 
+private:
     UFUNCTION(BlueprintCallable)
-    void Summon(const UInputAction* InInvokedByInputAction, const UCommandSet* InInvokedByCommandSet, const FSpiritSummonParameters& InSummonParameters);
+    void SetActive(bool bNewActive);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnTeleport(FVector From, FVector To);
+    void OnTeleport(const FVector& From, const FVector& To);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSummon();

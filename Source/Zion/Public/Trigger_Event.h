@@ -7,6 +7,7 @@
 
 class UEventAsset;
 class UEventPlayer;
+class UGameplayConditionRefreshComponent;
 
 UCLASS(Blueprintable)
 class ATrigger_Event : public ATrigger {
@@ -15,6 +16,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FEventData> EventDataList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UGameplayConditionRefreshComponent* ConditionRefreshComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UEventAsset* LoadedEventAsset;
@@ -28,6 +32,10 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnEventFinished(UEventPlayer* InEventPlayer, bool bCompletedEvent, EEventPlayerResult EventResult);
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnEventFinish();
     
 };
 

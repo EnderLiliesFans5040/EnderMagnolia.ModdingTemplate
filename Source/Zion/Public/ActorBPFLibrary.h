@@ -45,6 +45,12 @@ private:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FName GetActorID(const AActor* Actor);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FName GenerateClearIDForActor(const AActor* Actor);
+    
+    UFUNCTION(BlueprintCallable)
+    static void FlushAnimations(const AActor* Actor, bool bResetAnimator);
+    
     UFUNCTION(BlueprintCallable)
     static void ClearMovementBase(ACharacter* Character);
     

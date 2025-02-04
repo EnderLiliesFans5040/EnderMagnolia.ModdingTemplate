@@ -5,6 +5,7 @@
 #include "SpineMeshCopyComponent.generated.h"
 
 class UMaterialInterface;
+class USpineMeshComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEMESHPLUGIN_API USpineMeshCopyComponent : public UMeshComponent {
@@ -22,6 +23,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoCopy;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USpineMeshComponent* CachedMaster;
     
 public:
     USpineMeshCopyComponent(const FObjectInitializer& ObjectInitializer);

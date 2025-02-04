@@ -5,6 +5,7 @@ USpineWidget::USpineWidget() {
     this->SkeletonData = NULL;
     this->TextureParameterName = TEXT("SpriteTexture");
     this->DepthOffset = 0.10f;
+    this->RenderMode = ESpineWidgetRenderMode::Default;
     this->bAutoPlaying = true;
 }
 
@@ -58,6 +59,9 @@ UTrackEntry* USpineWidget::SetAnimation(int32 TrackIndex, const FString& Animati
     return NULL;
 }
 
+void USpineWidget::RevertFullyLoadAtlasTextures() {
+}
+
 void USpineWidget::ReplaceSpineData(USpineAtlasAsset* NewAtlas, USpineSkeletonDataAsset* NewSkeletonData) {
 }
 
@@ -99,6 +103,14 @@ UTrackEntry* USpineWidget::GetCurrent(int32 TrackIndex) {
     return NULL;
 }
 
+FVector USpineWidget::GetBoundsSize() {
+    return FVector{};
+}
+
+FVector USpineWidget::GetBoundsMin() {
+    return FVector{};
+}
+
 FTransform USpineWidget::GetBoneTransform(const FString& BoneName) {
     return FTransform{};
 }
@@ -111,6 +123,9 @@ void USpineWidget::GetAnimations(TArray<FString>& Animations) {
 
 float USpineWidget::getAnimationDuration(const FString& AnimationName) {
     return 0.0f;
+}
+
+void USpineWidget::ForceFullyLoadAtlasTextures() {
 }
 
 void USpineWidget::ClearTracks() {

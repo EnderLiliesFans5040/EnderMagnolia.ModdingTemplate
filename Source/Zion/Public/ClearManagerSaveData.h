@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FNameSet> ClearedActors;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FNameSet> PreviousRunsClearedSavedActors;
+    
     ZION_API FClearManagerSaveData();
 };
 

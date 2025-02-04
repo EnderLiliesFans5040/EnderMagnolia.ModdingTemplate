@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
+#include "GameAchievementsData.h"
 #include "GameModeSaveData.h"
 #include "PlayerSaveData.h"
 #include "SaveGameZion.generated.h"
@@ -11,6 +12,9 @@ class USaveGameZion : public USaveGame {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Version;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 SubVersion;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString ValidGameVersion;
@@ -26,6 +30,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPlayerSaveData Player;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameAchievementsData GameAchievements;
     
     USaveGameZion();
 

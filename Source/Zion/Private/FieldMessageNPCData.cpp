@@ -5,5 +5,6 @@ FFieldMessageNPCData::FFieldMessageNPCData() {
     this->bOverrideCooldown = false;
     this->Cooldown = 0.00f;
     this->bOverrideAnimations = false;
+    this->bUseAI = false;
 }
 

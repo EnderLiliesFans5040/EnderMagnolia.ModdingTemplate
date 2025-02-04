@@ -17,6 +17,9 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 SubSPRegenPercentageBonus(int32 SPRegenPercentBonusToSub);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetFilledGaugeCount() const;
+    
     UFUNCTION(BlueprintCallable)
     int32 AddSPRegenPercentageBonus(int32 SPRegenPercentBonusToAdd);
     

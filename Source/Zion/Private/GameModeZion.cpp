@@ -1,16 +1,20 @@
 #include "GameModeZion.h"
+#include "BreakPartStateManagerComponent.h"
 #include "ClearManagerComponent.h"
 #include "DifficultySystemComponent.h"
 #include "DropSystemComponent.h"
 #include "ElevatorStateManagerComponent.h"
 #include "EmulatedFogManagerComponent.h"
 #include "GameStatsComponent.h"
+#include "PlayerControllerZion.h"
 #include "PoolSystemComponent.h"
+#include "RecollectionBossComponent.h"
 #include "RenderStateManagerComponent.h"
 #include "TimeManagerComponent.h"
 #include "ZoneSystemComponent.h"
 
 AGameModeZion::AGameModeZion(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->PlayerControllerClass = APlayerControllerZion::StaticClass();
     this->StepMatrixData = NULL;
     this->AbilityFXMatrixData = NULL;
     this->AbilitySEMatrixData = NULL;
@@ -24,9 +28,11 @@ AGameModeZion::AGameModeZion(const FObjectInitializer& ObjectInitializer) : Supe
     this->RenderStateManagerComponent = CreateDefaultSubobject<URenderStateManagerComponent>(TEXT("RenderStateManager"));
     this->DifficultySystemComponent = CreateDefaultSubobject<UDifficultySystemComponent>(TEXT("DifficultySystem"));
     this->ElevatorStateManagerComponent = CreateDefaultSubobject<UElevatorStateManagerComponent>(TEXT("ElevatorStateManager"));
+    this->BreakPartStateManagerComponent = CreateDefaultSubobject<UBreakPartStateManagerComponent>(TEXT("BreakPartStateManager"));
+    this->RecollectionBossComponent = CreateDefaultSubobject<URecollectionBossComponent>(TEXT("RecollectionBossComponent"));
     this->BossRushComponent = NULL;
     this->EnvironmentLevel = 1;
-    this->StoryLevel = 1;
+    this->NewGamePlusGeneration = 0;
 }
 
 void AGameModeZion::StartRecollectionBossRush() {
@@ -38,22 +44,33 @@ void AGameModeZion::StartRecollectionBoss(const FDataTableRowHandle& Recollectio
 void AGameModeZion::RespawnPlayer(ERespawnReason Reason) {
 }
 
+void AGameModeZion::RegisterRecollectionBossComponent(URecollectionBossComponent* NewRecollectionBossComponent) {
+}
+
 void AGameModeZion::RegisterBossRushComponent(URecollectionBossRushComponent* NewBossRushComponent) {
 }
 
-void AGameModeZion::NotifyRecollectionBossDead() {
+void AGameModeZion::NotifyGameEndingReached(EGameEndingType GameEndingType) {
+}
+
+bool AGameModeZion::IsRecollectionBossDead() const {
+    return false;
+}
+
+bool AGameModeZion::IsInNewGamePlus() const {
+    return false;
 }
 
 bool AGameModeZion::IsGameReady() const {
     return false;
 }
 
-bool AGameModeZion::IsDeathProcessingAllowed() const {
+bool AGameModeZion::IsGameCleared() const {
     return false;
 }
 
-int32 AGameModeZion::GetStoryLevel() const {
-    return 0;
+bool AGameModeZion::IsDeathProcessingAllowed() const {
+    return false;
 }
 
 UStepMatrixData* AGameModeZion::GetStepMatrixData() const {
@@ -68,8 +85,24 @@ FString AGameModeZion::GetPlayTimeAsString() const {
     return TEXT("");
 }
 
-float AGameModeZion::GetPlayTime() const {
-    return 0.0f;
+int32 AGameModeZion::GetNewGamePlusGeneration() const {
+    return 0;
+}
+
+FDataTableRowHandle AGameModeZion::GetLastBossRecollectionHandle() const {
+    return FDataTableRowHandle{};
+}
+
+EGameModeType AGameModeZion::GetGameModeType() const {
+    return EGameModeType::Default;
+}
+
+int32 AGameModeZion::GetGameEndingCountReached() const {
+    return 0;
+}
+
+int32 AGameModeZion::GetGameClearCount() const {
+    return 0;
 }
 
 int32 AGameModeZion::GetEnvironmentLevel() const {
@@ -112,6 +145,10 @@ UDataTable* AGameModeZion::GetDataTableItemSkills() const {
     return NULL;
 }
 
+UDataTable* AGameModeZion::GetDataTableItemQuests() const {
+    return NULL;
+}
+
 UDataTable* AGameModeZion::GetDataTableItemPassives() const {
     return NULL;
 }
@@ -125,6 +162,10 @@ UDataTable* AGameModeZion::GetDataTableItemMaterials() const {
 }
 
 UDataTable* AGameModeZion::GetDataTableItemKeys() const {
+    return NULL;
+}
+
+UDataTable* AGameModeZion::GetDataTableItemGallery() const {
     return NULL;
 }
 
@@ -160,6 +201,14 @@ UDataTable* AGameModeZion::GetDataTableGameMaps() const {
     return NULL;
 }
 
+UDataTable* AGameModeZion::GetDataTableEnemies() const {
+    return NULL;
+}
+
+UDataTable* AGameModeZion::GetDataTableAchievements() const {
+    return NULL;
+}
+
 ERespawnReason AGameModeZion::GetCurrentRespawnReason() const {
     return ERespawnReason::None;
 }
@@ -177,6 +226,10 @@ AGameModeZion* AGameModeZion::Get(const UObject* WorldContextObject) {
 }
 
 void AGameModeZion::FastTravel(const FName& RestPointID) {
+}
+
+bool AGameModeZion::DidReachGameEnding(EGameEndingType GameEndingType, bool bCheckPreviousGameGeneration) const {
+    return false;
 }
 
 

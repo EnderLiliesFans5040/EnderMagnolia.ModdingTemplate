@@ -43,6 +43,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCountOfItem(const FName& ItemId) const;
     
+    UFUNCTION(BlueprintCallable)
+    TMap<FName, int32> GetAllItemsAvailable();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TMap<FName, int32> GetAllItems() const;
     

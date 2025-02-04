@@ -6,10 +6,12 @@
 #include "ERecollectionItemType.h"
 #include "InventoryItemAptitudeData.h"
 #include "InventoryItemAssistData.h"
+#include "InventoryItemBaseEquipmentData.h"
 #include "InventoryItemCostumeData.h"
 #include "InventoryItemData.h"
 #include "InventoryItemEnemyInfoData.h"
 #include "InventoryItemEquipmentData.h"
+#include "InventoryItemGalleryData.h"
 #include "InventoryItemGenericInfoData.h"
 #include "InventoryItemNPCInfoData.h"
 #include "InventoryItemPassiveData.h"
@@ -17,6 +19,8 @@
 #include "InventoryItemSpiritData.h"
 #include "InventoryItemTipData.h"
 #include "InventoryItemTutorialData.h"
+#include "ItemGenericAnimationConditionData.h"
+#include "MapTransitionSpawnPointData.h"
 #include "RecollectionItemData.h"
 #include "RestPointData.h"
 #include "RestPointEventData.h"
@@ -39,7 +43,22 @@ public:
     static bool IsRecollectionItemVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle, ERecollectionItemType RecollectionItemType);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsItemNPCInfoVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsItemGenericAnimationVisible(APlayerControllerZion* PlayerControllerZion, const FItemGenericAnimationConditionData& AnimationConditions);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsItemGalleryVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsItemEnemyInfoVisible(const APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsEqual(const FDataTableRowHandle& A, const FDataTableRowHandle& B);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsAnyRecollectionItemVisible(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsAllRecollectionItemsChecked(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType);
@@ -55,6 +74,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static bool GetRecollectionItemData(const FDataTableRowHandle& Handle, ERecollectionItemType RecollectionItemType, FRecollectionItemData& out_RecollectionItemData);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool GetMapTransitionRowHandleFromTransitionSpawnPointData(const UDataTable* MapTransitionDataTable, const FMapTransitionSpawnPointData& MapTransitionSpawnPointData, FDataTableRowHandle& out_MapTransitionRowHandle);
     
     UFUNCTION(BlueprintCallable)
     static bool GetItemTutorialData(const FDataTableRowHandle& Handle, FInventoryItemTutorialData& out_ItemData);
@@ -78,6 +100,9 @@ public:
     static bool GetItemGenericInfoData(const FDataTableRowHandle& Handle, FInventoryItemGenericInfoData& out_ItemData);
     
     UFUNCTION(BlueprintCallable)
+    static bool GetItemGalleryData(const FDataTableRowHandle& Handle, FInventoryItemGalleryData& out_ItemData);
+    
+    UFUNCTION(BlueprintCallable)
     static bool GetItemEquipmentData(const FDataTableRowHandle& Handle, FInventoryItemEquipmentData& out_ItemData);
     
     UFUNCTION(BlueprintCallable)
@@ -85,6 +110,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static bool GetItemCostumeData(const FDataTableRowHandle& Handle, FInventoryItemCostumeData& out_ItemData);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool GetItemBaseEquipmentData(const FDataTableRowHandle& Handle, FInventoryItemBaseEquipmentData& out_ItemData);
     
     UFUNCTION(BlueprintCallable)
     static bool GetItemAssistData(const FDataTableRowHandle& Handle, FInventoryItemAssistData& out_ItemData);

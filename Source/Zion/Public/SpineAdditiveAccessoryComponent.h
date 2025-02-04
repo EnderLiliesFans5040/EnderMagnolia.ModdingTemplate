@@ -19,7 +19,7 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void OnAnimationStart(UTrackEntry* entry);
+    void OnAnimationStart(UTrackEntry* Entry);
     
 };
 

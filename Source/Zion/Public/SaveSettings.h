@@ -24,7 +24,7 @@ public:
     int32 ValidBuildVersion;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString Language;
+    int32 LastGameSlotIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInputSettingsData InputSettingsData;

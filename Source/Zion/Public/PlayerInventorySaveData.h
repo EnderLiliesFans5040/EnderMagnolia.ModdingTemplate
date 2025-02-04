@@ -38,6 +38,9 @@ public:
     FInventorySaveData KeyInventory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FInventorySaveData QuestInventory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInventorySaveData TipInventory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -53,7 +56,7 @@ public:
     FInventorySaveData NPCInfoInventory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FInventorySaveData RecipeSetInventory;
+    FInventorySaveData GalleryInventory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, int32> SkillLevels;

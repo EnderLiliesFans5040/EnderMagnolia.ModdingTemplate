@@ -5,6 +5,8 @@
 #include "StaticVolume.h"
 #include "StaticVolume_Audio.generated.h"
 
+class AFMODAmbientSound;
+
 UCLASS(Abstract, Blueprintable)
 class AStaticVolume_Audio : public AStaticVolume {
     GENERATED_BODY()
@@ -24,6 +26,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAudioVolumeSettings ConditionsFailedSettings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<AFMODAmbientSound*> AdditionalSounds;
     
 public:
     AStaticVolume_Audio(const FObjectInitializer& ObjectInitializer);

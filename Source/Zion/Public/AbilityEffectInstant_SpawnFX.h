@@ -13,9 +13,6 @@ private:
     FSpineFXData FXData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineFXData GuardFXData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bOrientFromAttacker;
     
 public:

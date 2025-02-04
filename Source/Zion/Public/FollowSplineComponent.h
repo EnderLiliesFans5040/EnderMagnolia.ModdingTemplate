@@ -2,12 +2,19 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Curves/CurveFloat.h"
+#include "SplineMovementEventDelegate.h"
 #include "FollowSplineComponent.generated.h"
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UFollowSplineComponent : public UActorComponent {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSplineMovementEvent OnStartedMovement;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSplineMovementEvent OnFinishedMovement;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TimeToComplete;

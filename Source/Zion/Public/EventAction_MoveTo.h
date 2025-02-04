@@ -21,9 +21,6 @@ private:
     bool bTeleportToTargetOnComplete;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bSweepOnTeleport;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EMovementSpeedMode MovementSpeedModeOverride;
     
 public:

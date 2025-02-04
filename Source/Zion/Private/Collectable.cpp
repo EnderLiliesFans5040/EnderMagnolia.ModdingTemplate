@@ -10,6 +10,7 @@ ACollectable::ACollectable(const FObjectInitializer& ObjectInitializer) : Super(
     this->bEnableCollisionOnActivate = true;
     this->bDetectionMatchReachedRange = false;
     this->TargetDetectionRange = 500.00f;
+    this->MinTimeBeforeTargetReachActivation = 0.25f;
     this->OnCollectFMODEvent = NULL;
     this->RootSceneComponent = (USceneComponent*)RootComponent;
     this->TargetDetectionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("PlayerDetection"));

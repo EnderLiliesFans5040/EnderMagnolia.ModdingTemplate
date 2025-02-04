@@ -52,6 +52,14 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFinished();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnEventStopped();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnEventStarted();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCooldownCompleted();
     

@@ -12,7 +12,7 @@ void UWorldLoaderSubsystem::SwitchGameMap_PostFadeIn() {
 void UWorldLoaderSubsystem::OpenWorld(TSoftObjectPtr<UWorld> WorldToLoad, FName PlayerStartTag, const FFadeDescriptionData& FadeOutDescription, const FFadeDescriptionData& FadeInDescription) {
 }
 
-void UWorldLoaderSubsystem::OpenGameMap(const FDataTableRowHandle& GameMapHandle, const FName PlayerStartTag, const FFadeDescriptionData& FadeOutDescription, const FFadeDescriptionData& FadeInDescription) {
+void UWorldLoaderSubsystem::OpenGameMap(const FDataTableRowHandle& GameMapHandle, const FName PlayerStartTag, bool bForceReload, const FFadeDescriptionData& FadeOutDescription, const FFadeDescriptionData& FadeInDescription) {
 }
 
 void UWorldLoaderSubsystem::OnPostLoad() {

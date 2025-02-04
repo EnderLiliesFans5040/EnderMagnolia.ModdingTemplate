@@ -4,6 +4,7 @@ USpineSkeletonComponent::USpineSkeletonComponent(/*const FObjectInitializer& Obj
     this->bAutoActivate = true;
     this->Atlas = NULL;
     this->SkeletonData = NULL;
+    this->RendererComponent = NULL;
 }
 
 void USpineSkeletonComponent::UpdateWorldTransform() {

@@ -27,10 +27,7 @@ public:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<ECurrencyType, FDataTableRowHandle> CurrencyTypeToHandles;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FName, ECurrencyType> CurrencyNameToTypes;
+    TSet<ECurrencyType> DropFactoredCurrencies;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UInventory* ItemCurrencyInventory;
@@ -69,6 +66,9 @@ private:
     UInventory* ItemKeyInventory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UInventory* ItemQuestInventory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UInventory* ItemCostumeInventory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -76,6 +76,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UInventory* ItemNPCInfoInventory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UInventory* ItemGalleryInventory;
     
 public:
     UInventoryComponent(const FObjectInitializer& ObjectInitializer);
@@ -105,6 +108,9 @@ public:
     UInventory* GetTutorialInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    UInventory* GetTipInventory() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UInventory* GetStatsInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -121,6 +127,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UInventory* GetInventoryFromItemType(EInventoryItemType ItemType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UInventory* GetGalleryInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UInventory* GetEquipmentInventory() const;
@@ -153,7 +162,7 @@ public:
     bool AddItem(const FDataTableRowHandle& ItemHandle, int32 Count);
     
     UFUNCTION(BlueprintCallable)
-    bool AddDrop(const FDrop& Drop);
+    bool AddDrop(const FDrop& Drop, float DropFactor);
     
     UFUNCTION(BlueprintCallable)
     int32 AddCurrency(ECurrencyType CurrencyType, int32 CurrencyToAdd);

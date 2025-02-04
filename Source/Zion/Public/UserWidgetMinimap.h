@@ -12,6 +12,7 @@ class URetainerBox;
 class UUserWidgetMapArea;
 class UUserWidgetMapIcon_Player;
 class UUserWidgetMapIcon_StoryEvent;
+class UUserWidgetPlayerTrail;
 class UUserWidgetZionShowHide;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew)
@@ -26,7 +27,7 @@ protected:
     URetainerBox* RetainerBox;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UOverlay* MinimapHolder;
+    UCanvasPanel* MinimapHolder;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UOverlay* MinimapWidgetHolder;
@@ -39,6 +40,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCanvasPanel* StoryEventDirectionsHolder;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UUserWidgetPlayerTrail* WBP_PlayerTrail;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UCanvasPanel* CustomMarkerIconsHolder;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -84,12 +91,20 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnStoryLevelChanged();
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnRefreshMinimap();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnGameMapChanged();
     
 public:
     UFUNCTION(BlueprintCallable)
     void InitializeDefaultDisplayValues();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasValidData() const;
     
     UFUNCTION(BlueprintCallable)
     void ChangeDisplayMode();

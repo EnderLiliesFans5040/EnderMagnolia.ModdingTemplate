@@ -6,12 +6,11 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
-#include "SpineAfterUpdateWorldTransformDelegateDelegate.h"
-#include "SpineBeforeUpdateWorldTransformDelegateDelegate.h"
 #include "SpineSkeletonComponent.generated.h"
 
 class USpineAtlasAsset;
 class USpineSkeletonDataAsset;
+class USpineSkeletonRendererComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEPLUGIN_API USpineSkeletonComponent : public UActorComponent {
@@ -23,12 +22,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USpineSkeletonDataAsset* SkeletonData;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineBeforeUpdateWorldTransformDelegate BeforeUpdateWorldTransform;
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USpineSkeletonRendererComponent* RendererComponent;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAfterUpdateWorldTransformDelegate AfterUpdateWorldTransform;
-    
+public:
     USpineSkeletonComponent(/*const FObjectInitializer& ObjectInitializer*/);
 
     UFUNCTION(BlueprintCallable)

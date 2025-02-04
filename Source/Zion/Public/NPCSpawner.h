@@ -10,7 +10,7 @@ class UGameplayConditionRefreshComponent;
 class USceneComponent;
 
 UCLASS(Blueprintable)
-class ANPCSpawner : public ASpawner {
+class ZION_API ANPCSpawner : public ASpawner {
     GENERATED_BODY()
 public:
 private:

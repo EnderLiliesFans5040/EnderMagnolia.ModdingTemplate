@@ -4,7 +4,6 @@
 #include "ECommandCategory.h"
 #include "ECommandFinishType.h"
 #include "ECommandLayerType.h"
-#include "ECommandResult.h"
 #include "InputSnapshot.h"
 #include "Templates/SubclassOf.h"
 #include "Command.generated.h"
@@ -35,14 +34,14 @@ public:
     UCommand();
 
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    ECommandResult OnUpdate(float DeltaTime);
-    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStart();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReset();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPreStart();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInitialize(APawn* PawnOwner);

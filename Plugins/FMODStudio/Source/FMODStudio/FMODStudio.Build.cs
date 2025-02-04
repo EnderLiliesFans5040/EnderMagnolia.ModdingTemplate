@@ -7,6 +7,8 @@ public class FMODStudio : ModuleRules {
         ShadowVariableWarningLevel = WarningLevel.Warning;
         
         PublicDependencyModuleNames.AddRange(new string[] {
+            "AudioLinkCore",
+            "AudioLinkEngine",
             "Core",
             "CoreUObject",
             "Engine",

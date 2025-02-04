@@ -24,6 +24,9 @@ public:
     FRootMotionFinishVelocitySettingsBP FinishVelocitySettings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bToggleFacingOnStop;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> DashAnimations;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

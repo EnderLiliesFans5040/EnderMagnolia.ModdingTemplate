@@ -3,5 +3,6 @@
 FDashToData::FDashToData() {
     this->MoveDelay = 0.00f;
     this->MoveFactorCurve = NULL;
+    this->bToggleFacingOnStop = false;
 }
 

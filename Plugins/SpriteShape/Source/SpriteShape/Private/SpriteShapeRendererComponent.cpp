@@ -1,7 +1,6 @@
 #include "SpriteShapeRendererComponent.h"
 
 USpriteShapeRendererComponent::USpriteShapeRendererComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bCanEverAffectNavigation = true;
     this->bFilledSpline = true;
     this->FillPolygonFlatEdgeDistance = 10;
     this->SegmentOverlapAmount = 0.00f;

@@ -4,6 +4,7 @@
 UStatusEffect_Burn::UStatusEffect_Burn() {
     this->bCanEditStatusEffectType = false;
     this->StatusEffectType = EStatusEffectType::Burn;
+    this->bUseDifficultySettings = true;
     this->AbilityTick = 1.00f;
 }
 

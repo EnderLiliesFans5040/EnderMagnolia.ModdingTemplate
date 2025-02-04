@@ -100,6 +100,9 @@ public:
     float GetProperty(TEnumAsByte<EFMODEventProperty::Type> Property);
     
     UFUNCTION(BlueprintCallable)
+    bool GetPaused();
+    
+    UFUNCTION(BlueprintCallable)
     void GetParameterValue(FName Name, float& UserValue, float& FinalValue);
     
     UFUNCTION(BlueprintCallable)

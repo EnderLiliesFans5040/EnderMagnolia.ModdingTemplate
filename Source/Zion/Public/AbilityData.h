@@ -1,10 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Engine/EngineTypes.h"
 #include "ESpineBone.h"
 #include "ESpineBoneRotationMode.h"
 #include "SpineFXData.h"
 #include "AbilityModifiers.h"
+#include "ActorSearchParameters.h"
+#include "EAbilityOriginActorType.h"
 #include "Templates/SubclassOf.h"
 #include "AbilityData.generated.h"
 
@@ -24,6 +27,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAbilityModifiers AbilityModifiers;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    EAbilityOriginActorType OriginActorType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FActorSearchParameters ClosestEnemySearchParameters;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESpineBone SpawnBone;
     
@@ -38,6 +47,24 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform LocalSpaceOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSnapToGround;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bOverrideZOffsetFromGround;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ZOverrideOffsetFromGround;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TEnumAsByte<ECollisionChannel> GroundCollisionChannel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GroundMaxDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNoGroundCancelAbility;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineFXData> FXDataList;

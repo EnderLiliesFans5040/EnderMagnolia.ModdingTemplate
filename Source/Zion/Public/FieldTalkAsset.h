@@ -9,9 +9,6 @@ class ZION_API UFieldTalkAsset : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bCanBeSkipped;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFieldTalkData FieldTalk;
     
     UFieldTalkAsset();

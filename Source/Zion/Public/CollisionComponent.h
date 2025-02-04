@@ -4,6 +4,7 @@
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
+#include "Engine/EngineTypes.h"
 #include "ECollisionProfile.h"
 #include "CollisionComponent.generated.h"
 
@@ -17,6 +18,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FCollisionResponseContainer ResponseOverrides;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<TEnumAsByte<ECollisionChannel>, TEnumAsByte<ECollisionResponse>> SpecificResponseOverrides;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FComponentReference> HurtboxReferences;
@@ -39,5 +43,12 @@ private:
 public:
     UCollisionComponent(const FObjectInitializer& ObjectInitializer);
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void RefreshHurtboxVisuals();
+    
+    UFUNCTION(BlueprintCallable)
+    void RefreshHitboxVisuals();
+    
 };
 

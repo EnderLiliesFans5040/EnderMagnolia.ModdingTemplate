@@ -19,6 +19,9 @@ private:
     float DefaultElementalFactor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FreezeCriticalFactor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EAttackElement, float> ElementalFactors;
     
 public:

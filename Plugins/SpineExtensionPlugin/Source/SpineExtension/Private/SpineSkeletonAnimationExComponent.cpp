@@ -10,7 +10,7 @@ void USpineSkeletonAnimationExComponent::SetPlaybackTimeIgnoreTimescale(float In
 void USpineSkeletonAnimationExComponent::ReplaceSpineData(USpineAtlasAsset* NewAtlas, USpineSkeletonDataAsset* NewSkeletonData, USpineNotifyAsset* NewNotifyAsset) {
 }
 
-void USpineSkeletonAnimationExComponent::OnAnimationStart(UTrackEntry* entry) {
+void USpineSkeletonAnimationExComponent::OnAnimationStart(UTrackEntry* Entry) {
 }
 
 

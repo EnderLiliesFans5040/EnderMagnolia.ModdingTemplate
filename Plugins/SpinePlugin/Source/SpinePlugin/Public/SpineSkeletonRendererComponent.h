@@ -8,6 +8,7 @@
 
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
+class USpineSkeletonComponent;
 class UTexture;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -69,6 +70,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<int32, UMaterialInterface*> MaterialForSections;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USpineSkeletonComponent* SpineSkeletonComponent;
+    
 public:
     USpineSkeletonRendererComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -79,7 +83,13 @@ public:
     void SetTextureParameterValue(FName ParameterName, UTexture* Value);
     
     UFUNCTION(BlueprintCallable)
-    void SetSkinsCustomMaterialScalarParameterValue(TArray<FString>& SkinNames, FName ParameterName, float Value);
+    void SetSkinsCustomMaterialVectorParameterValue(const TArray<FString>& SkinNames, FName ParameterName, FLinearColor Value);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetSkinsCustomMaterialTextureParameterValue(const TArray<FString>& SkinNames, FName ParameterName, UTexture* Value);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetSkinsCustomMaterialScalarParameterValue(const TArray<FString>& SkinNames, FName ParameterName, float Value);
     
     UFUNCTION(BlueprintCallable)
     void SetScalarParameterValue(FName ParameterName, float Value);

@@ -6,5 +6,8 @@ UENUM(BlueprintType)
 enum class ECommandLayerType : uint8 {
     Default,
     Alternative,
+    RepeatA,
+    RepeatB,
+    Free,
 };
 

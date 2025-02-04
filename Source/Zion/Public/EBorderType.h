@@ -12,5 +12,7 @@ enum class EBorderType : uint8 {
     Bottom,
     TopOrBottom,
     Any,
+    TargetForward,
+    TargetBackward,
 };
 

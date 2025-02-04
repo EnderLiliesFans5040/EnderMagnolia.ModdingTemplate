@@ -12,6 +12,7 @@
 #include "CommandComponent.h"
 #include "DeathComponent.h"
 #include "FXComponent.h"
+#include "FactionComponent.h"
 #include "HitStopComponent.h"
 #include "InputBufferComponent.h"
 #include "KnockbackComponent.h"
@@ -39,6 +40,8 @@ ACharacterZion::ACharacterZion(const FObjectInitializer& ObjectInitializer) : Su
     (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this)) = NULL;
     this->CoyoteTime = 0.50f;
     this->bInstantKillOnSwim = false;
+    this->bInstantKillOnGround = false;
+    this->TargetPivotBone = ESpineBone::Hip;
     this->PostParriedStatesDuration = 1.00f;
     this->PostEventStatesDuration = 1.00f;
     this->ZionInputComponent = CreateDefaultSubobject<UZionInputComponent>(TEXT("ZionInput"));
@@ -48,6 +51,7 @@ ACharacterZion::ACharacterZion(const FObjectInitializer& ObjectInitializer) : Su
     this->StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("State"));
     this->AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("Ability"));
     this->CollisionComponent = CreateDefaultSubobject<UCollisionComponent>(TEXT("Collision"));
+    this->FactionComponent = CreateDefaultSubobject<UFactionComponent>(TEXT("Faction"));
     this->StatHPComponent = CreateDefaultSubobject<UStatHPComponent>(TEXT("StatHP"));
     this->KnockbackComponent = CreateDefaultSubobject<UKnockbackComponent>(TEXT("Knockback"));
     this->HitStopComponent = CreateDefaultSubobject<UHitStopComponent>(TEXT("HitStop"));
@@ -73,9 +77,10 @@ ACharacterZion::ACharacterZion(const FObjectInitializer& ObjectInitializer) : Su
     this->SpineColorComponent = CreateDefaultSubobject<USpineColorComponent>(TEXT("SpineColorComponent"));
     this->ZionCharacterMovement = NULL;
     this->DebugDisplayComponent = NULL;
-    this->VisualPivotSceneComponent->SetupAttachment(RootComponent);
-    this->SpineRendererComponent->SetupAttachment(VisualPivotSceneComponent);
+    this->TargetPivotComponent = NULL;
     this->SpineMaskRendererComponent->SetupAttachment(SpineRendererComponent);
+    this->SpineRendererComponent->SetupAttachment(VisualPivotSceneComponent);
+    this->VisualPivotSceneComponent->SetupAttachment(RootComponent);
 }
 
 bool ACharacterZion::ShouldConsiderJumpAsWallGrab() const {
@@ -111,10 +116,6 @@ UZionCharacterMovementComponent* ACharacterZion::GetZionCharacterMovement() cons
 }
 
 UCollisionComponent* ACharacterZion::GetCollisionComponent() const {
-    return NULL;
-}
-
-USceneComponent* ACharacterZion::GetCameraTarget_Implementation() const {
     return NULL;
 }
 

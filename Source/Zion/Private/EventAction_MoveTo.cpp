@@ -4,7 +4,6 @@ UEventAction_MoveTo::UEventAction_MoveTo() {
     this->AcceptanceRadius = 0.00f;
     this->bStopOnOverlap = false;
     this->bTeleportToTargetOnComplete = true;
-    this->bSweepOnTeleport = false;
     this->MovementSpeedModeOverride = EMovementSpeedMode::None;
 }
 

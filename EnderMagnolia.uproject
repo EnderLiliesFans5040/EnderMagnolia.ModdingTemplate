@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.3",
+	"EngineAssociation": "5.4",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -11,14 +11,18 @@
 			"AdditionalDependencies": [
 				"Engine"
 			]
-		},
-		{
-			"Name": "OnlineSubsystemSteam",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
+		{
+			"Name": "OculusVR",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win32",
+				"Win64",
+				"Android"
+			]
+		},
 		{
 			"Name": "OpenXREyeTracker",
 			"Enabled": false,
@@ -53,15 +57,20 @@
 			]
 		},
 		{
+			"Name": "SteamVR",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux"
+			]
+		},
+		{
 			"Name": "EnhancedInput",
 			"Enabled": true
 		},
 		{
 			"Name": "CascadeToNiagaraConverter",
-			"Enabled": true
-		},
-		{
-			"Name": "AssetPlacementEdMode",
 			"Enabled": true
 		},
 		{
@@ -93,6 +102,21 @@
 			"Enabled": false
 		},
 		{
+			"Name": "PS4Media",
+			"Enabled": false
+		},
+		{
+			"Name": "PS5Media",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"PS5"
+			]
+		},
+		{
+			"Name": "SwitchMedia",
+			"Enabled": false
+		},
+		{
 			"Name": "WindowsMoviePlayer",
 			"Enabled": false
 		},
@@ -117,15 +141,23 @@
 			"Enabled": true
 		},
 		{
+			"Name": "OnlineServicesOSSAdapter",
+			"Enabled": true
+		},
+		{
+			"Name": "AdvancedRenamer",
+			"Enabled": true
+		},
+		{
+			"Name": "SlateInsights",
+			"Enabled": true
+		},
+		{
 			"Name": "MeshPainting",
 			"Enabled": false
 		},
 		{
-			"Name": "ChaosEditor",
-			"Enabled": false
-		},
-		{
-			"Name": "InterchangeTests",
+			"Name": "Fab",
 			"Enabled": false
 		}
 	],
@@ -140,6 +172,7 @@
 		"PS5",
 		"XSX",
 		"WinGDK",
-		"XB1"
+		"XB1",
+		"GDK"
 	]
 }

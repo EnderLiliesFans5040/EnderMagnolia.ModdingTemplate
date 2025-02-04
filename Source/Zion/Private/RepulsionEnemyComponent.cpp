@@ -2,6 +2,7 @@
 
 URepulsionEnemyComponent::URepulsionEnemyComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bDisableRepulsion = false;
+    this->RepulsionOriginType = EEnemyRepulsionOrigin::ColliderCenter;
 }
 
 void URepulsionEnemyComponent::OnComponentOverlapEnd(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {

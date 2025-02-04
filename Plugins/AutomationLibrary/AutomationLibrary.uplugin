@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Automation Library",
+	"Description": "Plugin containing various automation tasks.",
+	"Category": "Other",
+	"CreatedBy": "Adglobe | Live Wire",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"SupportedTargetPlatforms": [
+		"Win64",
+		"Linux",
+		"Mac"
+	],
+	"Plugins": [
+		{
+			"Name": "EditorTools",
+			"Enabled": true
+		}
+	]
+}

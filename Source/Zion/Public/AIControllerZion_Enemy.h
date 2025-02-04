@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
 #include "AIControllerZion.h"
 #include "Templates/SubclassOf.h"
 #include "AIControllerZion_Enemy.generated.h"
@@ -23,6 +24,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UUserWidgetEnemyUI* EnemyUI;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FDataTableRowHandle EnemyDataRowHandle;
     
 public:
     AAIControllerZion_Enemy(const FObjectInitializer& ObjectInitializer);

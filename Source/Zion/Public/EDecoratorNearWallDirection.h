@@ -9,5 +9,9 @@ enum class EDecoratorNearWallDirection : uint8 {
     Backward,
     Up,
     Down,
+    WorldRight,
+    WorldLeft,
+    WorldUp,
+    WorldDown,
 };
 

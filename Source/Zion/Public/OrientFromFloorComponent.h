@@ -28,6 +28,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ClampAngle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSkipOnLowPerfPlatforms;
+    
 public:
     UOrientFromFloorComponent(const FObjectInitializer& ObjectInitializer);
 

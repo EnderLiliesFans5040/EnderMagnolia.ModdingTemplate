@@ -14,6 +14,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<UUserWidgetMapIcon_RestPoint*> RestPointIcons;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CompletionPercentage;
+    
     ZION_API FRestPointListData();
 };
 

@@ -4,6 +4,7 @@ USpineMeshCopyComponent::USpineMeshCopyComponent(const FObjectInitializer& Objec
     this->MaterialOverride = NULL;
     this->TextureParameterName = TEXT("SpriteTexture");
     this->bAutoCopy = true;
+    this->CachedMaster = NULL;
 }
 
 void USpineMeshCopyComponent::Copy() {

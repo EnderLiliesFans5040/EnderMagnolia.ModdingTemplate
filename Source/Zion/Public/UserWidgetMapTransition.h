@@ -30,6 +30,18 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void ShowMapTransition();
     
+    UFUNCTION(BlueprintCallable)
+    void SetScale(float NewScale);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetIconsVisibility(bool bVisible);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnSetScale(float NewScale);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnSetIconsVisibility(bool bVisible);
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void HideMapTransition();
     

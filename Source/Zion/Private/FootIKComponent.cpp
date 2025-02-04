@@ -7,6 +7,7 @@ UFootIKComponent::UFootIKComponent(const FObjectInitializer& ObjectInitializer) 
     this->IKRotationBlendSpeed = 20.00f;
     this->bUseHeightOffsetBlend = false;
     this->HeightOffsetBlendSpeed = 20.00f;
+    this->bAllowUpdateLimitation = true;
 }
 
 void UFootIKComponent::OnBeforeUpdateWorldTransform(USpineSkeletonComponent* Skeleton) {

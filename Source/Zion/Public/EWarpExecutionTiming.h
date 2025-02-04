@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "EWarpExecutionTiming.generated.h"
 
-UENUM()
-enum class EWarpExecutionTiming : int32 {
+UENUM(BlueprintType)
+enum class EWarpExecutionTiming : uint8 {
     AtStart,
     AtTime,
     AtAnimationStart,

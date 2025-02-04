@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/HitResult.h"
+#include "EEnemyRepulsionOrigin.h"
 #include "EnemyRepulsionData.h"
 #include "EnemyRepulsionSetupData.h"
 #include "MovementModeData.h"
@@ -22,6 +23,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDisableRepulsion;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EEnemyRepulsionOrigin RepulsionOriginType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEnemyRepulsionData DefaultRepulsionData;

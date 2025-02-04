@@ -19,6 +19,10 @@ USentryUser* USentryLibrary::CreateSentryUser(const FString& Email, const FStrin
     return NULL;
 }
 
+USentryTransactionContext* USentryLibrary::CreateSentryTransactionContext(const FString& Name, const FString& Operation) {
+    return NULL;
+}
+
 USentryEvent* USentryLibrary::CreateSentryEvent(const FString& Message, ESentryLevel Level) {
     return NULL;
 }

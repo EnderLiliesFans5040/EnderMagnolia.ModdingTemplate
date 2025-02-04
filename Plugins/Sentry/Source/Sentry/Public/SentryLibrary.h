@@ -8,6 +8,7 @@ class USentryAttachment;
 class USentryBreadcrumb;
 class USentryEvent;
 class USentryId;
+class USentryTransactionContext;
 class USentryUser;
 class USentryUserFeedback;
 
@@ -28,6 +29,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static USentryUser* CreateSentryUser(const FString& Email, const FString& ID, const FString& UserName, const FString& IpAddress, const TMap<FString, FString>& Data);
+    
+    UFUNCTION(BlueprintCallable)
+    static USentryTransactionContext* CreateSentryTransactionContext(const FString& Name, const FString& Operation);
     
     UFUNCTION(BlueprintCallable)
     static USentryEvent* CreateSentryEvent(const FString& Message, ESentryLevel Level);

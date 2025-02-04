@@ -72,6 +72,22 @@ FEventReply UUserWidgetZion::OnDownRight_Implementation(const FKeyEvent& KeyEven
     return FEventReply{};
 }
 
+FEventReply UUserWidgetZion::OnDownPreviousAlt_Implementation(const FKeyEvent& KeyEvent) {
+    return FEventReply{};
+}
+
+FEventReply UUserWidgetZion::OnDownPrevious_Implementation(const FKeyEvent& KeyEvent) {
+    return FEventReply{};
+}
+
+FEventReply UUserWidgetZion::OnDownNextAlt_Implementation(const FKeyEvent& KeyEvent) {
+    return FEventReply{};
+}
+
+FEventReply UUserWidgetZion::OnDownNext_Implementation(const FKeyEvent& KeyEvent) {
+    return FEventReply{};
+}
+
 FEventReply UUserWidgetZion::OnDownLeft_Implementation(const FKeyEvent& KeyEvent) {
     return FEventReply{};
 }
@@ -83,6 +99,9 @@ bool UUserWidgetZion::IsOnFocusPath() const {
 
 bool UUserWidgetZion::IsFocusedFromMouse() const {
     return false;
+}
+
+void UUserWidgetZion::ChangeExplanationText(const FText& InExplanationText) {
 }
 
 

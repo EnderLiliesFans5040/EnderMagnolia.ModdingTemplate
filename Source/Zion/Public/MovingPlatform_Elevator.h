@@ -12,6 +12,7 @@ class UElevatorDestinationComponent;
 class UElevatorMovementComponent;
 class UForceFeedbackEffect;
 class UPrimitiveComponent;
+class URopeComponent;
 class USceneComponent;
 class USphereComponent;
 
@@ -34,6 +35,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UElevatorMovementComponent* ElevatorMovementComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    URopeComponent* RopeComponent;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

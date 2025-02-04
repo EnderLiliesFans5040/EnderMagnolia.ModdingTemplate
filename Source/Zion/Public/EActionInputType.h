@@ -32,7 +32,6 @@ enum class EActionInputType : uint8 {
     Interact,
     Special_Modifier,
     Minimap,
-    Tuning,
     Shortcut_AttackSpecial_A,
     Shortcut_AttackSpecial_B,
     Shortcut_AttackSpecial_C,

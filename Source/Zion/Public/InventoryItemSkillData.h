@@ -40,10 +40,16 @@ public:
     TArray<FRichTextInputElement> SpecialDescriptionFormatElements;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FString> SpecialDescriptionStringElements;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText SpecialFlavorText;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FRichTextInputElement> SpecialFlavorTextFormatElements;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FString> SpecialFlavorStringElements;
     
     ZION_API FInventoryItemSkillData();
 };

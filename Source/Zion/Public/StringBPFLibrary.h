@@ -18,5 +18,8 @@ public:
     UFUNCTION(BlueprintCallable)
     static void ProcessSubtitle(const FText& Text, FText& Name, FText& Message);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FString BossRushRecordTimeSecondsToString(float TimeInSeconds);
+    
 };
 

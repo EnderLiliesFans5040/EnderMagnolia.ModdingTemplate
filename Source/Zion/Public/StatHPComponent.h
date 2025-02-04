@@ -21,6 +21,11 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FHPChangeDelegate OnReceivedHealDelegate;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCanBeInstantKilled;
+    
+public:
     UStatHPComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, BlueprintPure)

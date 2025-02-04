@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
-#include "MapTransitionSpawnPointData.h"
+#include "Engine/DataTable.h"
 #include "UserWidgetMapIcon_Actor.h"
 #include "UserWidgetMapIcon_Teleport.generated.h"
 
@@ -12,7 +12,7 @@ class ZION_API UUserWidgetMapIcon_Teleport : public UUserWidgetMapIcon_Actor {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FMapTransitionSpawnPointData MapTransitionSpawnPointData;
+    FDataTableRowHandle MapTransitionHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector StartWorldLocation;
@@ -33,7 +33,7 @@ public:
     FVector GetStartWorldLocation() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FMapTransitionSpawnPointData GetMapTransitionSpawnPointData() const;
+    FDataTableRowHandle GetMapTransitionHandle() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetDestinationWorldLocation() const;

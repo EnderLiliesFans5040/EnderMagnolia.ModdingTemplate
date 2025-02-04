@@ -7,6 +7,7 @@ AAbilityHitboxScaling::AAbilityHitboxScaling(const FObjectInitializer& ObjectIni
     this->BeamFX = NULL;
     this->BeamCollisionFX = NULL;
     this->MaxRange = 500.00f;
+    this->BeamRenderLayer = ERenderLayerTypes::Default;
     this->ScaleContainer->SetupAttachment(RootComponent);
 }
 

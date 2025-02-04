@@ -20,8 +20,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USpineAnimInstance*> LastAnimInstances;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FString, USpineAnimInstance*> AnimInstanceForAnimations;
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<uint32, USpineAnimInstance*> AnimInstanceForAnimations;
     
 public:
     USpineSkeletonAnimationExComponent(const FObjectInitializer& ObjectInitializer);
@@ -34,7 +34,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnAnimationStart(UTrackEntry* entry);
+    void OnAnimationStart(UTrackEntry* Entry);
     
 };
 

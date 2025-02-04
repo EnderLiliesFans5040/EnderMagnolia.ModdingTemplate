@@ -7,4 +7,10 @@ UCollisionComponent::UCollisionComponent(const FObjectInitializer& ObjectInitial
     this->CollisionProfile = ECollisionProfile::NoCollision;
 }
 
+void UCollisionComponent::RefreshHurtboxVisuals() {
+}
+
+void UCollisionComponent::RefreshHitboxVisuals() {
+}
+
 

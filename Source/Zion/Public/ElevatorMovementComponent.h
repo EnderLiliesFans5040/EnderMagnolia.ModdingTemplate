@@ -32,6 +32,9 @@ private:
     FRuntimeFloatCurve MovementCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float DelayBeforeMove;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSweep;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -56,10 +59,10 @@ public:
     bool IsDirectionSetToDestination() const;
     
     UFUNCTION(BlueprintCallable)
-    void GoToOrigin();
+    void GoToOrigin(bool bInstant);
     
     UFUNCTION(BlueprintCallable)
-    void GoToDestination();
+    void GoToDestination(bool bInstant);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetCurrentLocation() const;

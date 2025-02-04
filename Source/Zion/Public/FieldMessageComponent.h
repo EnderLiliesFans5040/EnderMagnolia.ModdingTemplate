@@ -4,6 +4,7 @@
 #include "OnFieldMessageFinishedDelegate.h"
 #include "FieldMessageComponent.generated.h"
 
+class AActor;
 class UFieldMessageAsset;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -29,10 +30,16 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
-    bool LaunchFieldMessage();
+    bool LaunchFieldMessage(AActor* InTargetActor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsProcessingFieldMessage() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFieldMessageAsset* GetFieldMessageAsset() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void Abort();
     
 };
 

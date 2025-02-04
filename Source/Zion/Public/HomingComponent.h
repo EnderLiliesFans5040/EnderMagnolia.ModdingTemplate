@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/MovementComponent.h"
+#include "EHomingPropertyType.h"
 #include "HomingComponent.generated.h"
 
 class AActor;
@@ -15,7 +16,16 @@ private:
     bool bSweep;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EHomingPropertyType InitialSpeedType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InitialSpeed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialSpeedMin;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialSpeedMax;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Acceleration;
@@ -27,7 +37,16 @@ private:
     float MaxSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EHomingPropertyType InitialAngularSpeedType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InitialAngularSpeed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialAngularSpeedMin;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialAngularSpeedMax;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AngularAcceleration;
@@ -66,7 +85,7 @@ public:
     USceneComponent* GetTarget() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool DidReachTarget() const;
+    bool DidReachTarget(const USceneComponent* PinnedTarget) const;
     
 };
 

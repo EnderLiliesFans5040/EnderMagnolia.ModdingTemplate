@@ -4,6 +4,7 @@ UKnockbackComponent::UKnockbackComponent(const FObjectInitializer& ObjectInitial
     this->GlobalStates.AddDefaulted(2);
     this->StatePhase_Launch.AddDefaulted(1);
     this->PostKnockbackStatesDuration = 1.00f;
+    this->UpdateBlockingStates.AddDefaulted(1);
     this->bSetFacing = true;
     this->bIgnoreKnockbackDuringKnockback = false;
     this->ImpulseForceFactor = 1.00f;

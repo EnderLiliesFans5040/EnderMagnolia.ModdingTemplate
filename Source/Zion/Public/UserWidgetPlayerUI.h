@@ -40,9 +40,19 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void RefreshHealVisibility();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    void RefreshCustomMarkers() const;
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRefreshPlayerUIVisibility(bool bVisible);
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPlayerInputUnlocked();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPlayerInputLocked();
     
 private:
     UFUNCTION(BlueprintCallable)

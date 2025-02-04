@@ -16,7 +16,4 @@ bool USpineBoneDriverComponent::IsDriverEnabled() const {
     return false;
 }
 
-void USpineBoneDriverComponent::BeforeUpdateWorldTransform(USpineSkeletonComponent* Skeleton) {
-}
-
 

@@ -6,8 +6,10 @@ UUserWidgetMapIcon::UUserWidgetMapIcon() {
     this->ParentMapArea = NULL;
     this->GenerationType = EMapIconGenerationType::MatchActorLocation;
     this->bUseIconLocationOffset = false;
+    this->bUseIconLocationLocalOffset = false;
     this->bUseIconAngleOffset = false;
     this->IconAngleOffset = 0.00f;
+    this->IconType = EMapIconType::None;
     this->bRequireAptitude = false;
     this->AptitudeRequired = EAptitudeType::None;
     this->bRequireGameplayCondition = false;
@@ -36,8 +38,12 @@ TSubclassOf<UUserWidgetMapIconDetails> UUserWidgetMapIcon::GetWidgetIconDetailsC
     return NULL;
 }
 
-FDataTableRowHandle UUserWidgetMapIcon::GetItemRequired() const {
-    return FDataTableRowHandle{};
+EMapIconType UUserWidgetMapIcon::GetMapIconType() const {
+    return EMapIconType::None;
+}
+
+TArray<FDataTableRowHandle> UUserWidgetMapIcon::GetItemsRequired() const {
+    return TArray<FDataTableRowHandle>();
 }
 
 EAptitudeType UUserWidgetMapIcon::GetAptitudeRequired() const {

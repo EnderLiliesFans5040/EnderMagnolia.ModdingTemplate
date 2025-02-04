@@ -7,5 +7,6 @@ enum class ECommandCategory : uint8 {
     Default,
     Jump,
     Summon,
+    Dodge,
 };
 

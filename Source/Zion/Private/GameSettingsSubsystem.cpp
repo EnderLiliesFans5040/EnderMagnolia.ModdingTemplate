@@ -7,6 +7,9 @@ EConstraintCameraAspectRatio UGameSettingsSubsystem::SetUIAspectRatio(const ECon
     return EConstraintCameraAspectRatio::CameraAR_Off;
 }
 
+void UGameSettingsSubsystem::SetTitleType(EGameEndingType TitleType) {
+}
+
 float UGameSettingsSubsystem::SetStickDeadZone(const EInputStick& InputStick, float NewDeadZone) {
     return 0.0f;
 }
@@ -37,10 +40,6 @@ bool UGameSettingsSubsystem::SetDisplayTutorials(bool bDisplay) {
     return false;
 }
 
-bool UGameSettingsSubsystem::SetDisplaySPAboveGauge(bool bDisplaySPAboveGauge) {
-    return false;
-}
-
 bool UGameSettingsSubsystem::SetDisplayPlayerUI(bool bDisplay) {
     return false;
 }
@@ -58,6 +57,10 @@ bool UGameSettingsSubsystem::SetDisplayEnemyGauges(bool bDisplay) {
 }
 
 bool UGameSettingsSubsystem::SetDisplayDamageValues(bool bDisplayDamageValues) {
+    return false;
+}
+
+bool UGameSettingsSubsystem::SetDisplayAchievementNotifications(bool bDisplay) {
     return false;
 }
 
@@ -82,6 +85,10 @@ bool UGameSettingsSubsystem::SetCameraOscillation(bool bEnable) {
 }
 
 void UGameSettingsSubsystem::SetAutoUploadCrashReport(bool bNewAutoUploadCrashReport) {
+}
+
+bool UGameSettingsSubsystem::SetAutoSkipAlreadySeenEvents(bool bAutoSkip) {
+    return false;
 }
 
 EAutoClimbDirectionMode UGameSettingsSubsystem::SetAutoClimbDirectionMode(EAutoClimbDirectionMode NewMode) {
@@ -110,10 +117,6 @@ bool UGameSettingsSubsystem::ResetDisplayTutorials() {
     return false;
 }
 
-bool UGameSettingsSubsystem::ResetDisplaySPAboveGauge() {
-    return false;
-}
-
 bool UGameSettingsSubsystem::ResetDisplayPlayerUI() {
     return false;
 }
@@ -134,6 +137,10 @@ bool UGameSettingsSubsystem::ResetDisplayDamageValues() {
     return false;
 }
 
+bool UGameSettingsSubsystem::ResetDisplayAchievementNotifications() {
+    return false;
+}
+
 float UGameSettingsSubsystem::ResetControllerVibration() {
     return 0.0f;
 }
@@ -143,6 +150,10 @@ float UGameSettingsSubsystem::ResetCameraShake() {
 }
 
 bool UGameSettingsSubsystem::ResetCameraOscillation() {
+    return false;
+}
+
+bool UGameSettingsSubsystem::ResetAutoSkipAlreadySeenEvents() {
     return false;
 }
 
@@ -162,6 +173,10 @@ bool UGameSettingsSubsystem::IsInitialSettingsDone() const {
 
 EConstraintCameraAspectRatio UGameSettingsSubsystem::GetUIAspectRatio() const {
     return EConstraintCameraAspectRatio::CameraAR_Off;
+}
+
+EGameEndingType UGameSettingsSubsystem::GetTitleType() const {
+    return EGameEndingType::None;
 }
 
 float UGameSettingsSubsystem::GetStickDeadZone(const EInputStick& InputStick) const {
@@ -212,10 +227,6 @@ bool UGameSettingsSubsystem::GetDisplayTutorials() const {
     return false;
 }
 
-bool UGameSettingsSubsystem::GetDisplaySPAboveGauge() const {
-    return false;
-}
-
 bool UGameSettingsSubsystem::GetDisplayPlayerUI() const {
     return false;
 }
@@ -233,6 +244,10 @@ bool UGameSettingsSubsystem::GetDisplayEnemyGauges() const {
 }
 
 bool UGameSettingsSubsystem::GetDisplayDamageValues() const {
+    return false;
+}
+
+bool UGameSettingsSubsystem::GetDisplayAchievementNotifications() const {
     return false;
 }
 
@@ -260,12 +275,24 @@ bool UGameSettingsSubsystem::GetAutoUploadCrashReport() const {
     return false;
 }
 
+bool UGameSettingsSubsystem::GetAutoSkipAlreadySeenEvents() const {
+    return false;
+}
+
 EAutoClimbDirectionMode UGameSettingsSubsystem::GetAutoClimbDirectionMode() const {
     return EAutoClimbDirectionMode::None;
 }
 
 TEnumAsByte<EAntiAliasingMethod> UGameSettingsSubsystem::GetAntiAliasingMethod() const {
     return AAM_None;
+}
+
+bool UGameSettingsSubsystem::DidReachGameEnding(EGameEndingType GameEndingType) const {
+    return false;
+}
+
+bool UGameSettingsSubsystem::DidReachAnyGameEnding() const {
+    return false;
 }
 
 

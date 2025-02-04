@@ -14,9 +14,6 @@ USummonIdleSpiritComponent::USummonIdleSpiritComponent(const FObjectInitializer&
     this->OffsetBetweenSpiritsRange = 50.00f;
 }
 
-void USummonIdleSpiritComponent::OnUnEquipSkill(ESkillSlot SkillSlot) {
-}
-
 void USummonIdleSpiritComponent::OnPostStartCommand(const UCommand* Command) {
 }
 
@@ -26,7 +23,10 @@ void USummonIdleSpiritComponent::OnJustTriggeredInputAction(const UInputAction* 
 void USummonIdleSpiritComponent::OnGameMapChanged() {
 }
 
-void USummonIdleSpiritComponent::OnEquipSkill(ESkillSlot SkillSlot) {
+void USummonIdleSpiritComponent::OnControllerChanged(APawn* Pawn, AController* OldController, AController* NewController) {
+}
+
+void USummonIdleSpiritComponent::FlushCachedSpirits() {
 }
 
 

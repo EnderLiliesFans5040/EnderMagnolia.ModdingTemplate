@@ -6,6 +6,7 @@
 #include "ESpiritAttachType.h"
 #include "ESpiritDetachType.h"
 #include "ESpiritDismissType.h"
+#include "ESpiritLocationValidityOriginMode.h"
 #include "ESpiritSummonLocationType.h"
 #include "ESpiritSummonRotationType.h"
 #include "ESpiritSummonType.h"
@@ -35,6 +36,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCheckLocationValidityWithLinecast;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESpiritLocationValidityOriginMode LocationValidityOrigin;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseTargetHeight;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bSnapToGround;

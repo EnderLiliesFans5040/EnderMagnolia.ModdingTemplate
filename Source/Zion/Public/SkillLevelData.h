@@ -1,10 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
-#include "RichTextInputElement.h"
+#include "InventoryItemUpgradeInfo.h"
 #include "SkillData.h"
 #include "SkillMaterialData.h"
-#include "SkillUpgradeInfo.h"
 #include "SkillLevelData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -21,22 +20,10 @@ public:
     TArray<FSkillMaterialData> UnlockMaterials;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FText UnlockText;
+    TArray<FInventoryItemUpgradeInfo> UnlockInfos;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FRichTextInputElement> UnlockTextFormatElements;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FText UnlockSpecialText;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FRichTextInputElement> UnlockSpecialTextFormatElements;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FSkillUpgradeInfo> UnlockInfoList;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FSkillUpgradeInfo> UnlockSpecialInfoList;
+    TArray<FInventoryItemUpgradeInfo> UnlockSpecialInfos;
     
     ZION_API FSkillLevelData();
 };

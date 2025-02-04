@@ -11,7 +11,6 @@
 class AActor;
 class AEventCamera;
 class APlayerController;
-class UEventAction;
 class UEventAsset;
 class UEventContext;
 class UEventNode;
@@ -46,9 +45,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<AActor*> ActorsToDestroyOnFinish;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UEventAction*> RunningActions;
     
 public:
     UEventPlayer();

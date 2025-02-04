@@ -10,7 +10,7 @@ class USceneComponent;
 class UStaticMeshComponent;
 
 UCLASS(Abstract, Blueprintable)
-class AOneWayPlatform : public AActor {
+class ZION_API AOneWayPlatform : public AActor {
     GENERATED_BODY()
 public:
 protected:
@@ -33,15 +33,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsFallThrough;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCheckCharacterBelowPlatform;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<AActor*> InsideUnderBoxActors;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<AActor*> FallThroughIgnoredActors;
+    
 public:
     AOneWayPlatform(const FObjectInitializer& ObjectInitializer);
 
-    UFUNCTION(BlueprintCallable)
-    void UnmarkAsIgnoreForActor(AActor* Actor);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetIsIgnoredForFallThrough(bool IsIgnoredForFallThrough);
-    
 private:
     UFUNCTION(BlueprintCallable)
     void OnComponentOverlapEnd(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
@@ -50,9 +53,6 @@ private:
     void OnComponentOverlapBegin(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 public:
-    UFUNCTION(BlueprintCallable)
-    void MarkAsIgnoreForActor(AActor* Actor, bool IsIgnoredForFallThrough);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFallThrough() const;
     

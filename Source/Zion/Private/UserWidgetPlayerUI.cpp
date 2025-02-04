@@ -19,6 +19,11 @@ void UUserWidgetPlayerUI::RefreshMinimap() const {
 void UUserWidgetPlayerUI::RefreshHealVisibility_Implementation() {
 }
 
+void UUserWidgetPlayerUI::RefreshCustomMarkers() const {
+}
+
+
+
 
 void UUserWidgetPlayerUI::OnDisplayPlayerUIChanged() {
 }

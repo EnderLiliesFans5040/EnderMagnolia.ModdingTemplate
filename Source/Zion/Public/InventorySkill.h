@@ -21,7 +21,7 @@ public:
     bool IsMaxSkillLevel(const FName& SkillID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetSkillLevel(const FName& SkillID) const;
+    int32 GetSkillLevel(const FName& SkillID, bool bFallbackInitialLevel) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetMinSkillLevel();

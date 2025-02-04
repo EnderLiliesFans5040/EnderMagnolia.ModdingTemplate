@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FNameSet> ClearablesPerZones;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FName, FNameSet> ClearablesForRevealPerZones;
+    
     ZION_API FMapAreaZoneData();
 };
 

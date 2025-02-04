@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
-#include "RecollectionItemConditionData.h"
+#include "ItemConditionData.h"
 #include "RecollectionItemData.generated.h"
 
 class UPaperSprite;
@@ -17,7 +17,7 @@ public:
     TSoftObjectPtr<UPaperSprite> ThumbnailIcon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FRecollectionItemConditionData Conditions;
+    FItemConditionData Conditions;
     
     ZION_API FRecollectionItemData();
 };

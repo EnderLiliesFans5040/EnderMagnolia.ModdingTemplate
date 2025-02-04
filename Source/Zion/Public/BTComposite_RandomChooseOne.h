@@ -9,5 +9,7 @@ class UBTComposite_RandomChooseOne : public UBTCompositeNode {
 public:
     UBTComposite_RandomChooseOne();
 
+    void InitializeMemory(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, EBTMemoryInit::Type InitType) const override;
+    void CleanupMemory(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, EBTMemoryClear::Type CleanupType) const override;
 };
 

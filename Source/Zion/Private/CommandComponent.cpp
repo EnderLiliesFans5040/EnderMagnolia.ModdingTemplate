@@ -15,6 +15,10 @@ void UCommandComponent::ResetFallingExecutionCounts() {
 void UCommandComponent::OnMovementModeChanged(ACharacter* Character, TEnumAsByte<EMovementMode> PrevMovementMode, uint8 PreviousCustomMode) {
 }
 
+bool UCommandComponent::HasCommand() const {
+    return false;
+}
+
 float UCommandComponent::GetCooldownRatioForCommandSet(const UCommandSet* CommandSet) const {
     return 0.0f;
 }

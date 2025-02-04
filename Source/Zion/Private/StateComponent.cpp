@@ -13,6 +13,10 @@ void UStateComponent::RemoveState(const TSubclassOf<UState> State) {
 void UStateComponent::RemoveAllStates() {
 }
 
+bool UStateComponent::IsStunned() const {
+    return false;
+}
+
 bool UStateComponent::IsMovementLocked() const {
     return false;
 }
@@ -21,11 +25,23 @@ bool UStateComponent::IsInputActionLocked(const UInputAction* InputAction) const
     return false;
 }
 
+bool UStateComponent::IsInFreezeCritical() const {
+    return false;
+}
+
+bool UStateComponent::IsFreeCommandLayerLocked() const {
+    return false;
+}
+
 bool UStateComponent::IsFacingLocked() const {
     return false;
 }
 
-bool UStateComponent::HasState(const TSubclassOf<UState> State) const {
+bool UStateComponent::IsDebuffed() const {
+    return false;
+}
+
+bool UStateComponent::HasState(const TSubclassOf<UState>& State) const {
     return false;
 }
 

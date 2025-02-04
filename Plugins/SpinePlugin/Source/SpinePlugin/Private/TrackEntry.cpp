@@ -36,13 +36,13 @@ void UTrackEntry::SetDelay(float Delay) {
 void UTrackEntry::SetAttachmentThreshold(float attachmentThreshold) {
 }
 
-void UTrackEntry::SetAnimationStart(float NewAnimationStart) {
+void UTrackEntry::SetAnimationStart(float animationStart) {
 }
 
 void UTrackEntry::SetAnimationLast(float animationLast) {
 }
 
-void UTrackEntry::SetAnimationEnd(float NewAnimationEnd) {
+void UTrackEntry::SetAnimationEnd(float animationEnd) {
 }
 
 void UTrackEntry::SetAlpha(float Alpha) {

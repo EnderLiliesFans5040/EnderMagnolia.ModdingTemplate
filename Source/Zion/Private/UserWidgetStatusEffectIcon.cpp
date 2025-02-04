@@ -7,6 +7,9 @@ UUserWidgetStatusEffectIcon::UUserWidgetStatusEffectIcon() {
 void UUserWidgetStatusEffectIcon::UpdateRemainingDuration() {
 }
 
+void UUserWidgetStatusEffectIcon::OnStatusEffectFinished() {
+}
+
 TSoftObjectPtr<UPaperSprite> UUserWidgetStatusEffectIcon::GetStatusEffectIconSpriteFromType(const EStatusEffectType& StatusEffectType) const {
     return NULL;
 }

@@ -4,6 +4,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "EAutoClimbDirectionMode.h"
 #include "EConstraintCameraAspectRatio.h"
+#include "EGameEndingType.h"
 #include "EGameSettingsType.h"
 #include "EInputStick.h"
 #include "GameSettingsDelegateDelegate.h"
@@ -29,6 +30,9 @@ public:
     FGameSettingsDelegate OnDisplayEnemyGaugesChanged;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameSettingsDelegate OnDisplayAchievementNotificationsChanged;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameSettingsDelegate OnConstraintHUDAspectRatioChanged;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -38,6 +42,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     EConstraintCameraAspectRatio SetUIAspectRatio(const EConstraintCameraAspectRatio& NewUIAspectRatio);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetTitleType(EGameEndingType TitleType);
     
     UFUNCTION(BlueprintCallable)
     float SetStickDeadZone(const EInputStick& InputStick, float NewDeadZone);
@@ -64,9 +71,6 @@ public:
     bool SetDisplayTutorials(bool bDisplay);
     
     UFUNCTION(BlueprintCallable)
-    bool SetDisplaySPAboveGauge(bool bDisplaySPAboveGauge);
-    
-    UFUNCTION(BlueprintCallable)
     bool SetDisplayPlayerUI(bool bDisplay);
     
     UFUNCTION(BlueprintCallable)
@@ -80,6 +84,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool SetDisplayDamageValues(bool bDisplayDamageValues);
+    
+    UFUNCTION(BlueprintCallable)
+    bool SetDisplayAchievementNotifications(bool bDisplay);
     
     UFUNCTION(BlueprintCallable)
     float SetControllerVibration(float NewControllerVibration);
@@ -98,6 +105,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetAutoUploadCrashReport(bool bNewAutoUploadCrashReport);
+    
+    UFUNCTION(BlueprintCallable)
+    bool SetAutoSkipAlreadySeenEvents(bool bAutoSkip);
     
     UFUNCTION(BlueprintCallable)
     EAutoClimbDirectionMode SetAutoClimbDirectionMode(EAutoClimbDirectionMode NewMode);
@@ -121,9 +131,6 @@ public:
     bool ResetDisplayTutorials();
     
     UFUNCTION(BlueprintCallable)
-    bool ResetDisplaySPAboveGauge();
-    
-    UFUNCTION(BlueprintCallable)
     bool ResetDisplayPlayerUI();
     
     UFUNCTION(BlueprintCallable)
@@ -139,6 +146,9 @@ public:
     bool ResetDisplayDamageValues();
     
     UFUNCTION(BlueprintCallable)
+    bool ResetDisplayAchievementNotifications();
+    
+    UFUNCTION(BlueprintCallable)
     float ResetControllerVibration();
     
     UFUNCTION(BlueprintCallable)
@@ -146,6 +156,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool ResetCameraOscillation();
+    
+    UFUNCTION(BlueprintCallable)
+    bool ResetAutoSkipAlreadySeenEvents();
     
     UFUNCTION(BlueprintCallable)
     EAutoClimbDirectionMode ResetAutoClimbDirectionMode();
@@ -161,6 +174,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EConstraintCameraAspectRatio GetUIAspectRatio() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EGameEndingType GetTitleType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetStickDeadZone(const EInputStick& InputStick) const;
@@ -199,9 +215,6 @@ public:
     bool GetDisplayTutorials() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetDisplaySPAboveGauge() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetDisplayPlayerUI() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -215,6 +228,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetDisplayDamageValues() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetDisplayAchievementNotifications() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetControllerVibration() const;
@@ -235,10 +251,19 @@ public:
     bool GetAutoUploadCrashReport() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetAutoSkipAlreadySeenEvents() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EAutoClimbDirectionMode GetAutoClimbDirectionMode() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TEnumAsByte<EAntiAliasingMethod> GetAntiAliasingMethod() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool DidReachGameEnding(EGameEndingType GameEndingType) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool DidReachAnyGameEnding() const;
     
 };
 

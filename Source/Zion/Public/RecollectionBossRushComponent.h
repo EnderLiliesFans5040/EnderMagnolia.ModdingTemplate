@@ -1,68 +1,94 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include "Engine/DataTable.h"
+#include "EDifficultyPreset.h"
+#include "RecollectionBossBaseComponent.h"
 #include "RecollectionBossRushRecordData.h"
 #include "RecollectionBossRushComponent.generated.h"
 
+class AEnemySpawner;
+
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class URecollectionBossRushComponent : public UActorComponent {
+class URecollectionBossRushComponent : public URecollectionBossBaseComponent {
     GENERATED_BODY()
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CurrentBossRushIndex;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PreNextBossDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PreClearProcessDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FDataTableRowHandle> BossList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FDataTableRowHandle BossDeathRecoveryDrop;
+    
 public:
     URecollectionBossRushComponent(const FObjectInitializer& ObjectInitializer);
 
-protected:
-    UFUNCTION(BlueprintCallable)
-    void UnbindEvents();
-    
-public:
     UFUNCTION(BlueprintCallable)
     int32 TryAddNewRecord(const FRecollectionBossRushRecordData& NewRecordData);
-    
-    UFUNCTION(BlueprintCallable)
-    void StartBossRush();
     
     UFUNCTION(BlueprintCallable)
     bool SetTimerPaused(bool bIsPaused);
     
     UFUNCTION(BlueprintCallable)
-    void ResetRecords();
+    bool SetIsNewGamePlusDifficulty(bool bEnabled);
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetCurrentRecords();
+    
+    UFUNCTION(BlueprintCallable)
+    EDifficultyPreset PreviousBossRushDifficultyPreset();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStartBossRush();
     
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnMapSwitch();
+    void OnSetTimerPaused(bool bIsPaused);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnGameMapChanged();
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEndBossRush();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnClearBossRush();
     
+    UFUNCTION(BlueprintCallable)
+    EDifficultyPreset NextBossRushDifficultyPreset();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTimerPaused() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsBossRushActive() const;
+    bool IsNewGamePlusDifficulty() const;
     
-protected:
     UFUNCTION(BlueprintCallable)
     void GoToNextBoss();
     
-public:
+    UFUNCTION(BlueprintCallable)
+    FRecollectionBossRushRecordData GetRecordData(const int32 RecordIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    int32 GetMaxBossesDefeatedCount();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FRecollectionBossRushRecordData GetRecordData(const int32 RecordIndex) const;
+    int32 GetCurrentBossIndex() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBossRushTime() const;
     
-    UFUNCTION(BlueprintCallable)
-    void EndBossRush();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EDifficultyPreset GetBossRushDifficultyPreset() const;
     
     UFUNCTION(BlueprintCallable)
     void ClearBossRush();
@@ -72,7 +98,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void BindEvents();
+    void BossActivation(AEnemySpawner* EnemySpawner);
     
 };
 

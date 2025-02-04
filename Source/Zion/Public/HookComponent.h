@@ -12,6 +12,7 @@ class AActor;
 class AHookPoint;
 class UPrimitiveComponent;
 class USphereComponent;
+class UState;
 class UUserWidgetWorldSpace;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -43,6 +44,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HookPointBelowActorDistanceWeightMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<TSubclassOf<UState>> InvalidStates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FMovementModeData> ValidMovementModes;

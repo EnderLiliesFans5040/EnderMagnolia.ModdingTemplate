@@ -12,6 +12,8 @@ class UGameInstanceZion;
 class UInputMappingContext;
 class UObject;
 class USentrySettings;
+class UUserWidgetAchievementNotificationHolder;
+class UUserWidgetZionShowHide;
 class UWorld;
 
 UCLASS(Blueprintable, NonTransient)
@@ -38,7 +40,16 @@ private:
     TArray<UFMODBank*> VoiceBanks;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UWorld> PersistantGameWorld;
+    TSoftObjectPtr<UWorld> PersistentGameWorld;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UUserWidgetZionShowHide> WorldLoadingIconWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UUserWidgetZionShowHide> SaveIconWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UUserWidgetAchievementNotificationHolder> AchievementNotificationWidgetClass;
     
 public:
     UGameInstanceZion();

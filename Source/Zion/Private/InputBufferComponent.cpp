@@ -1,7 +1,7 @@
 #include "InputBufferComponent.h"
 
 UInputBufferComponent::UInputBufferComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->MaxBufferTime = 0.50f;
+    this->MaxBufferTime = 0.25f;
 }
 
 int32 UInputBufferComponent::GetInputSnapshotCount() const {

@@ -7,6 +7,7 @@ enum class EHitBoxTargetType : uint8 {
     Opponents,
     Allies = 10,
     All = 20,
+    None = 25,
     Custom = 30,
 };
 

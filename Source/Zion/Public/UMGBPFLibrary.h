@@ -6,6 +6,7 @@
 #include "Input/Events.h"
 #include "Input/Events.h"
 #include "EActionInputType.h"
+#include "EInventoryItemType.h"
 #include "EUIInputType.h"
 #include "EUMGLayer.h"
 #include "UMGBPFLibrary.generated.h"
@@ -21,8 +22,20 @@ class UUMGBPFLibrary : public UBlueprintFunctionLibrary {
 public:
     UUMGBPFLibrary();
 
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool ShouldDisplayRecollectionBossRush(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool ShouldDisplayExtraUnavailableCharacters(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool ShouldDisplayCompletionWidget();
+    
     UFUNCTION(BlueprintCallable)
     static void SetBrushFromSprite(UImage* Target, UPaperSprite* Sprite, bool bMatchSize);
+    
+    UFUNCTION(BlueprintCallable)
+    static void SetBrushFromSoftSpriteAsync(UImage* Target, TSoftObjectPtr<UPaperSprite> SoftSprite, bool bMatchSize);
     
     UFUNCTION(BlueprintCallable)
     static void SetBrushFromSoftSprite(UImage* Target, TSoftObjectPtr<UPaperSprite> SoftSprite, bool bMatchSize);
@@ -59,6 +72,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static EFocusCause GetFocusCause(FFocusEvent FocusEvent);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static int32 GetCompletionPercentageForItemType(const UObject* WorldContextObject, const EInventoryItemType& ItemType);
     
     UFUNCTION(BlueprintCallable)
     static void AddToViewportAtLayer(UUserWidget* Widget, EUMGLayer UMGLayer);

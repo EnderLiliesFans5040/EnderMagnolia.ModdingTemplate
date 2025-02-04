@@ -1,15 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "GameFramework/Character.h"
 #include "EventActorInterface.h"
 #include "EventActorTalkInterface.h"
 #include "SpineAnimationDefinition.h"
+#include "TalkLocationData.h"
 #include "VisualPivotProviderInterface.h"
 #include "CharacterZionNPC.generated.h"
 
 class UCollisionComponent;
 class UDebugDisplayComponent;
+class UFactionComponent;
 class ULocomotionComponent;
 class URenderLayerComponent;
 class USceneComponent;
@@ -34,6 +35,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCollisionComponent* CollisionComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UFactionComponent* FactionComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     URenderLayerComponent* RenderLayerComponent;
@@ -78,7 +82,7 @@ private:
     TArray<FSpineAnimationDefinition> IdleOverrideAnimations;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector TalkLocationOffset;
+    FTalkLocationData TalkLocationData;
     
 public:
     ACharacterZionNPC(const FObjectInitializer& ObjectInitializer);

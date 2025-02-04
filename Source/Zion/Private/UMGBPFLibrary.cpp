@@ -3,7 +3,22 @@
 UUMGBPFLibrary::UUMGBPFLibrary() {
 }
 
+bool UUMGBPFLibrary::ShouldDisplayRecollectionBossRush(const UObject* WorldContextObject) {
+    return false;
+}
+
+bool UUMGBPFLibrary::ShouldDisplayExtraUnavailableCharacters(const UObject* WorldContextObject) {
+    return false;
+}
+
+bool UUMGBPFLibrary::ShouldDisplayCompletionWidget() {
+    return false;
+}
+
 void UUMGBPFLibrary::SetBrushFromSprite(UImage* Target, UPaperSprite* Sprite, bool bMatchSize) {
+}
+
+void UUMGBPFLibrary::SetBrushFromSoftSpriteAsync(UImage* Target, TSoftObjectPtr<UPaperSprite> SoftSprite, bool bMatchSize) {
 }
 
 void UUMGBPFLibrary::SetBrushFromSoftSprite(UImage* Target, TSoftObjectPtr<UPaperSprite> SoftSprite, bool bMatchSize) {
@@ -49,6 +64,10 @@ int32 UUMGBPFLibrary::GetUMGZOrder(EUMGLayer UMGLayer) {
 
 EFocusCause UUMGBPFLibrary::GetFocusCause(FFocusEvent FocusEvent) {
     return EFocusCause::Mouse;
+}
+
+int32 UUMGBPFLibrary::GetCompletionPercentageForItemType(const UObject* WorldContextObject, const EInventoryItemType& ItemType) {
+    return 0;
 }
 
 void UUMGBPFLibrary::AddToViewportAtLayer(UUserWidget* Widget, EUMGLayer UMGLayer) {

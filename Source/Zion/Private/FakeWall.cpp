@@ -4,6 +4,8 @@
 
 AFakeWall::AFakeWall(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+    this->bAutoManageLinkedVisibilityActors = true;
+    this->bRequireLinkedVisibilityActorsOnSameLevel = true;
     this->RootSceneComponent = (USceneComponent*)RootComponent;
     this->ClearComponent = CreateDefaultSubobject<UClearComponent>(TEXT("Clear"));
 }

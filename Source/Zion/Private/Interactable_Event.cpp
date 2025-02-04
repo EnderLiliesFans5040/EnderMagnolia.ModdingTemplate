@@ -3,6 +3,9 @@
 
 AInteractable_Event::AInteractable_Event(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ClearComponent = CreateDefaultSubobject<UClearComponent>(TEXT("Clear"));
+    this->bAutoMarkAsClear = true;
+    this->bMarkAsClearOnSpecificEvent = false;
+    this->bDisableWhenCleared = true;
     this->PostEventStates.AddDefaulted(1);
     this->PostEventStatesDuration = 0.25f;
     this->LoadedEventAsset = NULL;

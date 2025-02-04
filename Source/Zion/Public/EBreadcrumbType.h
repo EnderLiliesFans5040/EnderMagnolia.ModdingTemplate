@@ -8,5 +8,6 @@ enum class EBreadcrumbType : uint8 {
     World,
     Event,
     Zone,
+    Save,
 };
 

@@ -2,14 +2,10 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Styling/SlateBrush.h"
 #include "Components/Widget.h"
-#include "SpineAnimationCompleteDelegateDelegate.h"
-#include "SpineAnimationDisposeDelegateDelegate.h"
-#include "SpineAnimationEndDelegateDelegate.h"
-#include "SpineAnimationEventDelegateDelegate.h"
-#include "SpineAnimationInterruptDelegateDelegate.h"
-#include "SpineAnimationStartDelegateDelegate.h"
+#include "ESpineWidgetRenderMode.h"
 #include "SpineWidgetAfterUpdateWorldTransformDelegateDelegate.h"
 #include "SpineWidgetBeforeUpdateWorldTransformDelegateDelegate.h"
 #include "SpineWidget.generated.h"
@@ -18,6 +14,7 @@ class UMaterialInstanceDynamic;
 class UMaterialInterface;
 class USpineAtlasAsset;
 class USpineSkeletonDataAsset;
+class UTexture2D;
 class UTrackEntry;
 
 UCLASS(Blueprintable)
@@ -57,29 +54,14 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSlateBrush Brush;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESpineWidgetRenderMode RenderMode;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineWidgetBeforeUpdateWorldTransformDelegate BeforeUpdateWorldTransform;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineWidgetAfterUpdateWorldTransformDelegate AfterUpdateWorldTransform;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationStartDelegate animationStart;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationInterruptDelegate AnimationInterrupt;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationEventDelegate AnimationEvent;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationCompleteDelegate AnimationComplete;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationEndDelegate animationEnd;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationDisposeDelegate AnimationDispose;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -100,6 +82,9 @@ protected:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoPlaying;
+    
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<TWeakObjectPtr<UTexture2D>, bool> FullyLoadTextureFlags;
     
 public:
     USpineWidget();
@@ -150,6 +135,9 @@ public:
     UTrackEntry* SetAnimation(int32 TrackIndex, const FString& AnimationName, bool Loop);
     
     UFUNCTION(BlueprintCallable)
+    void RevertFullyLoadAtlasTextures();
+    
+    UFUNCTION(BlueprintCallable)
     void ReplaceSpineData(USpineAtlasAsset* NewAtlas, USpineSkeletonDataAsset* NewSkeletonData);
     
     UFUNCTION(BlueprintCallable)
@@ -182,6 +170,12 @@ public:
     UFUNCTION(BlueprintCallable)
     UTrackEntry* GetCurrent(int32 TrackIndex);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FVector GetBoundsSize();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FVector GetBoundsMin();
+    
     UFUNCTION(BlueprintCallable)
     FTransform GetBoneTransform(const FString& BoneName);
     
@@ -193,6 +187,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     float getAnimationDuration(const FString& AnimationName);
+    
+    UFUNCTION(BlueprintCallable)
+    void ForceFullyLoadAtlasTextures();
     
     UFUNCTION(BlueprintCallable)
     void ClearTracks();

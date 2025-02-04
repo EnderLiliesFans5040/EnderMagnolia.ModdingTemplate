@@ -32,11 +32,11 @@ AStaticVolume_CameraModifier::AStaticVolume_CameraModifier(const FObjectInitiali
     this->CameraOverrideModule_FOV = NULL;
     this->CameraOverrideModule_ZoomOffset = NULL;
     this->ActivationBoxComponent->SetupAttachment(RootComponent);
-    this->ClampComponent->SetupAttachment(RootComponent);
-    this->Blocker_Up->SetupAttachment(ClampComponent);
     this->Blocker_Down->SetupAttachment(ClampComponent);
     this->Blocker_Left->SetupAttachment(ClampComponent);
     this->Blocker_Right->SetupAttachment(ClampComponent);
+    this->Blocker_Up->SetupAttachment(ClampComponent);
+    this->ClampComponent->SetupAttachment(RootComponent);
 }
 
 void AStaticVolume_CameraModifier::OnActivationEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {

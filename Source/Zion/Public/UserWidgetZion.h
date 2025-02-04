@@ -3,6 +3,7 @@
 #include "Input/Events.h"
 #include "Input/Events.h"
 #include "Components/SlateWrapperTypes.h"
+#include "EBuildPlatformType.h"
 #include "FooterData.h"
 #include "RichTextInputElement.h"
 #include "UserWidgetZionBase.h"
@@ -47,6 +48,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText ExplanationText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EBuildPlatformType, FText> ExplanationTextPerPlatforms;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FRichTextInputElement> ExplanationInputElements;
@@ -110,6 +114,18 @@ protected:
     FEventReply OnDownRight(const FKeyEvent& KeyEvent);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    FEventReply OnDownPreviousAlt(const FKeyEvent& KeyEvent);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    FEventReply OnDownPrevious(const FKeyEvent& KeyEvent);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    FEventReply OnDownNextAlt(const FKeyEvent& KeyEvent);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    FEventReply OnDownNext(const FKeyEvent& KeyEvent);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     FEventReply OnDownLeft(const FKeyEvent& KeyEvent);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -120,6 +136,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFocusedFromMouse() const;
+    
+    UFUNCTION(BlueprintCallable)
+    void ChangeExplanationText(const FText& InExplanationText);
     
 };
 

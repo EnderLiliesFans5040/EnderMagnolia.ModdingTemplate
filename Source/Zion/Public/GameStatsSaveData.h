@@ -7,7 +7,10 @@ struct FGameStatsSaveData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float PlayTime;
+    int32 PlayTime;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    double PlayTimeDecimal;
     
     ZION_API FGameStatsSaveData();
 };

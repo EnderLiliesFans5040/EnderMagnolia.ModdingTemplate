@@ -7,6 +7,9 @@ UNiagaraComponent* USpineBPFLibrary::SpawnFXData(const FSpineFXData& FXData, con
     return NULL;
 }
 
+void USpineBPFLibrary::MarkFXAsGenerated(UNiagaraComponent* FXComponent) {
+}
+
 TArray<FString> USpineBPFLibrary::GenerateSkinList(USpineSkeletonDataAsset* SkeletonDataAsset, USpineAtlasAsset* AtlasAsset) {
     return TArray<FString>();
 }

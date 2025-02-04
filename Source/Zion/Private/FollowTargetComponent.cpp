@@ -21,7 +21,7 @@ void UFollowTargetComponent::SetFollowTarget(USceneComponent* NewFollowTarget, b
 void UFollowTargetComponent::OnGameMapChanged() {
 }
 
-FVector UFollowTargetComponent::GetTargetLocation() const {
+FVector UFollowTargetComponent::GetTargetLocation(const USceneComponent* PinnedTarget) const {
     return FVector{};
 }
 

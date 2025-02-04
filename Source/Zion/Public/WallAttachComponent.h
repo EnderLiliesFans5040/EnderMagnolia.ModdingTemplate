@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/EngineTypes.h"
-#include "EFacingType.h"
 #include "WallAttachComponent.generated.h"
 
 class ACharacter;
@@ -23,9 +22,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WallLinecastRange;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    EFacingType DefaultFacing;
     
 public:
     UWallAttachComponent(const FObjectInitializer& ObjectInitializer);

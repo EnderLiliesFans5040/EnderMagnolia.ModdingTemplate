@@ -2,5 +2,7 @@
 #include "CoreMinimal.h"
 #include "ImageZionEventDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FImageZionEvent);
+class UObject;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FImageZionEvent, TSoftObjectPtr<UObject>, SoftImageObject);
 

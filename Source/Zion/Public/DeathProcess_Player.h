@@ -5,6 +5,7 @@
 #include "FadeDescriptionData.h"
 #include "SpineAnimationDefinition.h"
 #include "Templates/SubclassOf.h"
+#include "TimedDilationData.h"
 #include "DeathProcess_Player.generated.h"
 
 class UMaterialParameterCollection;
@@ -26,6 +27,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<UState>> AdditionalDeathStates;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseTimeDilation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FTimedDilationData TimeDilation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DelayBeforeFadeOut;

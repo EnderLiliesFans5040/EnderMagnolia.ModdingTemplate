@@ -8,6 +8,7 @@ enum class EUMGLayer : uint8 {
     Event,
     Menu,
     MenuOverlay,
+    Notification,
     Movie,
     Fade,
     Dialog,

@@ -17,5 +17,6 @@ enum class ERenderLayerTypes : uint8 {
     AbovePlayerBelowSpiritFront = 70,
     SpiritFront = 80,
     AbovePlayer = 90,
+    None = 255,
 };
 

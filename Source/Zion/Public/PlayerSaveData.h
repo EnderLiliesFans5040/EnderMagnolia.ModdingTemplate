@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ClearActorData.h"
+#include "CustomMarkerSaveData.h"
 #include "EWidgetMinimapDisplayMode.h"
 #include "FogOfWarSaveData.h"
 #include "MapTransitionSpawnPointData.h"
@@ -49,6 +50,9 @@ public:
     TSet<FName> ClearedEvents;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<FName> PreviousRunsClearedEvents;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSet<FClearActorData> VisitedZones;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -70,10 +74,16 @@ public:
     TSet<FName> CheckedRecollectionItems;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<FName> KilledEnemies;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FFogOfWarSaveData FogOfWarData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EWidgetMinimapDisplayMode MinimapDisplayMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FCustomMarkerSaveData CustomMarkerData;
     
     ZION_API FPlayerSaveData();
 };

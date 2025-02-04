@@ -7,6 +7,8 @@ enum class ECommandPriorityType : uint8 {
     Dummy = 0,
     Override = 10,
     Aptitudes = 15,
+    OverrideParryActions,
+    OverrideDodgeActions,
     DodgeActions = 20,
     SpecialSkills = 45,
     Skills = 50,

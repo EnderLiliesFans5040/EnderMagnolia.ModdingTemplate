@@ -1,9 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/HitResult.h"
 #include "SpineFXData.h"
 #include "Command.h"
 #include "EInputDirection.h"
+#include "SoundData.h"
 #include "SpineAnimationDefinition.h"
 #include "Command_Hook.generated.h"
 
@@ -65,6 +67,15 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HookBlendTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoundData ShootSoundEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoundData AttachSoundEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoundData LaunchSoundEvent;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UNiagaraComponent* HookFXInstance;
     
@@ -72,6 +83,9 @@ public:
     UCommand_Hook();
 
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnMovementUpdated(float DeltaSeconds, FVector OldLocation, FVector OldVelocity);
+    
     UFUNCTION(BlueprintCallable)
     void OnMoveBlocked(const FHitResult& HitResult);
     

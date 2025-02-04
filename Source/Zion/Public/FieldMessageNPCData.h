@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameplayConditionChecker.h"
+#include "NPCAIData.h"
 #include "SpineAnimationDefinition.h"
 #include "FieldMessageNPCData.generated.h"
 
@@ -30,6 +31,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> IdleAnimations;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseAI;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FNPCAIData AIData;
     
     ZION_API FFieldMessageNPCData();
 };

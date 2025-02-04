@@ -8,5 +8,7 @@ enum class EMoveToTalkDistanceMovementType : uint8 {
     Closer,
     Left,
     Right,
+    FrontOfTarget,
+    BackOfTarget,
 };
 

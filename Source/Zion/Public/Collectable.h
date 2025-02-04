@@ -34,6 +34,9 @@ protected:
     float TargetDetectionRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MinTimeBeforeTargetReachActivation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UFMODEvent* OnCollectFMODEvent;
     
 private:

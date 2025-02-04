@@ -13,6 +13,7 @@ enum class EInventoryItemType : uint8 {
     Passive,
     Tip,
     Key,
+    Quest,
     Material,
     Equipment,
     Assist,
@@ -20,5 +21,6 @@ enum class EInventoryItemType : uint8 {
     Costume,
     EnemyInfo,
     NPCInfo,
+    Gallery,
 };
 

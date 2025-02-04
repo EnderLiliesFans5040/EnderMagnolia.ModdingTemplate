@@ -14,6 +14,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineFXData FXData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName BlackboardID;
+    
 public:
     UEventAction_PlayFX();
 

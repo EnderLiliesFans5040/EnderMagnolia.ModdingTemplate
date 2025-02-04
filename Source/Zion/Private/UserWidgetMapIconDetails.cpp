@@ -12,13 +12,13 @@ bool UUserWidgetMapIconDetails::SetIsRestPointListOpened(bool bIsOpened) {
     return false;
 }
 
-void UUserWidgetMapIconDetails::RemoveIconDetails() {
+void UUserWidgetMapIconDetails::RemoveIconDetails(bool bInstant) {
 }
 
 void UUserWidgetMapIconDetails::OnShowIconDetails_Implementation() {
 }
 
-void UUserWidgetMapIconDetails::OnRemoveIconDetails_Implementation() {
+void UUserWidgetMapIconDetails::OnRemoveIconDetails_Implementation(bool bInstant) {
 }
 
 

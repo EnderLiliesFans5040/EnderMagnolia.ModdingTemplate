@@ -16,6 +16,11 @@ void UUserWidgetEvent::OnRequestRemoveFromParent_Implementation() {
 }
 
 
+
+bool UUserWidgetEvent::IsEventAlreadySeen() const {
+    return false;
+}
+
 UEventPlayer* UUserWidgetEvent::GetEventPlayer() const {
     return NULL;
 }
@@ -27,6 +32,10 @@ void UUserWidgetEvent::CompleteChoices(int32 SelectedChoiceIndex) {
 }
 
 bool UUserWidgetEvent::CanSkipEvent() const {
+    return false;
+}
+
+bool UUserWidgetEvent::CanAutoSkipEvent() const {
     return false;
 }
 

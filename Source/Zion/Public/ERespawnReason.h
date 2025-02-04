@@ -8,5 +8,8 @@ enum class ERespawnReason : uint8 {
     Default,
     Death,
     FastTravel,
+    BackToRestpoint,
+    ExitBossRush,
+    ExitBossRecollection,
 };
 

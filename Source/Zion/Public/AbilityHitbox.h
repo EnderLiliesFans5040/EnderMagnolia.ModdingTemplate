@@ -4,6 +4,7 @@
 #include "Ability.h"
 #include "AbilityData.h"
 #include "ECollisionProfile.h"
+#include "EFaction.h"
 #include "EHitBoxTargetType.h"
 #include "Templates/SubclassOf.h"
 #include "AbilityHitbox.generated.h"
@@ -27,6 +28,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<ECollisionProfile> CustomTargetCollisionProfiles;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EFaction> CustomTargetFactions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bTriggerOnReEntry;

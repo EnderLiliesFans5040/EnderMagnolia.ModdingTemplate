@@ -6,11 +6,39 @@ USystemBPFLibrary::USystemBPFLibrary() {
 void USystemBPFLibrary::UpdateUITexturesForCurrentResolution() {
 }
 
+bool USystemBPFLibrary::IsXboxFamilyBuild() {
+    return false;
+}
+
+bool USystemBPFLibrary::IsUsing4KResolution() {
+    return false;
+}
+
+bool USystemBPFLibrary::IsSwitchBuild() {
+    return false;
+}
+
 bool USystemBPFLibrary::IsShippingBuild() {
     return false;
 }
 
+bool USystemBPFLibrary::IsPlaystationBuild() {
+    return false;
+}
+
+bool USystemBPFLibrary::IsPlaystation5Build() {
+    return false;
+}
+
+bool USystemBPFLibrary::IsPlaystation4Build() {
+    return false;
+}
+
 bool USystemBPFLibrary::IsPCBuild() {
+    return false;
+}
+
+bool USystemBPFLibrary::IsNewGamePlusEnabled() {
     return false;
 }
 
@@ -22,7 +50,15 @@ bool USystemBPFLibrary::IsEarlyAccessBuild() {
     return false;
 }
 
+bool USystemBPFLibrary::IsDemoBuild() {
+    return false;
+}
+
 bool USystemBPFLibrary::IsCrashReportAllowedBuild() {
+    return false;
+}
+
+bool USystemBPFLibrary::IsBossRecollectionEnabled() {
     return false;
 }
 
@@ -52,6 +88,10 @@ FString USystemBPFLibrary::GetGameVersion() {
 
 int32 USystemBPFLibrary::GetGameBuildNumber() {
     return 0;
+}
+
+EBuildPlatformType USystemBPFLibrary::GetBuildPlatformType() {
+    return EBuildPlatformType::Default;
 }
 
 FString USystemBPFLibrary::GetBinkURLFromPlatformMediaSource(const UPlatformMediaSource* PlatformMediaSource) {

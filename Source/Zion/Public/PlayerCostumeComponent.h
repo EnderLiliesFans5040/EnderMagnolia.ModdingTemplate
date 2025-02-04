@@ -32,11 +32,20 @@ private:
 public:
     UPlayerCostumeComponent(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintCallable)
+    void SetPendingCostumeID(const FName& InCostumeID);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FName GetPendingOrEquippedCostumeID() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetEquippedCostumeID() const;
     
     UFUNCTION(BlueprintCallable)
     void EquipCostume(const FName& InCostumeID);
+    
+    UFUNCTION(BlueprintCallable)
+    void ApplyPendingCostume();
     
 };
 

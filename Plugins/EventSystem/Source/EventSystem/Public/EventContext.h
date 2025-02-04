@@ -26,6 +26,9 @@ public:
     void SetValueRowHandle(const FName& Key, const FDataTableRowHandle& Value);
     
     UFUNCTION(BlueprintCallable)
+    void SetValueObject(const FName& Key, UObject* Value);
+    
+    UFUNCTION(BlueprintCallable)
     void SetValueName(const FName& Key, const FName& Value);
     
     UFUNCTION(BlueprintCallable)
@@ -38,6 +41,9 @@ public:
     bool IsValueRowHandleSet(const FName& Key) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsValueObjectSet(const FName& Key) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsValueIntegerSet(const FName& Key) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -45,6 +51,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FDataTableRowHandle GetValueRowHandle(const FName& Key, FDataTableRowHandle DefaultValue) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UObject* GetValueObject(const FName& Key, UObject* DefaultValue) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetValueName(const FName& Key, FName DefaultValue) const;

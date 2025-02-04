@@ -2,6 +2,7 @@
 
 ULocomotionComponent::ULocomotionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->DashInputAction = NULL;
+    this->bAllowFacing = true;
     this->bUpdateFacing = true;
     this->bUseVelocityForFacing = false;
     this->ImmersionDepthForLateralOnly = 0.50f;

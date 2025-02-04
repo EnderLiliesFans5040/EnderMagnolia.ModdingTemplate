@@ -1,36 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "SpineAnimationCompleteDelegateDelegate.h"
-#include "SpineAnimationDisposeDelegateDelegate.h"
-#include "SpineAnimationEndDelegateDelegate.h"
-#include "SpineAnimationEventDelegateDelegate.h"
-#include "SpineAnimationInterruptDelegateDelegate.h"
-#include "SpineAnimationStartDelegateDelegate.h"
 #include "TrackEntry.generated.h"
 
 UCLASS(Blueprintable)
 class SPINEPLUGIN_API UTrackEntry : public UObject {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationStartDelegate animationStart;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationInterruptDelegate AnimationInterrupt;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationEventDelegate AnimationEvent;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationCompleteDelegate AnimationComplete;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationEndDelegate animationEnd;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpineAnimationDisposeDelegate AnimationDispose;
-    
     UTrackEntry();
 
     UFUNCTION(BlueprintCallable)
@@ -67,13 +43,13 @@ public:
     void SetAttachmentThreshold(float attachmentThreshold);
     
     UFUNCTION(BlueprintCallable)
-    void SetAnimationStart(float NewAnimationStart);
+    void SetAnimationStart(float animationStart);
     
     UFUNCTION(BlueprintCallable)
     void SetAnimationLast(float animationLast);
     
     UFUNCTION(BlueprintCallable)
-    void SetAnimationEnd(float NewAnimationEnd);
+    void SetAnimationEnd(float animationEnd);
     
     UFUNCTION(BlueprintCallable)
     void SetAlpha(float Alpha);

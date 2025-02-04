@@ -1,19 +1,23 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
-#include "GameFramework/PlayerController.h"
 #include "EventActorInterface.h"
 #include "ClearActorData.h"
 #include "ERespawnReason.h"
 #include "ETutorialHook.h"
 #include "EWidgetMinimapDisplayMode.h"
 #include "MapTransitionSpawnPointData.h"
+#include "PlayerControllerZionBase.h"
+#include "RestPointEventData.h"
+#include "RuntimeCheckpointData.h"
 #include "Templates/SubclassOf.h"
 #include "PlayerControllerZion.generated.h"
 
 class APlayerControllerZion;
 class UAssistComponent;
+class UCustomMarkerComponent;
 class UEquipmentComponent;
+class UEventAsset;
 class UFieldTalkComponent;
 class UFogOfWarComponent;
 class UHealComponent;
@@ -27,10 +31,12 @@ class UPlayerCostumeComponent;
 class UShopInfoComponent;
 class USkillComponent;
 class UStatsControllerPlayerComponent;
+class UStoryLevelComponent;
+class UUserWidgetMap;
 class UUserWidgetPlayerUI;
 
 UCLASS(Abstract, Blueprintable)
-class ZION_API APlayerControllerZion : public APlayerController, public IEventActorInterface {
+class ZION_API APlayerControllerZion : public APlayerControllerZionBase, public IEventActorInterface {
     GENERATED_BODY()
 public:
 private:
@@ -39,6 +45,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UUserWidgetPlayerUI> PlayerUIClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UUserWidgetMap> WidgetMapClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UMaterialParameterCollection* SystemMPC;
@@ -83,16 +92,28 @@ private:
     UFogOfWarComponent* FogOfWarComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UStoryLevelComponent* StoryLevelComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UCustomMarkerComponent* CustomMarkerComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPathFollowingComponent* PathFollowingComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UUserWidgetPlayerUI* PlayerUI;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UUserWidgetMap* WidgetMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FName RespawnRestPointID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<FName> ClearedEvents;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FName> PreviousRunsClearedEvents;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<FClearActorData> VisitedZones;
@@ -116,7 +137,31 @@ private:
     TSet<FName> CheckedRecollectionItems;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FName> KilledEnemies;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FName> AvailableExtraEnemyInfoItems;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EWidgetMinimapDisplayMode MinimapDisplayMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FRuntimeCheckpointData RuntimeCheckpointData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bPlayerTrailEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CachePlayerTrailDataDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaxPlayerTrailDataCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PlayerTrailDataDistanceThreshold;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ERespawnReason> ClearPlayerTrailRespawnReasons;
     
 public:
     APlayerControllerZion(const FObjectInitializer& ObjectInitializer);
@@ -129,6 +174,9 @@ private:
     void ShowPlayerUI();
     
 public:
+    UFUNCTION(BlueprintCallable)
+    FRuntimeCheckpointData SetRuntimeCheckpointData(const FRuntimeCheckpointData& NewRuntimeCheckpointData);
+    
     UFUNCTION(BlueprintCallable)
     void SetRespawnRestPoint(const FName& InRespawnRestPointID);
     
@@ -163,12 +211,21 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisplayAreaName(const FName& AreaName);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnAchievementUnlocked(const FName& AchievementID);
+    
 public:
     UFUNCTION(BlueprintCallable)
     void MarkRestEventAsSeen(const FName& RestEventID);
     
     UFUNCTION(BlueprintCallable)
     void MarkRecollectionItemAsChecked(const FDataTableRowHandle& RecollectionItem);
+    
+    UFUNCTION(BlueprintCallable)
+    void MarkExtraEnemyInfoAsAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem);
+    
+    UFUNCTION(BlueprintCallable)
+    void MarkEnemyAsKilled(const FDataTableRowHandle& EnemyDataHandle);
     
     UFUNCTION(BlueprintCallable)
     void LockFastTravel();
@@ -178,6 +235,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsZoneVisited(const FClearActorData& ZoneActorData) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSoftEventCleared(const TSoftObjectPtr<UEventAsset>& EventAsset) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRestEventAvailable(const FName& RestEventID) const;
@@ -194,8 +254,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFastTravelLocked() const;
     
-    UFUNCTION(BlueprintCallable)
-    bool IsEventCleared(const FName EventId);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsExtraEnemyInfoAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEventCleared(const FName EventId, bool bCheckPreviousRuns) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEnemyKilled(const FDataTableRowHandle& EnemyDataHandle) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsBackToRestPointLocked() const;
@@ -215,6 +281,12 @@ public:
     bool HasAvailableRestEvent() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    UUserWidgetMap* GetWidgetMap() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FRuntimeCheckpointData GetRuntimeCheckpointData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetRespawnRestPointID() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -223,14 +295,17 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EWidgetMinimapDisplayMode GetMinimapDisplayMode() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FName GetAvailableRestEvent() const;
+    UFUNCTION(BlueprintCallable)
+    bool GetAvailableRestEvent(FDataTableRowHandle& out_RestPointEventRowHandle, FRestPointEventData& out_RestPointEventData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static APlayerControllerZion* Get(const UObject* WorldContextObject, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable)
     void FullyRestore();
+    
+    UFUNCTION(BlueprintCallable)
+    void FlushSpiritCache();
     
     UFUNCTION(BlueprintCallable)
     void DisplayAreaName(const FName& AreaName);

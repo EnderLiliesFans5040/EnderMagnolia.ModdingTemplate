@@ -1,6 +1,7 @@
 #include "StatHPComponent.h"
 
 UStatHPComponent::UStatHPComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bCanBeInstantKilled = false;
 }
 
 AActor* UStatHPComponent::GetLastDamageSource() const {

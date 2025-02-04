@@ -13,9 +13,11 @@ UInventoryComponent::UInventoryComponent(const FObjectInitializer& ObjectInitial
     this->ItemTipInventory = NULL;
     this->ItemTutorialInventory = NULL;
     this->ItemKeyInventory = NULL;
+    this->ItemQuestInventory = NULL;
     this->ItemCostumeInventory = NULL;
     this->ItemEnemyInfoInventory = NULL;
     this->ItemNPCInfoInventory = NULL;
+    this->ItemGalleryInventory = NULL;
 }
 
 int32 UInventoryComponent::SpendCurrency(const FCurrencyValue& CurrencyValue) {
@@ -49,6 +51,10 @@ UInventory* UInventoryComponent::GetTutorialInventory() const {
     return NULL;
 }
 
+UInventory* UInventoryComponent::GetTipInventory() const {
+    return NULL;
+}
+
 UInventory* UInventoryComponent::GetStatsInventory() const {
     return NULL;
 }
@@ -70,6 +76,10 @@ UInventory* UInventoryComponent::GetNPCInfoInventory() const {
 }
 
 UInventory* UInventoryComponent::GetInventoryFromItemType(EInventoryItemType ItemType) const {
+    return NULL;
+}
+
+UInventory* UInventoryComponent::GetGalleryInventory() const {
     return NULL;
 }
 
@@ -113,7 +123,7 @@ bool UInventoryComponent::AddItem(const FDataTableRowHandle& ItemHandle, int32 C
     return false;
 }
 
-bool UInventoryComponent::AddDrop(const FDrop& Drop) {
+bool UInventoryComponent::AddDrop(const FDrop& Drop, float DropFactor) {
     return false;
 }
 

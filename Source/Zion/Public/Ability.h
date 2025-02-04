@@ -8,6 +8,7 @@
 #include "EAbilityWeightCategory.h"
 #include "Templates/SubclassOf.h"
 #include "TimelineAbility.h"
+#include "TimelineSE.h"
 #include "Ability.generated.h"
 
 class UAbilityComponent;
@@ -32,6 +33,9 @@ private:
     int32 AutoStopTriggerCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAutoAbortOnSourceDeath;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanBeDodged;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -45,6 +49,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTimelineAbility TimelineAbility;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FTimelineSE TimelineSE;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bExecuteAbilitiesOnStop;
@@ -79,10 +86,18 @@ public:
     UFUNCTION(BlueprintCallable)
     void RequestStop();
     
+    UFUNCTION(BlueprintCallable)
+    void RequestAbort();
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStop_BP();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnSourceDeath();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReset_BP();
     

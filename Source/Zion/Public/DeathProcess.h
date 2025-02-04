@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "SpineFXData.h"
+#include "EDeathFacingMode.h"
 #include "DeathProcess.generated.h"
 
 class AActor;
@@ -12,7 +13,16 @@ class UDeathProcess : public UObject {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EDeathFacingMode FacingMode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float BorderDistanceForFallback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineFXData FXData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSpineFXData OnFinishFXData;
     
 public:
     UDeathProcess();

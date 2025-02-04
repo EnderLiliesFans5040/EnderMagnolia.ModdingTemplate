@@ -39,16 +39,28 @@ public:
     void RemoveAllStates();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsStunned() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMovementLocked() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInputActionLocked(const UInputAction* InputAction) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInFreezeCritical() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsFreeCommandLayerLocked() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFacingLocked() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool HasState(const TSubclassOf<UState> State) const;
+    bool IsDebuffed() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasState(const TSubclassOf<UState>& State) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasBusyState() const;

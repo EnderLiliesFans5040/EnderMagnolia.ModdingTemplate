@@ -1,15 +1,18 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
-#include "BTDecoratorZion.h"
+#include "BTDecoratorZionCondition.h"
 #include "EConditionOperator.h"
 #include "BTDecorator_IsOnSide.generated.h"
 
 UCLASS(Blueprintable)
-class UBTDecorator_IsOnSide : public UBTDecoratorZion {
+class UBTDecorator_IsOnSide : public UBTDecoratorZionCondition {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FBlackboardKeySelector Source;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBlackboardKeySelector Target;
     

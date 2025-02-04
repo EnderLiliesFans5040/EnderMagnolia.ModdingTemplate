@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "Engine/DataTable.h"
 #include "AIData.h"
 #include "EnemyData.generated.h"
 
@@ -26,6 +27,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAIData AIData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FDataTableRowHandle> ExtraEnemyInfo;
     
     ZION_API FEnemyData();
 };

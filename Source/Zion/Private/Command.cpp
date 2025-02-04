@@ -4,9 +4,6 @@
 UCommand::UCommand() {
 }
 
-ECommandResult UCommand::OnUpdate_Implementation(float DeltaTime) {
-    return ECommandResult::None;
-}
 
 
 

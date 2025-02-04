@@ -2,15 +2,16 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "SpineFXData.h"
-#include "AbilityData.h"
 #include "DashChargeSettings.h"
-#include "SpiritSummonParameters.h"
+#include "SoundData.h"
 #include "Templates/SubclassOf.h"
 #include "DashChargeComponent.generated.h"
 
 class AAbility;
 class ACharacterZionSpirit;
+class UFMODAudioComponent;
 class UNiagaraComponent;
+class UState;
 class UTrackEntry;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -28,13 +29,22 @@ private:
     float ChargeDashSpeedFactorToAdd;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSpineFXData ChargingFXData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoundData ChargingSoundData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineFXData OnChargedFXData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoundData OnChargedSoundData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSpineFXData ChargedAuraFXData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FAbilityData ChargedAbilityData;
+    TArray<TSubclassOf<UState>> DashChargeStates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDashChargeSettings DefaultSettings;
@@ -48,8 +58,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<ACharacterZionSpirit> SwimmingSpiritClass;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSpiritSummonParameters SummonParameters;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UNiagaraComponent* ChargingFX;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UFMODAudioComponent* ChargingAudio;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UNiagaraComponent* AuraFX;
@@ -60,15 +73,15 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ACharacterZionSpirit* Spirit;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UFMODAudioComponent* LoopAudioComponent;
+    
 public:
     UDashChargeComponent(const FObjectInitializer& ObjectInitializer);
 
 private:
     UFUNCTION(BlueprintCallable)
     void OnStartAnimation(UTrackEntry* TrackEntry);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnGameMapChanged();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

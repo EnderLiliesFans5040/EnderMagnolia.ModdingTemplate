@@ -10,6 +10,8 @@
 #include "AbilityComponent.h"
 #include "CollisionComponent.h"
 #include "CommandComponent.h"
+#include "FactionComponent.h"
+#include "FallThroughComponent.h"
 #include "HitStopComponent.h"
 #include "InputBufferComponent.h"
 #include "LocomotionComponent.h"
@@ -36,6 +38,7 @@ ACharacterZionSpirit::ACharacterZionSpirit(const FObjectInitializer& ObjectIniti
     this->StateComponent = CreateDefaultSubobject<UStateComponent>(TEXT("State"));
     this->AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("Ability"));
     this->CollisionComponent = CreateDefaultSubobject<UCollisionComponent>(TEXT("Collision"));
+    this->FactionComponent = CreateDefaultSubobject<UFactionComponent>(TEXT("Faction"));
     this->HitStopComponent = CreateDefaultSubobject<UHitStopComponent>(TEXT("HitStop"));
     this->RenderLayerComponent = CreateDefaultSubobject<URenderLayerComponent>(TEXT("RenderLayer"));
     this->VisualPivotSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("VisualPivot"));
@@ -51,16 +54,17 @@ ACharacterZionSpirit::ACharacterZionSpirit(const FObjectInitializer& ObjectIniti
     this->SpiritStatsSnapshot = CreateDefaultSubobject<USpiritStatsSnapshotComponent>(TEXT("SpiritStatsSnapshot"));
     FProperty* p_CharacterMovement_Prior = GetClass()->FindPropertyByName("CharacterMovement");
     this->ZionCharacterMovement = (UZionCharacterMovementComponent*)*p_CharacterMovement_Prior->ContainerPtrToValuePtr<UZionCharacterMovementComponent*>(this);
+    this->FallThroughComponent = CreateDefaultSubobject<UFallThroughComponent>(TEXT("FallThrough"));
     this->DebugDisplayComponent = NULL;
     this->InvokedByInputAction = NULL;
     this->InvokedByCommandSet = NULL;
     this->AIController = NULL;
-    this->VisualPivotSceneComponent->SetupAttachment(RootComponent);
-    this->SpineRendererComponent->SetupAttachment(VisualPivotSceneComponent);
     this->SpineMaskRendererComponent->SetupAttachment(SpineRendererComponent);
+    this->SpineRendererComponent->SetupAttachment(VisualPivotSceneComponent);
+    this->VisualPivotSceneComponent->SetupAttachment(RootComponent);
 }
 
-void ACharacterZionSpirit::Summon(const UInputAction* InInvokedByInputAction, const UCommandSet* InInvokedByCommandSet, const FSpiritSummonParameters& InSummonParameters) {
+void ACharacterZionSpirit::SetActive(bool bNewActive) {
 }
 
 

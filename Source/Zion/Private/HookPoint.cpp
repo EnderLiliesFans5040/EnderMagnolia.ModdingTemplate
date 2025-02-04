@@ -7,6 +7,8 @@ AHookPoint::AHookPoint(const FObjectInitializer& ObjectInitializer) : Super(Obje
     this->HookType = EHookType::None;
     this->RootSceneComponent = (USceneComponent*)RootComponent;
     this->SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
+    this->AvailableFXSystem = NULL;
+    this->FXInstance = NULL;
     this->SphereComponent->SetupAttachment(RootComponent);
 }
 

@@ -8,6 +8,7 @@
 
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
+class UTextureRenderTarget2D;
 
 UCLASS(Blueprintable, ClassGroup=Custom, Within=PlayerController, meta=(BlueprintSpawnableComponent))
 class UFogOfWarComponent : public UActorComponent {
@@ -21,7 +22,16 @@ private:
     UMaterialInterface* ClearZoneMaterial;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector2D ClearZoneSizeOffset;
+    FVector2D CompleteZoneSizeOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector2D CompleteZoneBorderSize;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector2D RevealZoneSizeOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector2D RevealZoneBorderSize;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UMaterialInstanceDynamic* ClearZoneMID;
@@ -38,11 +48,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UMaterialInstanceDynamic* FogOfWarBlockerMID;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UTextureRenderTarget2D* FogOfWarMaskRTBuffer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UTextureRenderTarget2D* ZonesClearedMaskRTBuffer;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FRenderTargetData> RenderTargetDataMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSet<FClearActorData> CachedZonesClearedForMask;
+    TSet<FClearActorData> CachedZonesCompletedForMask;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FClearActorData> CachedZonesRevealedForMask;
     
 public:
     UFogOfWarComponent(const FObjectInitializer& ObjectInitializer);

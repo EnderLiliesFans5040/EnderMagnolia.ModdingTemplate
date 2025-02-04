@@ -31,6 +31,10 @@ int32 UInventory::GetCountOfItem(const FName& ItemId) const {
     return 0;
 }
 
+TMap<FName, int32> UInventory::GetAllItemsAvailable() {
+    return TMap<FName, int32>();
+}
+
 TMap<FName, int32> UInventory::GetAllItems() const {
     return TMap<FName, int32>();
 }

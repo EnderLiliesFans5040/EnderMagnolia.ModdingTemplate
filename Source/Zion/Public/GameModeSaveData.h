@@ -2,6 +2,8 @@
 #include "CoreMinimal.h"
 #include "ClearManagerSaveData.h"
 #include "DifficultySystemSaveData.h"
+#include "DropSystemSaveData.h"
+#include "EGameEndingType.h"
 #include "GameStatsSaveData.h"
 #include "RecollectionBossRushSaveData.h"
 #include "RenderStateManagerSaveData.h"
@@ -12,10 +14,16 @@ struct FGameModeSaveData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 StoryLevel;
+    int32 EnvironmentLevel;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 EnvironmentLevel;
+    TMap<EGameEndingType, int32> ReachedGameEndings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EGameEndingType, int32> PreviousCumulatedReachedGameEndings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 NewGamePlusGeneration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, int32> EnvironmentLevelForGameMaps;
@@ -31,6 +39,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDifficultySystemSaveData DifficultySystem;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FDropSystemSaveData DropSystem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRecollectionBossRushSaveData BossRush;

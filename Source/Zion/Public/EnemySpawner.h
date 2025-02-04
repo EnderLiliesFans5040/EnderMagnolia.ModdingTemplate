@@ -3,9 +3,11 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataTable.h"
+#include "EBreakType.h"
 #include "EClearStatus.h"
 #include "EEnemySpawnerClearTiming.h"
 #include "EnemySpawnerEventDelegate.h"
+#include "GameplayConditionChecker.h"
 #include "Spawner.h"
 #include "EnemySpawner.generated.h"
 
@@ -33,13 +35,22 @@ private:
     UClearComponent* ClearComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseConditionChecker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayConditionChecker ConditionChecker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle EnemyRowHandle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAutoActivateEnemy;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EEnemySpawnerClearTiming ClearTiming;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bAutoActivateEnemy;
+    bool bSpawnEvenWhenCleared;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bLockEnvironmentLevel;
@@ -49,9 +60,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIncrementEnvironmentLevel;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float TuningTargetChance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bOverrideBehaviorIdle;
@@ -83,9 +91,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, AActor*> BlackboardOverride_Actor;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCacheBreakPartState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EBreakType EnemyPartBrokenType;
+    
 public:
     AEnemySpawner(const FObjectInitializer& ObjectInitializer);
 
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ShouldSpawnEvenWhenCleared() const;
+    
+public:
     UFUNCTION(BlueprintCallable)
     void ReplaceEnemy(const FDataTableRowHandle& NewEnemyRowHandle, const FTransform& SpawnTransform);
     
@@ -95,6 +114,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRegisterEnemy(ACharacterZion* Enemy);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnEnemyPreActivation();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEnemyDeathStart();
@@ -110,6 +132,11 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEnemyDeathEnd();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnEnemyBreakPart(const EBreakType& BreakType);
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEnemyActivation();
     

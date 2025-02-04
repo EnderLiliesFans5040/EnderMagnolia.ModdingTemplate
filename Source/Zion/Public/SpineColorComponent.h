@@ -9,6 +9,7 @@
 
 class AAbility;
 class AActor;
+class UMaterialInterface;
 
 UCLASS(Blueprintable, ClassGroup=Custom, Within=Character, meta=(BlueprintSpawnableComponent))
 class USpineColorComponent : public UActorComponent {
@@ -20,6 +21,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EAbilityWeightCategory, FSpineFlashColorData> DamageColorForWeights;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FString> AffectedSkins;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UMaterialInterface* SkinMaterial;
     
 public:
     USpineColorComponent(const FObjectInitializer& ObjectInitializer);

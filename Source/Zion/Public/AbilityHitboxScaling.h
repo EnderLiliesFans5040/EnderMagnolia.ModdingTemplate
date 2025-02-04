@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
+#include "ERenderLayerTypes.h"
 #include "AbilityHitbox.h"
 #include "AbilityHitboxScaling.generated.h"
 
@@ -27,6 +28,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxRange;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ERenderLayerTypes BeamRenderLayer;
     
 public:
     AAbilityHitboxScaling(const FObjectInitializer& ObjectInitializer);

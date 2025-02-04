@@ -6,6 +6,7 @@ UOrientFromFloorComponent::UOrientFromFloorComponent(const FObjectInitializer& O
     this->BlendSpeed = 5.00f;
     this->bClampAngle = false;
     this->ClampAngle = 20.00f;
+    this->bSkipOnLowPerfPlatforms = false;
 }
 
 void UOrientFromFloorComponent::OnFacingChange() {

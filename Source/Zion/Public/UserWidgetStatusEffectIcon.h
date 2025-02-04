@@ -5,7 +5,7 @@
 #include "UserWidgetStatusEffectIcon.generated.h"
 
 class UPaperSprite;
-class URadialSlider;
+class URadialSliderZion;
 class UStatusEffect;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew)
@@ -14,7 +14,7 @@ class UUserWidgetStatusEffectIcon : public UUserWidgetZion {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    URadialSlider* StatusEffectDurationSlider;
+    URadialSliderZion* StatusEffectDurationSlider;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UStatusEffect> CachedStatusEffect;
@@ -29,6 +29,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void UpdateRemainingDuration();
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnStatusEffectFinished();
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftObjectPtr<UPaperSprite> GetStatusEffectIconSpriteFromType(const EStatusEffectType& StatusEffectType) const;
     

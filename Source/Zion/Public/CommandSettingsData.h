@@ -5,7 +5,7 @@
 #include "CommandSettingsData.generated.h"
 
 UCLASS(Blueprintable)
-class UCommandSettingsData : public UDataAsset {
+class ZION_API UCommandSettingsData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

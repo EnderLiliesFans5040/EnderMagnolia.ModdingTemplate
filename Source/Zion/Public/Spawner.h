@@ -4,7 +4,7 @@
 #include "Spawner.generated.h"
 
 UCLASS(Abstract, Blueprintable)
-class ASpawner : public AActor {
+class ZION_API ASpawner : public AActor {
     GENERATED_BODY()
 public:
     ASpawner(const FObjectInitializer& ObjectInitializer);

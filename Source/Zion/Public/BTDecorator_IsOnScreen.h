@@ -1,10 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "BTDecoratorZion.h"
+#include "BTDecoratorZionCondition.h"
 #include "BTDecorator_IsOnScreen.generated.h"
 
 UCLASS(Blueprintable)
-class UBTDecorator_IsOnScreen : public UBTDecoratorZion {
+class UBTDecorator_IsOnScreen : public UBTDecoratorZionCondition {
     GENERATED_BODY()
 public:
 private:

@@ -1,19 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ExtendedStatsData.h"
-#include "InventoryItemData.h"
+#include "InventoryItemBaseEquipmentData.h"
 #include "InventoryItemEquipmentData.generated.h"
 
 class UCommandSet;
 class UInputAction;
 
 USTRUCT(BlueprintType)
-struct FInventoryItemEquipmentData : public FInventoryItemData {
+struct FInventoryItemEquipmentData : public FInventoryItemBaseEquipmentData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FExtendedStatsData Stats;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UCommandSet> CommandSet;
     

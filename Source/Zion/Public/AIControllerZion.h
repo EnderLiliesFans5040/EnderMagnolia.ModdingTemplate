@@ -4,6 +4,7 @@
 #include "GameplayTagContainer.h"
 #include "AIData.h"
 #include "ECollisionProfile.h"
+#include "EFaction.h"
 #include "AIControllerZion.generated.h"
 
 class AActor;
@@ -15,6 +16,9 @@ class AAIControllerZion : public AAIController {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EFaction Faction;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ECollisionProfile CollisionProfile;
     

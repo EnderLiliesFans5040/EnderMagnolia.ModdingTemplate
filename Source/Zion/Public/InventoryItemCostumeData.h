@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "EPlayerCostumeFX.h"
 #include "InventoryItemGrantData.h"
+#include "ItemConditionData.h"
 #include "InventoryItemCostumeData.generated.h"
 
 class UNiagaraSystem;
@@ -15,6 +16,9 @@ struct FInventoryItemCostumeData : public FInventoryItemGrantData {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanBeBought;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FItemConditionData Conditions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USpineNotifyAsset> NotifyAsset;

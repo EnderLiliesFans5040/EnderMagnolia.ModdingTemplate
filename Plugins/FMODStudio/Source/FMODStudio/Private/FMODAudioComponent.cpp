@@ -56,6 +56,10 @@ float UFMODAudioComponent::GetProperty(TEnumAsByte<EFMODEventProperty::Type> Pro
     return 0.0f;
 }
 
+bool UFMODAudioComponent::GetPaused() {
+    return false;
+}
+
 void UFMODAudioComponent::GetParameterValue(FName Name, float& UserValue, float& FinalValue) {
 }
 

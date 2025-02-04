@@ -5,10 +5,6 @@ UCommandModule::UCommandModule() {
     this->bWaitForModuleToComplete = true;
 }
 
-ECommandModuleResult UCommandModule::OnUpdate_Implementation(float DeltaTime) {
-    return ECommandModuleResult::None;
-}
-
 void UCommandModule::OnStart_Implementation() {
 }
 

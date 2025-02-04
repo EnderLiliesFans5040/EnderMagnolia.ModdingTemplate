@@ -20,6 +20,9 @@ public:
     static UNiagaraComponent* SpawnFXData(const FSpineFXData& FXData, const AActor* Actor, USpineBoneComponent* BoneComponent);
     
     UFUNCTION(BlueprintCallable)
+    static void MarkFXAsGenerated(UNiagaraComponent* FXComponent);
+    
+    UFUNCTION(BlueprintCallable)
     static TArray<FString> GenerateSkinList(USpineSkeletonDataAsset* SkeletonDataAsset, USpineAtlasAsset* AtlasAsset);
     
     UFUNCTION(BlueprintCallable)

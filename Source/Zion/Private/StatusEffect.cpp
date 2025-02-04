@@ -3,6 +3,7 @@
 UStatusEffect::UStatusEffect() {
     this->bCanEditStatusEffectType = true;
     this->StatusEffectType = EStatusEffectType::None;
+    this->bUseDifficultySettings = false;
     this->Duration = 5.00f;
     this->OnLaunchSound = NULL;
     this->LoopSound = NULL;

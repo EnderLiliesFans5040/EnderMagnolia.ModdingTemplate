@@ -3,6 +3,7 @@
 UDeathProcess_Player::UDeathProcess_Player() {
     this->bCanUseBackAnimations = false;
     this->AdditionalDeathStates.AddDefaulted(1);
+    this->bUseTimeDilation = false;
     this->DelayBeforeFadeOut = 2.00f;
     this->LocationTargetBone = ESpineBone::Hip;
 }

@@ -11,6 +11,8 @@ UBTTask_FlyTo::UBTTask_FlyTo() {
     this->MinWidth = 0.00f;
     this->MaxWidth = 0.00f;
     this->TargetOffsetType = EFlyToTargetOffsetType::Absolute;
+    this->bProjectLocationToGround = false;
+    this->GroundHeightOffset = 0.00f;
 }
 
 

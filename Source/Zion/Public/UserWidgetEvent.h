@@ -20,13 +20,19 @@ protected:
     bool ShouldUsePostSkipFadeIn() const;
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnTalk(const FText& SpeakerName, const FText& Text);
+    void OnTalk(const FText& SpeakerName, const FText& Text, float Duration);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnRequestRemoveFromParent();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayChoices(const FText& SpeakerName, const FText& Text, const TArray<FText>& Choices);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnNotifyEventStartPlaying();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEventAlreadySeen() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UEventPlayer* GetEventPlayer() const;
@@ -39,6 +45,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanSkipEvent() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanAutoSkipEvent() const;
     
 
     // Fix for true pure virtual functions not being implemented

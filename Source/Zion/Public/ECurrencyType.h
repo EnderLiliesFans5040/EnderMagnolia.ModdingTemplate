@@ -5,6 +5,7 @@
 UENUM(BlueprintType)
 enum class ECurrencyType : uint8 {
     Default,
+    Rare = 5,
     GradePoints = 10,
 };
 

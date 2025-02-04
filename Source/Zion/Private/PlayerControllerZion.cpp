@@ -1,5 +1,6 @@
 #include "PlayerControllerZion.h"
 #include "AssistComponent.h"
+#include "CustomMarkerComponent.h"
 #include "EquipmentComponent.h"
 #include "FieldTalkComponent.h"
 #include "FogOfWarComponent.h"
@@ -7,18 +8,18 @@
 #include "InventoryComponent.h"
 #include "ItemStatsWatcherComponent.h"
 #include "PassiveComponent.h"
-#include "PlayerCameraManagerZion.h"
 #include "PlayerCostumeComponent.h"
 #include "ShopInfoComponent.h"
 #include "SkillComponent.h"
 #include "StatsControllerPlayerComponent.h"
+#include "StoryLevelComponent.h"
 #include "ZionPathFollowingComponent.h"
 
 APlayerControllerZion::APlayerControllerZion(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->PlayerCameraManagerClass = APlayerCameraManagerZion::StaticClass();
     this->bAutoManageActiveCameraTarget = false;
     this->ClickEventKeys.AddDefaulted(1);
     this->PlayerUIClass = NULL;
+    this->WidgetMapClass = NULL;
     this->NewGameHPPercentage = 50.00f;
     this->SkillComponent = CreateDefaultSubobject<USkillComponent>(TEXT("Skill"));
     this->EquipmentComponent = CreateDefaultSubobject<UEquipmentComponent>(TEXT("Equipment"));
@@ -32,15 +33,27 @@ APlayerControllerZion::APlayerControllerZion(const FObjectInitializer& ObjectIni
     this->ShopInfoComponent = CreateDefaultSubobject<UShopInfoComponent>(TEXT("ShopInfo"));
     this->FieldTalkComponent = CreateDefaultSubobject<UFieldTalkComponent>(TEXT("FieldTalk"));
     this->FogOfWarComponent = CreateDefaultSubobject<UFogOfWarComponent>(TEXT("FogOfWar"));
+    this->StoryLevelComponent = CreateDefaultSubobject<UStoryLevelComponent>(TEXT("StoryLevel"));
+    this->CustomMarkerComponent = CreateDefaultSubobject<UCustomMarkerComponent>(TEXT("CustomMarker"));
     this->PathFollowingComponent = CreateDefaultSubobject<UZionPathFollowingComponent>(TEXT("PathFollowing"));
     this->PlayerUI = NULL;
+    this->WidgetMap = NULL;
     this->MinimapDisplayMode = EWidgetMinimapDisplayMode::Default;
+    this->bPlayerTrailEnabled = true;
+    this->CachePlayerTrailDataDelay = 0.10f;
+    this->MaxPlayerTrailDataCount = 50;
+    this->PlayerTrailDataDistanceThreshold = 225.00f;
+    this->ClearPlayerTrailRespawnReasons.AddDefaulted(6);
 }
 
 void APlayerControllerZion::UnlockFastTravel() {
 }
 
 void APlayerControllerZion::ShowPlayerUI() {
+}
+
+FRuntimeCheckpointData APlayerControllerZion::SetRuntimeCheckpointData(const FRuntimeCheckpointData& NewRuntimeCheckpointData) {
+    return FRuntimeCheckpointData{};
 }
 
 void APlayerControllerZion::SetRespawnRestPoint(const FName& InRespawnRestPointID) {
@@ -62,10 +75,17 @@ void APlayerControllerZion::OnGameReady() {
 
 
 
+
 void APlayerControllerZion::MarkRestEventAsSeen(const FName& RestEventID) {
 }
 
 void APlayerControllerZion::MarkRecollectionItemAsChecked(const FDataTableRowHandle& RecollectionItem) {
+}
+
+void APlayerControllerZion::MarkExtraEnemyInfoAsAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem) {
+}
+
+void APlayerControllerZion::MarkEnemyAsKilled(const FDataTableRowHandle& EnemyDataHandle) {
 }
 
 void APlayerControllerZion::LockFastTravel() {
@@ -75,6 +95,10 @@ void APlayerControllerZion::LaunchTutorialHook(ETutorialHook TutorialHook) {
 }
 
 bool APlayerControllerZion::IsZoneVisited(const FClearActorData& ZoneActorData) const {
+    return false;
+}
+
+bool APlayerControllerZion::IsSoftEventCleared(const TSoftObjectPtr<UEventAsset>& EventAsset) const {
     return false;
 }
 
@@ -98,7 +122,15 @@ bool APlayerControllerZion::IsFastTravelLocked() const {
     return false;
 }
 
-bool APlayerControllerZion::IsEventCleared(const FName EventId) {
+bool APlayerControllerZion::IsExtraEnemyInfoAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem) const {
+    return false;
+}
+
+bool APlayerControllerZion::IsEventCleared(const FName EventId, bool bCheckPreviousRuns) const {
+    return false;
+}
+
+bool APlayerControllerZion::IsEnemyKilled(const FDataTableRowHandle& EnemyDataHandle) const {
     return false;
 }
 
@@ -121,6 +153,14 @@ bool APlayerControllerZion::HasAvailableRestEvent() const {
     return false;
 }
 
+UUserWidgetMap* APlayerControllerZion::GetWidgetMap() const {
+    return NULL;
+}
+
+FRuntimeCheckpointData APlayerControllerZion::GetRuntimeCheckpointData() const {
+    return FRuntimeCheckpointData{};
+}
+
 FName APlayerControllerZion::GetRespawnRestPointID() const {
     return NAME_None;
 }
@@ -133,8 +173,8 @@ EWidgetMinimapDisplayMode APlayerControllerZion::GetMinimapDisplayMode() const {
     return EWidgetMinimapDisplayMode::Default;
 }
 
-FName APlayerControllerZion::GetAvailableRestEvent() const {
-    return NAME_None;
+bool APlayerControllerZion::GetAvailableRestEvent(FDataTableRowHandle& out_RestPointEventRowHandle, FRestPointEventData& out_RestPointEventData) {
+    return false;
 }
 
 APlayerControllerZion* APlayerControllerZion::Get(const UObject* WorldContextObject, int32 PlayerIndex) {
@@ -142,6 +182,9 @@ APlayerControllerZion* APlayerControllerZion::Get(const UObject* WorldContextObj
 }
 
 void APlayerControllerZion::FullyRestore() {
+}
+
+void APlayerControllerZion::FlushSpiritCache() {
 }
 
 void APlayerControllerZion::DisplayAreaName(const FName& AreaName) {

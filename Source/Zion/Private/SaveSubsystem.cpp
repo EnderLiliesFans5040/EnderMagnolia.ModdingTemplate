@@ -1,5 +1,4 @@
 #include "SaveSubsystem.h"
-#include "Templates/SubclassOf.h"
 
 USaveSubsystem::USaveSubsystem() {
     this->CurrentSettings = NULL;
@@ -13,7 +12,7 @@ bool USaveSubsystem::SaveSettings() {
     return false;
 }
 
-void USaveSubsystem::SaveGameInCurrentSlotAsync(TSubclassOf<UUserWidgetZionShowHide> SaveWidgetClass, FSaveGameResult OnSaveFinished) {
+void USaveSubsystem::SaveGameInCurrentSlotAsync(FSaveGameResult OnSaveFinished) {
 }
 
 bool USaveSubsystem::SaveGameInCurrentSlot() {
@@ -37,6 +36,10 @@ ESaveExistsType USaveSubsystem::LoadGameFromCurrentSlot(USaveGameZion*& out_Game
     return ESaveExistsType::OK;
 }
 
+bool USaveSubsystem::IsLoadingGameData() const {
+    return false;
+}
+
 float USaveSubsystem::GetTimeSinceLastGameSave() const {
     return 0.0f;
 }
@@ -49,6 +52,10 @@ void USaveSubsystem::DeleteSaveDataAtSlotIndex(int32 SlotIndex) {
 
 ESaveCopyResult USaveSubsystem::CopyGameDataToEmptySlot(int32 SlotToCopy, int32& out_TargetSlot) {
     return ESaveCopyResult::Undefined;
+}
+
+ESaveExistsType USaveSubsystem::CheckSlotExistence(int32 SlotIndex) {
+    return ESaveExistsType::OK;
 }
 
 ESaveExistsType USaveSubsystem::CheckCurrentSlotExistence() {

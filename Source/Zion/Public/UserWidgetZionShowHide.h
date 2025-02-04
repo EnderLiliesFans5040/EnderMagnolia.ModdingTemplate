@@ -10,13 +10,13 @@ public:
     UUserWidgetZionShowHide();
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void Show();
+    void Show(bool bInstant);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void HideAndRemoveFromParent();
+    void HideAndRemoveFromParent(bool bInstant);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void Hide();
+    void Hide(bool bInstant);
     
 };
 

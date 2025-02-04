@@ -11,10 +11,7 @@ void USummonRestPointSpiritComponent::StartSummonRestPointSpirits() {
 void USummonRestPointSpiritComponent::RefreshRestPointSpirits() {
 }
 
-void USummonRestPointSpiritComponent::OnUnEquipSkill(ESkillSlot SkillSlot) {
-}
-
-void USummonRestPointSpiritComponent::OnEquipSkill(ESkillSlot SkillSlot) {
+void USummonRestPointSpiritComponent::OnControllerChanged(APawn* Pawn, AController* OldController, AController* NewController) {
 }
 
 void USummonRestPointSpiritComponent::FinishSummonRestPointSpirits() {

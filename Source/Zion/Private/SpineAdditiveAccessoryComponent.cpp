@@ -3,7 +3,7 @@
 USpineAdditiveAccessoryComponent::USpineAdditiveAccessoryComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
-void USpineAdditiveAccessoryComponent::OnAnimationStart(UTrackEntry* entry) {
+void USpineAdditiveAccessoryComponent::OnAnimationStart(UTrackEntry* Entry) {
 }
 
 

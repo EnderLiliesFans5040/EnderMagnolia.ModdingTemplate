@@ -6,5 +6,6 @@ UENUM(BlueprintType)
 enum class EFMODEventControlKey : uint8 {
     Stop,
     Play,
+    Pause,
 };
 

@@ -11,7 +11,7 @@ bool UInventorySkill::IsMaxSkillLevel(const FName& SkillID) const {
     return false;
 }
 
-int32 UInventorySkill::GetSkillLevel(const FName& SkillID) const {
+int32 UInventorySkill::GetSkillLevel(const FName& SkillID, bool bFallbackInitialLevel) const {
     return 0;
 }
 

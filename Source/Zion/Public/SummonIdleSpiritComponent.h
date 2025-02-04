@@ -6,6 +6,8 @@
 #include "SummonedIdleSpiritData.h"
 #include "SummonIdleSpiritComponent.generated.h"
 
+class AController;
+class APawn;
 class UCommand;
 class UInputAction;
 
@@ -61,9 +63,6 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void OnUnEquipSkill(ESkillSlot SkillSlot);
-    
-    UFUNCTION(BlueprintCallable)
     void OnPostStartCommand(const UCommand* Command);
     
     UFUNCTION(BlueprintCallable)
@@ -73,7 +72,11 @@ private:
     void OnGameMapChanged();
     
     UFUNCTION(BlueprintCallable)
-    void OnEquipSkill(ESkillSlot SkillSlot);
+    void OnControllerChanged(APawn* Pawn, AController* OldController, AController* NewController);
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void FlushCachedSpirits();
     
 };
 

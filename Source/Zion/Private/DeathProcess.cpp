@@ -1,6 +1,8 @@
 #include "DeathProcess.h"
 
 UDeathProcess::UDeathProcess() {
+    this->FacingMode = EDeathFacingMode::None;
+    this->BorderDistanceForFallback = 500.00f;
 }
 
 void UDeathProcess::Update_Implementation(AActor* Actor, float DeltaTime) {

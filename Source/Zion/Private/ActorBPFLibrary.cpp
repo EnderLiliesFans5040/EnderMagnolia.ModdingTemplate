@@ -41,6 +41,13 @@ FName UActorBPFLibrary::GetActorID(const AActor* Actor) {
     return NAME_None;
 }
 
+FName UActorBPFLibrary::GenerateClearIDForActor(const AActor* Actor) {
+    return NAME_None;
+}
+
+void UActorBPFLibrary::FlushAnimations(const AActor* Actor, bool bResetAnimator) {
+}
+
 void UActorBPFLibrary::ClearMovementBase(ACharacter* Character) {
 }
 

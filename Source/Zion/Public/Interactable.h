@@ -14,7 +14,7 @@ class USceneComponent;
 class UWidgetComponent;
 
 UCLASS(Abstract, Blueprintable)
-class AInteractable : public AActor, public IMapIconProviderInterface {
+class ZION_API AInteractable : public AActor, public IMapIconProviderInterface {
     GENERATED_BODY()
 public:
 private:
@@ -63,6 +63,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeactivateInteractable(APlayerController* Controller);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnCanBeInteractedChanged();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivateInteractable(APlayerController* Controller);

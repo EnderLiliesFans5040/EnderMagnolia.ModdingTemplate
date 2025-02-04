@@ -28,6 +28,9 @@ private:
 public:
     UUniformGridPanelZion();
 
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetElementCountPerRow() const;
+    
     UFUNCTION(BlueprintCallable)
     void AddChildAuto(UWidget* Content);
     

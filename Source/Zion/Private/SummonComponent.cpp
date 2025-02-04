@@ -12,7 +12,13 @@ ACharacterZionSpirit* USummonComponent::SummonSpirit(const TSubclassOf<ACharacte
     return NULL;
 }
 
+void USummonComponent::SetForceSummonNextToggle() {
+}
+
 void USummonComponent::OnGameMapChanged() {
+}
+
+void USummonComponent::OnControllerChanged(APawn* Pawn, AController* OldController, AController* NewController) {
 }
 
 bool USummonComponent::IsSpiritSummoned(const TSubclassOf<ACharacterZionSpirit>& SpiritClass) {
@@ -21,6 +27,9 @@ bool USummonComponent::IsSpiritSummoned(const TSubclassOf<ACharacterZionSpirit>&
 
 ACharacterZionSpirit* USummonComponent::GetOrSpawnSpirit(const TSubclassOf<ACharacterZionSpirit>& SpiritClass) {
     return NULL;
+}
+
+void USummonComponent::FlushCachedSpirits() {
 }
 
 

@@ -3,8 +3,6 @@
 #include "Components/SceneComponent.h"
 #include "SpineBoneDriverComponent.generated.h"
 
-class USpineSkeletonComponent;
-
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class SPINEPLUGIN_API USpineBoneDriverComponent : public USceneComponent {
     GENERATED_BODY()
@@ -40,10 +38,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDriverEnabled() const;
-    
-protected:
-    UFUNCTION(BlueprintCallable)
-    void BeforeUpdateWorldTransform(USpineSkeletonComponent* Skeleton);
     
 };
 

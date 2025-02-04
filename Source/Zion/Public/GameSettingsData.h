@@ -3,6 +3,7 @@
 #include "SceneUtils.h"
 #include "EAutoClimbDirectionMode.h"
 #include "EConstraintCameraAspectRatio.h"
+#include "EGameEndingType.h"
 #include "GameSettingsData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -34,9 +35,6 @@ public:
     bool bDisplayHPAboveGauge;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bDisplaySPAboveGauge;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ControllerVibration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -61,6 +59,12 @@ public:
     bool bDisplayTutorials;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAutoSkipAlreadySeenEvents;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bDisplayAchievementNotifications;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EConstraintCameraAspectRatio ConstraintCameraAspectRatio;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -77,6 +81,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RightStickDeadZone;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<EGameEndingType> ReachedGameEndings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EGameEndingType TitleScreenType;
     
     ZION_API FGameSettingsData();
 };

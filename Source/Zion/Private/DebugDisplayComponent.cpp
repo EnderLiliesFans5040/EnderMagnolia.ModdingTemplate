@@ -26,10 +26,10 @@ void UDebugDisplayComponent::OnCommandLevelChanged() {
 void UDebugDisplayComponent::OnCommandFinished(const UCommand* Command, ECommandFinishType FinishType) {
 }
 
-void UDebugDisplayComponent::OnAnimationStart(UTrackEntry* entry) {
+void UDebugDisplayComponent::OnAnimationStart(UTrackEntry* Entry) {
 }
 
-void UDebugDisplayComponent::OnAnimationEnd(UTrackEntry* entry) {
+void UDebugDisplayComponent::OnAnimationEnd(UTrackEntry* Entry) {
 }
 
 

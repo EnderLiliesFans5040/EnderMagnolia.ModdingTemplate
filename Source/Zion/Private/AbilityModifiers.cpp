@@ -10,6 +10,8 @@ FAbilityModifiers::FAbilityModifiers() {
     this->ElementOverride = EAttackElement::None;
     this->bWeightCategoryOverride = false;
     this->WeightCategoryOverride = EAbilityWeightCategory::None;
+    this->bAutoStopTimeOverride = false;
+    this->AutoStopTimeOverride = 0.00f;
     this->bWarnLongExecution = false;
 }
 

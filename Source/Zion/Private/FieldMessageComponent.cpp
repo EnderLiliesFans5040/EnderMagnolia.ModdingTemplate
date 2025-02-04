@@ -14,12 +14,19 @@ void UFieldMessageComponent::SetMessageData(UFieldMessageAsset* MessageDataAsset
 void UFieldMessageComponent::OnMessageCompleted() {
 }
 
-bool UFieldMessageComponent::LaunchFieldMessage() {
+bool UFieldMessageComponent::LaunchFieldMessage(AActor* InTargetActor) {
     return false;
 }
 
 bool UFieldMessageComponent::IsProcessingFieldMessage() const {
     return false;
+}
+
+UFieldMessageAsset* UFieldMessageComponent::GetFieldMessageAsset() const {
+    return NULL;
+}
+
+void UFieldMessageComponent::Abort() {
 }
 
 

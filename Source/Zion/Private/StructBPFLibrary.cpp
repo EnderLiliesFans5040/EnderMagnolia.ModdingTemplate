@@ -15,6 +15,10 @@ FStatsLevelData UStructBPFLibrary::StatsLevelData_Add(const FStatsLevelData& A, 
     return FStatsLevelData{};
 }
 
+bool UStructBPFLibrary::MovementModeMatchAny(const UCharacterMovementComponent* CharacterMovementComponent, const TArray<FMovementModeData>& MovementModeDataList) {
+    return false;
+}
+
 bool UStructBPFLibrary::MovementModeMatch(const UCharacterMovementComponent* CharacterMovementComponent, FMovementModeData MovementModeData) {
     return false;
 }
@@ -27,8 +31,15 @@ bool UStructBPFLibrary::IsAbilityDataValid(const FAbilityData& AbilityData) {
     return false;
 }
 
+UPlatformMediaSource* UStructBPFLibrary::GetTutorialVideo(const FInventoryItemTutorialData& ItemTutorialData, APlayerControllerZion* PlayerControllerZion) {
+    return NULL;
+}
+
 FExtendedStatsData UStructBPFLibrary::ExtendedStatsData_Subtract(const FExtendedStatsData& A, const FExtendedStatsData& B) {
     return FExtendedStatsData{};
+}
+
+void UStructBPFLibrary::ExtendedStatsData_ClampToZero(FExtendedStatsData& ExtendedStatsData) {
 }
 
 FExtendedStatsData UStructBPFLibrary::ExtendedStatsData_Add(const FExtendedStatsData& A, const FExtendedStatsData& B) {

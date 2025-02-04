@@ -10,13 +10,22 @@ AHookPoint_Moving::AHookPoint_Moving(const FObjectInitializer& ObjectInitializer
     this->SplineComponent = CreateDefaultSubobject<USplineComponent>(TEXT("SplineComponent"));
     this->CallToStartTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("CallToStartTrigger"));
     this->CallToEndTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("CallToEndTrigger"));
+    this->StartMovementFMODEvent = NULL;
+    this->LoopMovementFMODEvent = NULL;
+    this->StopMovementFMODEvent = NULL;
     this->bShouldStopWhenCharacterLeaves = true;
     this->bCanBeUsedAtSplineEnd = true;
     this->bCanBeCalledAtSplineStart = true;
     this->bCanBeCalledAtSplineEnd = true;
-    this->SplineComponent->SetupAttachment(RootComponent);
-    this->CallToStartTrigger->SetupAttachment(RootComponent);
+    this->CameraShake = NULL;
+    this->InnerRadius = 0.00f;
+    this->OuterRadius = 100000.00f;
+    this->Falloff = 0.00f;
+    this->bOrientShakeTowardsEpicenter = false;
+    this->ForceFeedbackEffect = NULL;
     this->CallToEndTrigger->SetupAttachment(RootComponent);
+    this->CallToStartTrigger->SetupAttachment(RootComponent);
+    this->SplineComponent->SetupAttachment(RootComponent);
 }
 
 void AHookPoint_Moving::OnMovementModeChanged(ACharacter* Character, TEnumAsByte<EMovementMode> PrevMovementMode, uint8 PreviousCustomMode) {

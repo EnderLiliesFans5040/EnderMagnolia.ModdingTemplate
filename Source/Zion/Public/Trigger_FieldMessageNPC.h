@@ -10,6 +10,7 @@ class ACharacterZionNPC;
 class UChildActorComponent;
 class UFieldMessageAsset;
 class UGameplayConditionRefreshComponent;
+class UShapeComponent;
 
 UCLASS(Blueprintable)
 class ATrigger_FieldMessageNPC : public ATrigger_FieldMessage, public IEventBindingProxyInterface {
@@ -37,6 +38,10 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnNPCDestroyed(AActor* DestroyedActor);
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UShapeComponent* GetCollisionComponent() const;
     
 
     // Fix for true pure virtual functions not being implemented

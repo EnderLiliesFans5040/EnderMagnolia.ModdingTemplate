@@ -18,8 +18,5 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetPlayTimeAsString() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetPlayTime() const;
-    
 };
 

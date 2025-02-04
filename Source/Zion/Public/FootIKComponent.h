@@ -43,6 +43,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HeightOffsetBlendSpeed;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAllowUpdateLimitation;
+    
 public:
     UFootIKComponent(const FObjectInitializer& ObjectInitializer);
 

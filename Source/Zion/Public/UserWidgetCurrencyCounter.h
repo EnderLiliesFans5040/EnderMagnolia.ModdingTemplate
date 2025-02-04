@@ -11,6 +11,9 @@ class UUserWidgetCurrencyCounter : public UUserWidgetZion {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ECurrencyType CurrencyType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AccumulatingCurrencyDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -62,11 +65,14 @@ public:
     void Hide();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    ECurrencyType GetCurrencyType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCurrencyFromInventory() const;
     
 private:
     UFUNCTION(BlueprintCallable)
-    void AddCurrency(const ECurrencyType& CurrencyType, const int32 AddedCount, const int32 PreviousCount);
+    void AddCurrency(const ECurrencyType& InCurrencyType, const int32 AddedCount, const int32 PreviousCount);
     
 public:
     UFUNCTION(BlueprintCallable)

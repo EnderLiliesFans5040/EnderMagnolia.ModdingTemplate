@@ -12,8 +12,8 @@ ASpiritCooldown::ASpiritCooldown(const FObjectInitializer& ObjectInitializer) : 
     this->NiagaraComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Niagara"));
     this->PlayerControllerZion = NULL;
     this->MID_Sprite = NULL;
-    this->SpriteComponent->SetupAttachment(RootComponent);
     this->NiagaraComponent->SetupAttachment(RootComponent);
+    this->SpriteComponent->SetupAttachment(RootComponent);
 }
 
 void ASpiritCooldown::OnUnPossessPlayer(APawn* Pawn) {
@@ -23,6 +23,12 @@ void ASpiritCooldown::OnNiagaraSystemFinished(UNiagaraComponent* PSystem) {
 }
 
 
+
+void ASpiritCooldown::OnEventStopped() {
+}
+
+void ASpiritCooldown::OnEventStarted() {
+}
 
 
 void ASpiritCooldown::OnCommandFinishCooldown(const UCommandSet* CommandSetFinished, bool bReset) {

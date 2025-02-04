@@ -26,7 +26,7 @@ public:
     void OpenWorld(TSoftObjectPtr<UWorld> WorldToLoad, FName PlayerStartTag, const FFadeDescriptionData& FadeOutDescription, const FFadeDescriptionData& FadeInDescription);
     
     UFUNCTION(BlueprintCallable)
-    void OpenGameMap(const FDataTableRowHandle& GameMapHandle, const FName PlayerStartTag, const FFadeDescriptionData& FadeOutDescription, const FFadeDescriptionData& FadeInDescription);
+    void OpenGameMap(const FDataTableRowHandle& GameMapHandle, const FName PlayerStartTag, bool bForceReload, const FFadeDescriptionData& FadeOutDescription, const FFadeDescriptionData& FadeInDescription);
     
 private:
     UFUNCTION(BlueprintCallable)

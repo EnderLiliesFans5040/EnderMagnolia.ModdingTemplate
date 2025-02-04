@@ -38,6 +38,12 @@ public:
     EAbilityWeightCategory WeightCategoryOverride;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAutoStopTimeOverride;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float AutoStopTimeOverride;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bWarnLongExecution;
     
     ZION_API FAbilityModifiers();

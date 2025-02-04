@@ -6,9 +6,10 @@ UHookComponent::UHookComponent(const FObjectInitializer& ObjectInitializer) : Su
     this->MaxTimeSinceLastRender = 0.20f;
     this->MinHookDistance = 0.00f;
     this->MinAngle = -25.00f;
-    this->MaxAngle = 90.00f;
+    this->MaxAngle = 115.00f;
     this->AttachPointZLocationOffset = 0.00f;
     this->HookPointBelowActorDistanceWeightMultiplier = 1.00f;
+    this->InvalidStates.AddDefaulted(1);
     this->WorldSpaceHookTargetClass_Point = NULL;
 }
 

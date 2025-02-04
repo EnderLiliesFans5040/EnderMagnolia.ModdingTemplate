@@ -2,6 +2,19 @@
 
 USentrySubsystem::USentrySubsystem() {
     this->BeforeSendHandler = NULL;
+    this->TraceSampler = NULL;
+}
+
+USentryTransaction* USentrySubsystem::StartTransactionWithContextAndOptions(USentryTransactionContext* Context, const TMap<FString, FString>& Options) {
+    return NULL;
+}
+
+USentryTransaction* USentrySubsystem::StartTransactionWithContext(USentryTransactionContext* Context) {
+    return NULL;
+}
+
+USentryTransaction* USentrySubsystem::StartTransaction(const FString& Name, const FString& Operation) {
+    return NULL;
 }
 
 void USentrySubsystem::StartSession() {
@@ -25,8 +38,16 @@ void USentrySubsystem::RemoveUser() {
 void USentrySubsystem::RemoveTag(const FString& Key) {
 }
 
+bool USentrySubsystem::IsSupportedForCurrentSettings() {
+    return false;
+}
+
 bool USentrySubsystem::IsEnabled() {
     return false;
+}
+
+ESentryCrashedLastRun USentrySubsystem::IsCrashedLastRun() {
+    return ESentryCrashedLastRun::NotEvaluated;
 }
 
 void USentrySubsystem::InitializeWithSettings(const FConfigureSettingsDelegate& OnConfigureSettings) {

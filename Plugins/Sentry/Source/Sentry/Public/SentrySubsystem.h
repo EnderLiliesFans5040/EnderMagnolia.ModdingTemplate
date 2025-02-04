@@ -1,8 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Subsystems/GameInstanceSubsystem.h"
+#include "Subsystems/EngineSubsystem.h"
 #include "ConfigureScopeDelegateDelegate.h"
 #include "ConfigureSettingsDelegateDelegate.h"
+#include "ESentryCrashedLastRun.h"
 #include "ESentryLevel.h"
 #include "SentrySubsystem.generated.h"
 
@@ -10,20 +11,35 @@ class USentryBeforeSendHandler;
 class USentryBreadcrumb;
 class USentryEvent;
 class USentryId;
+class USentryTraceSampler;
+class USentryTransaction;
+class USentryTransactionContext;
 class USentryUser;
 class USentryUserFeedback;
 
 UCLASS(Blueprintable)
-class SENTRY_API USentrySubsystem : public UGameInstanceSubsystem {
+class SENTRY_API USentrySubsystem : public UEngineSubsystem {
     GENERATED_BODY()
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USentryBeforeSendHandler* BeforeSendHandler;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USentryTraceSampler* TraceSampler;
+    
 public:
     USentrySubsystem();
 
+    UFUNCTION(BlueprintCallable)
+    USentryTransaction* StartTransactionWithContextAndOptions(USentryTransactionContext* Context, const TMap<FString, FString>& Options);
+    
+    UFUNCTION(BlueprintCallable)
+    USentryTransaction* StartTransactionWithContext(USentryTransactionContext* Context);
+    
+    UFUNCTION(BlueprintCallable)
+    USentryTransaction* StartTransaction(const FString& Name, const FString& Operation);
+    
     UFUNCTION(BlueprintCallable)
     void StartSession();
     
@@ -45,8 +61,14 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemoveTag(const FString& Key);
     
+    UFUNCTION(BlueprintCallable)
+    bool IsSupportedForCurrentSettings();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnabled();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESentryCrashedLastRun IsCrashedLastRun();
     
     UFUNCTION(BlueprintCallable)
     void InitializeWithSettings(const FConfigureSettingsDelegate& OnConfigureSettings);

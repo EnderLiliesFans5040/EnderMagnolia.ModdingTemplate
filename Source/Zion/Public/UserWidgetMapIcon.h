@@ -5,6 +5,7 @@
 #include "Widgets/Layout/Anchors.h"
 #include "EAptitudeType.h"
 #include "EMapIconGenerationType.h"
+#include "EMapIconType.h"
 #include "GameplayConditionChecker.h"
 #include "Templates/SubclassOf.h"
 #include "UserWidgetZion.h"
@@ -47,6 +48,12 @@ protected:
     FVector2D IconLocationOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseIconLocationLocalOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector2D IconLocationLocalOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseIconAngleOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -57,6 +64,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText IconDisplayName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EMapIconType IconType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRequireAptitude;
@@ -103,7 +113,10 @@ public:
     TSubclassOf<UUserWidgetMapIconDetails> GetWidgetIconDetailsClass() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FDataTableRowHandle GetItemRequired() const;
+    EMapIconType GetMapIconType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FDataTableRowHandle> GetItemsRequired() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EAptitudeType GetAptitudeRequired() const;

@@ -7,7 +7,7 @@ class UBillboardComponent;
 class USceneComponent;
 
 UCLASS(Abstract, Blueprintable)
-class ATrigger : public AActor {
+class ZION_API ATrigger : public AActor {
     GENERATED_BODY()
 public:
 private:

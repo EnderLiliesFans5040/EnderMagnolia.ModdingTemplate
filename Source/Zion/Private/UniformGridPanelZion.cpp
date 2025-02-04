@@ -7,6 +7,10 @@ UUniformGridPanelZion::UUniformGridPanelZion() {
     this->ContentVerticalAlignment = VAlign_Top;
 }
 
+int32 UUniformGridPanelZion::GetElementCountPerRow() const {
+    return 0;
+}
+
 void UUniformGridPanelZion::AddChildAuto(UWidget* Content) {
 }
 

@@ -10,6 +10,9 @@ UCommand_Hook::UCommand_Hook() {
     this->HookFXInstance = NULL;
 }
 
+void UCommand_Hook::OnMovementUpdated(float DeltaSeconds, FVector OldLocation, FVector OldVelocity) {
+}
+
 void UCommand_Hook::OnMoveBlocked(const FHitResult& HitResult) {
 }
 

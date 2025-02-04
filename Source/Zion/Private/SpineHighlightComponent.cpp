@@ -4,7 +4,7 @@ USpineHighlightComponent::USpineHighlightComponent(const FObjectInitializer& Obj
     this->StencilCategory = EStencilCategory::None;
 }
 
-void USpineHighlightComponent::OnAnimationStart(UTrackEntry* entry) {
+void USpineHighlightComponent::OnAnimationStart(UTrackEntry* Entry) {
 }
 
 

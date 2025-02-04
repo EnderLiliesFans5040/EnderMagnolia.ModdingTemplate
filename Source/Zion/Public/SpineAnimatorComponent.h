@@ -78,6 +78,9 @@ private:
     TArray<TSubclassOf<UState>> DamageAdditiveForbiddenStates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bFlushOnStagger;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> EventIdle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -231,6 +234,9 @@ private:
     TArray<FSpineAnimationStaggerDefinitions> KnockbackStaggers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSpineAnimationStaggerDefinitions> KnockbackStaggersSwimming;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> KnockbackLaunchLand;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -247,9 +253,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> StunRecovery;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FSpineAnimationDefinition> Freeze;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationDefinition> TurnGrounded_Slow;
@@ -298,6 +301,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void ResetLocomotionCycle();
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetAnimations();
     
     UFUNCTION(BlueprintCallable)
     void PlayTurnAnimations(const TArray<FSpineAnimationDefinition>& AnimationDefinitions);

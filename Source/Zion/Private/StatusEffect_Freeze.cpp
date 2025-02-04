@@ -4,6 +4,7 @@
 UStatusEffect_Freeze::UStatusEffect_Freeze() {
     this->bCanEditStatusEffectType = false;
     this->StatusEffectType = EStatusEffectType::Freeze;
+    this->bUseDifficultySettings = true;
 }
 
 

@@ -26,13 +26,13 @@ public:
     bool SetIsRestPointListOpened(bool bIsOpened);
     
     UFUNCTION(BlueprintCallable)
-    void RemoveIconDetails();
+    void RemoveIconDetails(bool bInstant);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnShowIconDetails();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void OnRemoveIconDetails();
+    void OnRemoveIconDetails(bool bInstant);
     
 };
 

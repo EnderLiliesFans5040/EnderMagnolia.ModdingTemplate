@@ -11,8 +11,8 @@ FVector UUserWidgetMapIcon_Teleport::GetStartWorldLocation() const {
     return FVector{};
 }
 
-FMapTransitionSpawnPointData UUserWidgetMapIcon_Teleport::GetMapTransitionSpawnPointData() const {
-    return FMapTransitionSpawnPointData{};
+FDataTableRowHandle UUserWidgetMapIcon_Teleport::GetMapTransitionHandle() const {
+    return FDataTableRowHandle{};
 }
 
 FVector UUserWidgetMapIcon_Teleport::GetDestinationWorldLocation() const {

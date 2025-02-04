@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "EFacingType.h"
 #include "GameplayConditionChecker.h"
+#include "NPCAIData.h"
 #include "SpineAnimationDefinition.h"
 #include "SpawnerNPCData.generated.h"
 
@@ -23,6 +24,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EFacingType Facing;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseAI;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FNPCAIData AIData;
     
     ZION_API FSpawnerNPCData();
 };

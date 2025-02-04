@@ -10,10 +10,19 @@ class UClearComponent;
 class USceneComponent;
 
 UCLASS(Abstract, Blueprintable)
-class AFakeWall : public AActor {
+class ZION_API AFakeWall : public AActor {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAutoManageLinkedVisibilityActors;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bRequireLinkedVisibilityActorsOnSameLevel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<AActor*> LinkedVisibilityActors;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FComponentReference> FogOfWarBlockerReferences;
     

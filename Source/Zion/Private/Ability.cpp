@@ -6,6 +6,7 @@ AAbility::AAbility(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->AutoStopTime = 1.00f;
     this->bAutoStopByTriggerCount = false;
     this->AutoStopTriggerCount = 0;
+    this->bAutoAbortOnSourceDeath = false;
     this->bCanBeDodged = true;
     this->bCanBeParried = true;
     this->bCanBeGuarded = true;
@@ -19,6 +20,12 @@ AAbility::AAbility(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
 void AAbility::RequestStop() {
 }
 
+void AAbility::RequestAbort() {
+}
+
+
+void AAbility::OnSourceDeath() {
+}
 
 
 

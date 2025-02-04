@@ -9,6 +9,7 @@
 class UClearComponent;
 class UDeathComponent;
 class UFMODEvent;
+class UFactionComponent;
 class USceneComponent;
 class USpineBoneComponent;
 class USpineFXComponent;
@@ -27,6 +28,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UDeathComponent* DeathComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UFactionComponent* FactionComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UClearComponent* ClearComponent;
