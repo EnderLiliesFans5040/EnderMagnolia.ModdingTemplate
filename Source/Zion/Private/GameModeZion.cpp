@@ -57,6 +57,10 @@ bool AGameModeZion::IsRecollectionBossDead() const {
     return false;
 }
 
+bool AGameModeZion::IsInNewGamePlus() const {
+    return false;
+}
+
 bool AGameModeZion::IsGameReady() const {
     return false;
 }
@@ -79,6 +83,10 @@ int32 AGameModeZion::GetRawEnvironmentLevel() const {
 
 FString AGameModeZion::GetPlayTimeAsString() const {
     return TEXT("");
+}
+
+int32 AGameModeZion::GetNewGamePlusGeneration() const {
+    return 0;
 }
 
 FDataTableRowHandle AGameModeZion::GetLastBossRecollectionHandle() const {

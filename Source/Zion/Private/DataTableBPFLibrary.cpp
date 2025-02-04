@@ -31,6 +31,10 @@ bool UDataTableBPFLibrary::IsEqual(const FDataTableRowHandle& A, const FDataTabl
     return false;
 }
 
+bool UDataTableBPFLibrary::IsAnyRecollectionItemVisible(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType) {
+    return false;
+}
+
 bool UDataTableBPFLibrary::IsAllRecollectionItemsChecked(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType) {
     return false;
 }

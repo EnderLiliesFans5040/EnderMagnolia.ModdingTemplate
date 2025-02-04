@@ -209,6 +209,9 @@ public:
     bool IsRecollectionBossDead() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsInNewGamePlus() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameReady() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -225,6 +228,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetPlayTimeAsString() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetNewGamePlusGeneration() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FDataTableRowHandle GetLastBossRecollectionHandle() const;

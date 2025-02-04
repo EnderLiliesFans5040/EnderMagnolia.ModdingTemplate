@@ -1,5 +1,0 @@
-#include "MapTransitionSpawnPointData.h"
-
-FMapTransitionSpawnPointData::FMapTransitionSpawnPointData() {
-}
-

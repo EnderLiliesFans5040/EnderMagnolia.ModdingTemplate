@@ -7,6 +7,8 @@ UFogOfWarComponent::UFogOfWarComponent(const FObjectInitializer& ObjectInitializ
     this->ClearFogOfWarMaterial = NULL;
     this->ClearFogOfWarMID = NULL;
     this->FogOfWarBlockerMID = NULL;
+    this->FogOfWarMaskRTBuffer = NULL;
+    this->ZonesClearedMaskRTBuffer = NULL;
 }
 
 void UFogOfWarComponent::ResetMapFogOfWar(const FName& MapName) {

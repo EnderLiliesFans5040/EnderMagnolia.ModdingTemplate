@@ -58,6 +58,9 @@ public:
     static bool IsEqual(const FDataTableRowHandle& A, const FDataTableRowHandle& B);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsAnyRecollectionItemVisible(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsAllRecollectionItemsChecked(APlayerControllerZion* PlayerControllerZion, const UDataTable* DataTable, ERecollectionItemType RecollectionItemType);
     
     UFUNCTION(BlueprintCallable)

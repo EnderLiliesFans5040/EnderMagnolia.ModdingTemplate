@@ -46,11 +46,17 @@ private:
 public:
     UClearComponent(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool WasClearedOnPreviousRuns() const;
+    
     UFUNCTION(BlueprintCallable)
     void MarkAsCleared();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCleared() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EClearStatus GetPreviousRunsClearStatus() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EClearStatus GetClearStatus() const;

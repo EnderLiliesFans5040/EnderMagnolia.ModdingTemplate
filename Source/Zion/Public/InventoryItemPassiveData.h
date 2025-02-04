@@ -24,6 +24,9 @@ public:
     FPassiveUpgradeData UpgradeData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNewGamePlusOnly;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPassiveCountType CountType;
     
     ZION_API FInventoryItemPassiveData();

@@ -10,11 +10,19 @@ UClearComponent::UClearComponent(const FObjectInitializer& ObjectInitializer) : 
     this->bOverrideClearWorld = false;
 }
 
+bool UClearComponent::WasClearedOnPreviousRuns() const {
+    return false;
+}
+
 void UClearComponent::MarkAsCleared() {
 }
 
 bool UClearComponent::IsCleared() const {
     return false;
+}
+
+EClearStatus UClearComponent::GetPreviousRunsClearStatus() const {
+    return EClearStatus::Undefined;
 }
 
 EClearStatus UClearComponent::GetClearStatus() const {

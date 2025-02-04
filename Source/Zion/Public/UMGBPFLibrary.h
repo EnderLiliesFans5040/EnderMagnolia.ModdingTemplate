@@ -23,6 +23,9 @@ public:
     UUMGBPFLibrary();
 
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool ShouldDisplayRecollectionBossRush(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool ShouldDisplayExtraUnavailableCharacters(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

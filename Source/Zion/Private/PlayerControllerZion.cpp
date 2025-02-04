@@ -126,7 +126,7 @@ bool APlayerControllerZion::IsExtraEnemyInfoAvailable(const FDataTableRowHandle&
     return false;
 }
 
-bool APlayerControllerZion::IsEventCleared(const FName EventId) const {
+bool APlayerControllerZion::IsEventCleared(const FName EventId, bool bCheckPreviousRuns) const {
     return false;
 }
 

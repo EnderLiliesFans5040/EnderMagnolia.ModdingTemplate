@@ -23,6 +23,9 @@ protected:
     float PreClearProcessDelay;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FDataTableRowHandle> BossList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle BossDeathRecoveryDrop;
     
 public:

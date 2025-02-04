@@ -113,6 +113,9 @@ private:
     TSet<FName> ClearedEvents;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<FName> PreviousRunsClearedEvents;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<FClearActorData> VisitedZones;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -255,7 +258,7 @@ public:
     bool IsExtraEnemyInfoAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsEventCleared(const FName EventId) const;
+    bool IsEventCleared(const FName EventId, bool bCheckPreviousRuns) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnemyKilled(const FDataTableRowHandle& EnemyDataHandle) const;

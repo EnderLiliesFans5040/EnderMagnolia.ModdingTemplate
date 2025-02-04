@@ -2922,6 +2922,54 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-GLTFCore.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeCommon.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeCommonParser.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeDispatcher.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeExport.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeFactoryNodes.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeFbxParser.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeImport.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeMessages.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangeNodes.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor-InterchangePipelines.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Media/BinkMedia/Binaries/Win64/UnrealEditor-BinkMediaPlayer.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -3526,6 +3574,18 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/Binaries/Win64/UnrealEditor-InterchangeTestEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/Binaries/Win64/UnrealEditor-InterchangeTests.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/TraceUtilities/Binaries/Win64/UnrealEditor-EditorTraceUtilities.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -3621,10 +3681,6 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/EnginePlugins/Interchange/Editor/InterchangeEditor.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/EnginePlugins/Interchange/Runtime/Interchange.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -26420,6 +26476,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Interchange.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Media/BinkMedia/BinkMedia.uplugin",
 			"Type": "UFS"
 		},
@@ -26640,6 +26700,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Tests/InterchangeTests/InterchangeTests.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/TraceUtilities/TraceUtilities.uplugin",
 			"Type": "UFS"
 		},
@@ -26747,6 +26811,7 @@
 		"InputDebugging",
 		"Interchange",
 		"InterchangeEditor",
+		"InterchangeTests",
 		"KDevelopSourceCodeAccess",
 		"LauncherChunkInstaller",
 		"LevelSequenceEditor",

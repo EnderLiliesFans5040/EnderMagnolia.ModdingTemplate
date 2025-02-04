@@ -14,6 +14,9 @@ public:
     int32 StockCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNewGamePlusOnly;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bNew;
     
     ZION_API FShopItemData();

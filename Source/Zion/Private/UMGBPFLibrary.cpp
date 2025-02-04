@@ -3,6 +3,10 @@
 UUMGBPFLibrary::UUMGBPFLibrary() {
 }
 
+bool UUMGBPFLibrary::ShouldDisplayRecollectionBossRush(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool UUMGBPFLibrary::ShouldDisplayExtraUnavailableCharacters(const UObject* WorldContextObject) {
     return false;
 }

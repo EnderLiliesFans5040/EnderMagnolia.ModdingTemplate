@@ -8,6 +8,7 @@
 
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
+class UTextureRenderTarget2D;
 
 UCLASS(Blueprintable, ClassGroup=Custom, Within=PlayerController, meta=(BlueprintSpawnableComponent))
 class UFogOfWarComponent : public UActorComponent {
@@ -46,6 +47,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UMaterialInstanceDynamic* FogOfWarBlockerMID;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UTextureRenderTarget2D* FogOfWarMaskRTBuffer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UTextureRenderTarget2D* ZonesClearedMaskRTBuffer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, FRenderTargetData> RenderTargetDataMap;
